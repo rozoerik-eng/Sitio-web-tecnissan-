@@ -16,23 +16,28 @@ module.exports = {
   foundingYear: "2016", // PENDIENTE
 
   // --- Ubicación / NAP (Name, Address, Phone) ---
-  city: "Cali",
-  region: "Valle del Cauca",
+  // Nota: la ciudad se infirió de la dirección (nomenclatura de carreras con
+  // letra, típica de Bogotá) y de las fotos del taller (arquitectura y clima
+  // de Bogotá). Si el taller está en otra ciudad, corrige "city"/"region"
+  // aquí y corre `npm run build` — se propaga a título, meta description y
+  // H1 de todas las páginas.
+  city: "Bogotá",
+  region: "Bogotá D.C.",
   country: "Colombia",
-  addressLine: "PENDIENTE — Dirección completa del taller", // PENDIENTE
-  addressShort: "Cali, Colombia",
-  postalCode: "760001", // PENDIENTE
+  addressLine: "Cra. 70G # 69B-70",
+  addressShort: "Cra. 70G # 69B-70, Bogotá, Colombia",
+  postalCode: "", // PENDIENTE (opcional)
   mapEmbedSrc:
-    "https://www.google.com/maps?q=Cali,Colombia&output=embed", // PENDIENTE: reemplazar con el pin exacto del taller
-  mapLinkUrl: "https://maps.google.com/?q=Cali,Colombia", // PENDIENTE
-  latitude: "3.4516", // PENDIENTE
-  longitude: "-76.5320", // PENDIENTE
+    "https://www.google.com/maps?q=Cra.+70G+%2369B-70,+Bogot%C3%A1,+Colombia&output=embed",
+  mapLinkUrl: "https://share.google/HBCb4Xj500gyGIL2d",
+  latitude: "4.6614", // aproximado por dirección — PENDIENTE afinar con el pin exacto si se requiere precisión
+  longitude: "-74.0989", // aproximado por dirección — PENDIENTE afinar con el pin exacto si se requiere precisión
 
   // --- Contacto ---
-  phoneDisplay: "+57 300 123 4567", // PENDIENTE
-  phoneE164: "+573001234567", // PENDIENTE
-  whatsappNumber: "573001234567", // PENDIENTE (solo dígitos, con indicativo de país)
-  email: "contacto@tecnissan.com", // PENDIENTE
+  phoneDisplay: "+57 311 271 0738",
+  phoneE164: "+573112710738",
+  whatsappNumber: "573112710738",
+  email: "contacto@tecnissan.com", // PENDIENTE (no proporcionado)
 
   // --- Horario ---
   hoursWeekday: "Lunes a Viernes",
@@ -45,11 +50,11 @@ module.exports = {
   ],
 
   // --- Redes sociales ---
-  instagramHandle: "@tecnissan",
-  instagramUrl: "https://instagram.com/tecnissan", // PENDIENTE
-  facebookUrl: "https://facebook.com/tecnissan", // PENDIENTE
+  instagramHandle: "@tecnissan_sas",
+  instagramUrl: "https://www.instagram.com/tecnissan_sas",
+  facebookUrl: "https://www.facebook.com/Tecnissan/",
   tiktokUrl: "", // PENDIENTE (dejar vacío si no aplica)
-  googleReviewsUrl: "https://g.page/r/PENDIENTE/review", // PENDIENTE: enlace real de reseñas de Google Business Profile
+  googleReviewsUrl: "https://share.google/HBCb4Xj500gyGIL2d", // enlace de Google compartido por el negocio (perfil/ubicación)
 
   // --- Modelos que más se atienden ---
   models: [
@@ -65,7 +70,7 @@ module.exports = {
 
   // --- Dominio / SEO ---
   siteUrl: "https://www.tecnissan.com", // PENDIENTE: dominio real una vez conectado
-  defaultOgImage: "/assets/img/og-tecnissan.jpg", // PENDIENTE: crear imagen 1200x630
+  defaultOgImage: "/assets/img/og-tecnissan.jpg",
 
   // --- Analítica / Tracking (dejar placeholders hasta tener las cuentas reales) ---
   gtmId: "GTM-XXXXXXX", // PENDIENTE

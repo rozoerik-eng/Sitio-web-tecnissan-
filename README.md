@@ -11,35 +11,46 @@ Sitio web multipágina para Tecnissan (taller especialista en Nissan), construid
 
 ## ⚠️ Antes de publicar: datos pendientes
 
-Este sitio se construyó con datos de **ejemplo** tomados del mockup de diseño
-que compartiste. Antes de conectar el dominio real, abre
-`build/site-data.js` y reemplaza todo lo marcado como `PENDIENTE`:
+`build/site-data.js` ya tiene los datos reales que nos compartiste
+(dirección, WhatsApp, redes sociales, logo y fotos reales del taller). Sigue
+pendiente solo lo siguiente:
 
-- Dirección física exacta del taller (`addressLine`, `latitude`, `longitude`,
-  `mapEmbedSrc`, `mapLinkUrl`) — hoy apunta solo a "Cali, Colombia" en general.
-- Teléfono/WhatsApp real (`phoneDisplay`, `phoneE164`, `whatsappNumber`).
-- Correo de contacto real (`email`).
-- Enlaces reales de Instagram / Facebook / reseñas de Google
-  (`instagramUrl`, `facebookUrl`, `googleReviewsUrl`).
-- Dominio real una vez esté conectado (`siteUrl`).
-- IDs de analítica: `gtmId` (Google Tag Manager), `ga4Id` si no usas GTM, y
-  `metaPixelId` si vas a correr Meta Ads.
-- Años de experiencia (`yearsExperience`).
+- **Ciudad**: se puso "Bogotá" a partir de la dirección (nomenclatura de
+  carrera con letra, típica de Bogotá) y del clima/arquitectura en tus fotos.
+  **Confírmalo** — si el taller está en otra ciudad, corrige `city`/`region`
+  en `build/site-data.js` y corre `npm run build`; se propaga solo a los
+  títulos, meta descriptions y H1 de las 16 páginas.
+- **Coordenadas exactas** (`latitude`/`longitude`): son un aproximado de la
+  dirección para el mapa embebido. Si quieres el pin exacto, abre la
+  ubicación en Google Maps, copia las coordenadas de la barra de direcciones
+  y actualízalas — o dános el enlace completo de Google Maps del negocio
+  (no el acortado `share.google`) y lo hacemos nosotros.
+- **Correo de contacto** (`email`): no nos diste uno, se dejó
+  `contacto@tecnissan.com` de ejemplo — cámbialo por el correo real donde
+  quieres recibir los mensajes del formulario.
+- **Código postal** (`postalCode`): opcional, se dejó vacío.
+- **IDs de analítica**: `gtmId`, `ga4Id` y `metaPixelId` siguen en
+  `PENDIENTE` a propósito — nos dijiste que aún no existen esas cuentas.
+- **Reseñas de Google**: usamos tu enlace de Google (`share.google/...`)
+  tanto para el mapa como para "ver reseñas" — confirma que ese enlace lleva
+  al perfil de Google Business de Tecnissan (y no solo a la ubicación) para
+  que el botón "Dejar una reseña" funcione como se espera.
 
 Después de editar `build/site-data.js`, corre `npm run build` para propagar
 los cambios a **todas** las páginas automáticamente (no hay que tocar cada
 página a mano).
 
-También pendiente de contenido real (no se inventó nada, están marcados):
+También pendiente de contenido real:
 
-- **Fotos**: la página `/galeria.html` y el hero de inicio usan ilustraciones
-  y casillas de marcador de posición. Reemplázalas por fotos reales del
-  taller, del equipo y de vehículos atendidos (antes/después).
 - **Testimonios**: `/testimonios.html` no incluye reseñas inventadas —
-  enlaza al perfil de Google Business Profile y deja espacios para ir
-  agregando testimonios reales con nombre, modelo del carro y comentario.
-- **Imagen para redes sociales (Open Graph)**: crea una imagen de
-  1200×630px y guárdala en `public/assets/img/og-tecnissan.jpg`.
+  enlaza a tu Google Business Profile y deja espacios para ir agregando
+  testimonios reales con nombre, modelo del carro y comentario.
+- **Más fotos**: ya se usaron las fotos reales que enviaste (fachada,
+  equipo, taller, sala de espera, oficina) en la Galería, el inicio y la
+  página "Por qué elegirnos". Si envías más fotos (antes/después de
+  reparaciones, otros ángulos), se pueden agregar a
+  `public/assets/img/gallery/` siguiendo el mismo tratamiento (incluidas en
+  `build/pages/galeria.html`).
 
 ## Cómo funciona el proyecto
 
@@ -128,8 +139,9 @@ Pasos pendientes (fuera del código, requieren acceso a las cuentas reales):
 
 ## Checklist de publicación
 
-1. Completar todos los `PENDIENTE` en `build/site-data.js` y correr `npm run build`.
-2. Reemplazar las fotos de marcador de posición en `/galeria.html` y el hero.
+1. Confirmar ciudad/coordenadas y completar los `PENDIENTE` restantes en
+   `build/site-data.js` (correo, analítica) y correr `npm run build`.
+2. Agregar testimonios reales en `/testimonios.html` cuando estén disponibles.
 3. Conectar el dominio real y activar HTTPS (obligatorio).
 4. Desplegar en Netlify (o Vercel/Hostinger) usando `public/` como carpeta publicada.
 5. Probar en móvil y desktop, en al menos dos navegadores: enlaces, botones

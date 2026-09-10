@@ -203,16 +203,16 @@ const pages = [
   {
     src: "index.html",
     out: "index.html",
-    title: "Tecnissan | Taller especialista en Nissan en Cali",
+    title: "Tecnissan | Taller especialista en Nissan en Bogotá",
     description:
-      "Tecnissan es un taller 100% especializado en Nissan en Cali. Diagnóstico computarizado, mantenimiento y reparación con garantía. Cotiza por WhatsApp.",
+      "Tecnissan es un taller 100% especializado en Nissan en Bogotá. Diagnóstico computarizado, mantenimiento y reparación con garantía. Cotiza por WhatsApp.",
     breadcrumb: [],
     robots: "index, follow",
   },
   {
     src: "servicios-index.html",
     out: "servicios/index.html",
-    title: "Servicios para tu Nissan en Cali | Tecnissan",
+    title: "Servicios para tu Nissan en Bogotá | Tecnissan",
     description:
       "Diagnóstico, mantenimiento preventivo, motor, frenos, eléctrico y más — todos los servicios de Tecnissan para tu Nissan, con especialistas de marca.",
     breadcrumb: [{ label: "Inicio", url: "/" }, { label: "Servicios" }],
@@ -220,7 +220,7 @@ const pages = [
   {
     src: "servicio-diagnostico.html",
     out: "servicios/diagnostico-computarizado-nissan.html",
-    title: "Diagnóstico Computarizado para Nissan en Cali | Tecnissan",
+    title: "Diagnóstico Computarizado para Nissan en Bogotá | Tecnissan",
     description:
       "Diagnóstico computarizado especializado para Nissan: escaneo de fallas, testigos del tablero (check engine) y códigos OBD con equipos de marca.",
     serviceName: "Diagnóstico computarizado Nissan",
@@ -245,7 +245,7 @@ const pages = [
     out: "servicios/mantenimiento-preventivo-nissan.html",
     title: "Mantenimiento Preventivo Nissan (Cambio de Aceite y Filtros) | Tecnissan",
     description:
-      "Cambio de aceite, filtros, bujías y correas para tu Nissan en Cali. Mantenimiento preventivo con repuestos de calidad y kilometraje al día.",
+      "Cambio de aceite, filtros, bujías y correas para tu Nissan en Bogotá. Mantenimiento preventivo con repuestos de calidad y kilometraje al día.",
     serviceName: "Mantenimiento preventivo Nissan",
     breadcrumb: [{ label: "Inicio", url: "/" }, { label: "Servicios", url: "/servicios/" }, { label: "Mantenimiento preventivo" }],
     faq: [
@@ -266,7 +266,7 @@ const pages = [
   {
     src: "servicio-motor.html",
     out: "servicios/reparacion-motor-nissan.html",
-    title: "Reparación de Motor Nissan en Cali | Tecnissan",
+    title: "Reparación de Motor Nissan en Bogotá | Tecnissan",
     description:
       "Reparación y reconstrucción de motores Nissan: fugas de aceite, sobrecalentamiento, ruidos y pérdida de potencia. Diagnóstico antes de cotizar.",
     serviceName: "Reparación de motor Nissan",
@@ -304,7 +304,7 @@ const pages = [
   {
     src: "servicio-frenos.html",
     out: "servicios/frenos-suspension-nissan.html",
-    title: "Frenos y Suspensión para Nissan en Cali | Tecnissan",
+    title: "Frenos y Suspensión para Nissan en Bogotá | Tecnissan",
     description:
       "Pastillas, discos, amortiguadores y rótulas para Nissan. Seguridad y estabilidad en cada viaje, con revisión completa del sistema de frenos.",
     serviceName: "Frenos y suspensión Nissan",
@@ -323,7 +323,7 @@ const pages = [
   {
     src: "servicio-ac.html",
     out: "servicios/aire-acondicionado-nissan.html",
-    title: "Aire Acondicionado para Nissan en Cali | Tecnissan",
+    title: "Aire Acondicionado para Nissan en Bogotá | Tecnissan",
     description:
       "Diagnóstico y reparación de aire acondicionado para Nissan: recarga de gas, fugas, compresor y olores extraños en el sistema de A/C.",
     serviceName: "Aire acondicionado Nissan",
@@ -361,7 +361,7 @@ const pages = [
   {
     src: "servicio-preventiva.html",
     out: "servicios/revision-pre-viaje-nissan.html",
-    title: "Revisión Pre-Viaje para Nissan en Cali | Tecnissan",
+    title: "Revisión Pre-Viaje para Nissan en Bogotá | Tecnissan",
     description:
       "Revisión preventiva antes de un viaje largo: frenos, llantas, niveles de fluidos, batería y luces. Sal de viaje con la tranquilidad de un chequeo completo.",
     serviceName: "Revisión pre-viaje Nissan",
@@ -402,8 +402,8 @@ const pages = [
   {
     src: "contacto.html",
     out: "contacto.html",
-    title: "Contacto | Tecnissan — Taller Especialista en Nissan en Cali",
-    description: "Escríbenos por WhatsApp, llama o llena el formulario. Encuentra la dirección, horario y mapa de Tecnissan en Cali.",
+    title: "Contacto | Tecnissan — Taller Especialista en Nissan en Bogotá",
+    description: "Escríbenos por WhatsApp, llama o llena el formulario. Encuentra la dirección, horario y mapa de Tecnissan en Bogotá.",
     breadcrumb: [{ label: "Inicio", url: "/" }, { label: "Contacto" }],
   },
   {

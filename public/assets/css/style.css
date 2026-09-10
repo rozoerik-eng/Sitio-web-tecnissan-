@@ -191,14 +191,12 @@ input, select, textarea { font: inherit; }
 .brand-mark {
   width: 42px;
   height: 42px;
-  border-radius: 50%;
-  background: var(--black);
   display: flex;
   align-items: center;
   justify-content: center;
   flex-shrink: 0;
 }
-.brand-mark svg { width: 24px; height: 24px; }
+.brand-mark img { width: 100%; height: 100%; object-fit: contain; }
 .brand-word {
   font-weight: 900;
   font-size: 19px;
@@ -330,26 +328,32 @@ input, select, textarea { font: inherit; }
   border-radius: var(--radius-lg);
   overflow: hidden;
   background: var(--black);
-  min-height: 260px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  min-height: 320px;
   isolation: isolate;
+}
+.hero-visual .hv-photo {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 20%;
+  z-index: 0;
 }
 .hero-visual::before {
   content: "";
   position: absolute;
   inset: -20% -10%;
-  background: linear-gradient(135deg, var(--red) 0%, var(--red) 42%, transparent 43%);
-  z-index: 0;
-  opacity: .92;
-}
-.hero-visual .hv-illustration {
-  position: relative;
+  background: linear-gradient(135deg, var(--red) 0%, var(--red) 30%, transparent 42%);
   z-index: 1;
-  width: 78%;
-  max-width: 380px;
-  color: var(--white);
+  opacity: .93;
+}
+.hero-visual::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(0deg, rgba(0,0,0,.65) 0%, rgba(0,0,0,0) 45%);
+  z-index: 1;
 }
 .hero-visual .hv-tag {
   position: absolute;
@@ -363,6 +367,7 @@ input, select, textarea { font: inherit; }
   letter-spacing: 0.04em;
   text-transform: uppercase;
   line-height: 1.5;
+  text-shadow: 0 1px 6px rgba(0,0,0,.5);
 }
 .hero-visual .hv-tag strong { display: block; font-size: 13px; }
 
@@ -428,6 +433,7 @@ a.card:hover, a.card:focus-visible {
   align-items: flex-end;
 }
 .why-photo .wp-illustration { width: 100%; height: 100%; }
+.why-photo img { width: 100%; height: 100%; object-fit: cover; }
 .why-list { display: grid; gap: 22px; grid-template-columns: 1fr; }
 .why-item { display: flex; gap: 16px; align-items: flex-start; }
 .why-item .wi-icon {
@@ -629,10 +635,31 @@ a.card:hover, a.card:focus-visible {
 }
 
 /* ---------- Gallery ---------- */
+/* Masonry vía column-count: cada foto conserva su proporción real
+   (nada de recortes cuadrados forzados) pero con el mismo ancho de
+   columna y el mismo tratamiento visual, para que se vean homogéneas. */
 .gallery-grid {
-  display: grid;
-  gap: 16px;
-  grid-template-columns: repeat(2, 1fr);
+  column-count: 2;
+  column-gap: 16px;
+}
+.gallery-photo {
+  break-inside: avoid;
+  margin: 0 0 16px;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 1px solid var(--gray-300);
+  background: var(--gray-100);
+}
+.gallery-photo img {
+  display: block;
+  width: 100%;
+  height: auto;
+}
+.gallery-photo figcaption {
+  padding: 10px 14px;
+  font-size: 12.5px;
+  font-weight: 700;
+  color: var(--gray-700);
 }
 .gallery-item {
   aspect-ratio: 1;
@@ -647,11 +674,13 @@ a.card:hover, a.card:focus-visible {
   color: var(--gray-500);
   text-align: center;
   padding: 12px;
+  break-inside: avoid;
+  margin-bottom: 16px;
 }
 .gallery-item svg { width: 28px; height: 28px; }
 .gallery-item span { font-size: 12px; font-weight: 700; }
-@media (min-width: 640px) { .gallery-grid { grid-template-columns: repeat(3, 1fr); } }
-@media (min-width: 960px) { .gallery-grid { grid-template-columns: repeat(4, 1fr); } }
+@media (min-width: 640px) { .gallery-grid { column-count: 3; } }
+@media (min-width: 960px) { .gallery-grid { column-count: 4; } }
 
 /* ---------- Contact / Form ---------- */
 .contact-layout {
