@@ -13,7 +13,14 @@ const data = require("./site-data.js");
 const ROOT = path.join(__dirname, "..");
 const PARTIALS = path.join(__dirname, "partials");
 const PAGES = path.join(__dirname, "pages");
-const OUT = path.join(ROOT, "public");
+const OUT = path.resolve(ROOT, process.env.OUT_DIR || "public");
+
+// BASE_PATH: solo se usa para desplegar una VISTA PREVIA bajo una subruta
+// (p. ej. GitHub Pages de proyecto: https://usuario.github.io/repo/).
+// El sitio real (dominio propio) no necesita esto — se deja vacío por
+// defecto y el build de producción no cambia en absoluto.
+const BASE_PATH = (process.env.BASE_PATH || "").replace(/\/$/, "");
+const IS_PREVIEW = Boolean(BASE_PATH);
 
 const read = (p) => fs.readFileSync(p, "utf8");
 
@@ -443,7 +450,7 @@ pages.forEach((page) => {
   const pageTokens = {
     TITLE: page.title,
     META_DESCRIPTION: page.description,
-    ROBOTS_CONTENT: page.robots || "index, follow",
+    ROBOTS_CONTENT: IS_PREVIEW ? "noindex, nofollow" : page.robots || "index, follow",
     CANONICAL: data.siteUrl + "/" + page.out.replace(/index\.html$/, "").replace(/^index\.html$/, ""),
     OG_IMAGE_ABS: data.siteUrl + data.defaultOgImage,
     BODY_PAGE: page.out.replace(/\.html$/, "").replace(/\/index$/, "") || "home",
@@ -469,6 +476,13 @@ pages.forEach((page) => {
 
   html = applyTokens(html, pageTokens);
 
+  if (BASE_PATH) {
+    // Reescribe únicamente rutas raíz-absolutas propias del sitio
+    // (href="/..." o src="/...") para que funcionen bajo la subruta de la
+    // vista previa. No toca enlaces externos (http/https), wa.me ni mailto.
+    html = html.replace(/(href|src)="\/(?!\/)/g, (_, attr) => `${attr}="${BASE_PATH}/`);
+  }
+
   const outPath = path.join(OUT, page.out);
   ensureDir(outPath);
   fs.writeFileSync(outPath, html);
@@ -478,17 +492,23 @@ pages.forEach((page) => {
 /* ----------------------------------------------------------------------
  * sitemap.xml + robots.txt
  * -------------------------------------------------------------------- */
-const sitemapUrls = pages
-  .filter((p) => !/^noindex/.test(p.robots || ""))
-  .map((p) => {
-    const loc = data.siteUrl + "/" + p.out.replace(/index\.html$/, "");
-    return `  <url><loc>${loc}</loc></url>`;
-  })
-  .join("\n");
-const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemapUrls}\n</urlset>\n`;
-fs.writeFileSync(path.join(OUT, "sitemap.xml"), sitemap);
+if (IS_PREVIEW) {
+  // Vista previa bajo subruta: no publicar sitemap ni permitir indexación
+  // (evita contenido duplicado del dominio real en buscadores).
+  fs.writeFileSync(path.join(OUT, "robots.txt"), "User-agent: *\nDisallow: /\n");
+} else {
+  const sitemapUrls = pages
+    .filter((p) => !/^noindex/.test(p.robots || ""))
+    .map((p) => {
+      const loc = data.siteUrl + "/" + p.out.replace(/index\.html$/, "");
+      return `  <url><loc>${loc}</loc></url>`;
+    })
+    .join("\n");
+  const sitemap = `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${sitemapUrls}\n</urlset>\n`;
+  fs.writeFileSync(path.join(OUT, "sitemap.xml"), sitemap);
 
-const robots = `User-agent: *\nAllow: /\n\nSitemap: ${data.siteUrl}/sitemap.xml\n`;
-fs.writeFileSync(path.join(OUT, "robots.txt"), robots);
+  const robots = `User-agent: *\nAllow: /\n\nSitemap: ${data.siteUrl}/sitemap.xml\n`;
+  fs.writeFileSync(path.join(OUT, "robots.txt"), robots);
+}
 
-console.log("\nSitio generado en /public ✅");
+console.log(`\nSitio generado en /public ✅${IS_PREVIEW ? ` (preview, BASE_PATH=${BASE_PATH})` : ""}`);
