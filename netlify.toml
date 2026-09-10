@@ -1,0 +1,6 @@
+[build]
+  command = "node build/build.js"
+  publish = "public"
+
+# Nota: Netlify sirve automáticamente /404.html para rutas no encontradas,
+# no se necesita una regla de redirect adicional para esto.

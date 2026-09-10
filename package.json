@@ -1,0 +1,10 @@
+{
+  "name": "sitio-web-tecnissan",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sitio web de Tecnissan — taller especialista en Nissan. Sitio estático (HTML/CSS/JS) generado desde plantillas.",
+  "scripts": {
+    "build": "node build/build.js",
+    "serve": "npx --yes serve public -l 5000"
+  }
+}
