@@ -129,6 +129,7 @@ a{color:inherit;text-decoration:none}
 .etiqueta::before{content:"";width:26px;height:1px;background:var(--diagnos);opacity:.65}
 
 .seccion{position:relative;z-index:1;padding:clamp(76px,10vw,150px) var(--gut)}
+section[id]{scroll-margin-top:calc(var(--nav-h) + var(--aviso-h,0px) + 22px)}
 .envoltura{max-width:var(--maxw);margin:0 auto}
 .plomo{color:var(--aluminio);font-size:clamp(16px,1.2vw,19px);max-width:60ch;margin-top:18px}
 .apagado{color:var(--acero)}
@@ -151,7 +152,7 @@ a{color:inherit;text-decoration:none}
 
 /* ============================ NAV ============================ */
 .nav{
-  position:fixed;top:0;left:0;right:0;z-index:60;height:var(--nav-h);
+  position:fixed;top:var(--aviso-h,0px);left:0;right:0;z-index:60;height:var(--nav-h);
   display:flex;align-items:center;gap:20px;
   padding:0 var(--gut);
   transition:background .4s var(--ease),border-color .4s,backdrop-filter .4s;
@@ -179,7 +180,7 @@ a{color:inherit;text-decoration:none}
 @media (max-width:920px){
   .hamburguesa{display:block}
   .nav-enlaces{
-    position:fixed;top:var(--nav-h);left:0;right:0;
+    position:fixed;top:calc(var(--nav-h) + var(--aviso-h,0px));left:0;right:0;
     flex-direction:column;gap:0;margin:0;
     background:rgba(7,14,24,.98);backdrop-filter:blur(16px);
     border-bottom:1px solid rgba(132,150,171,.16);
@@ -199,6 +200,8 @@ a{color:inherit;text-decoration:none}
   display:grid;place-items:stretch;
 }
 .hero.estatico .hero-escena{position:relative;height:auto;min-height:100vh}
+.hero.estatico .hero-franjas{min-height:100vh}
+.hero.estatico .pista-scroll{opacity:0}
 
 .hero-lienzo{position:absolute;inset:0}
 .hero-lienzo img,.hero-lienzo video{
@@ -533,7 +536,7 @@ footer .lema{color:var(--aluminio);font-size:14.6px;max-width:34ch;margin-top:14
 
 /* aviso de datos pendientes: se borra cuando lleguen los datos reales */
 .aviso-datos{
-  position:relative;z-index:80;background:#FFB43A;color:#221500;
+  position:fixed;top:0;left:0;right:0;z-index:80;background:#FFB43A;color:#221500;
   font-family:var(--mono);font-size:12px;line-height:1.6;
   padding:10px var(--gut);text-align:center;
 }
@@ -839,7 +842,25 @@ footer .lema{color:var(--aluminio);font-size:14.6px;max-width:34ch;margin-top:14
   <div class="envoltura">
     <span class="etiqueta" data-anim>El equipo</span>
     <h2 data-anim>Las manos que van a tocar su carro.</h2>
-    <p class="plomo" data-anim>Nadie aquí aprendió con su Nissan. Llevan años en la misma marca, y eso es lo que hace la diferencia entre cambiar piezas y arreglar el problema.</p>
+    <p class="plomo" data-anim>Nadie aquí aprendió con su Nissan. Llevamos diez años en la misma marca, y esa es la diferencia entre cambiar piezas y arreglar el problema.</p>
+
+    <div class="trio" id="equipoTrio">
+      <article class="tarjeta">
+        <span class="num">10 AÑOS</span>
+        <h3>La misma marca, todos los días.</h3>
+        <p>Diez años viendo los mismos motores, las mismas cajas y las mismas fallas. Por eso reconocemos el ruido antes de abrir.</p>
+      </article>
+      <article class="tarjeta">
+        <span class="num">EL TALLER</span>
+        <h3>Usted habla con quien hace el trabajo.</h3>
+        <p>Aquí no hay un asesor que le repite lo que le dijeron. El que revisó su carro es el que le explica.</p>
+      </article>
+      <article class="tarjeta">
+        <span class="num">BOGOTÁ</span>
+        <h3>Un taller, no una cadena.</h3>
+        <p>Nos conoce por el nombre y nosotros a su carro por la placa. Eso no se consigue en un concesionario.</p>
+      </article>
+    </div>
 
     <div class="equipo-rejilla" id="equipoRejilla"></div>
   </div>
@@ -1045,6 +1066,15 @@ $$("[data-red]").forEach(a=>{
   else a.remove();
 });
 
+/* -------------------- aviso temporal, empuja el menú -------------------- */
+(()=>{
+  const aviso = $("#avisoDatos");
+  if(!aviso) return;
+  const mide = ()=> document.documentElement.style.setProperty("--aviso-h", aviso.offsetHeight + "px");
+  mide();
+  addEventListener("resize", mide);
+})();
+
 /* -------------------- nav -------------------- */
 const nav = $("#nav");
 const alHacerScrollNav = ()=> nav.classList.toggle("pegado", window.scrollY > 30);
@@ -1176,36 +1206,19 @@ const SINTOMAS = [
 })();
 
 /* -------------------- equipo -------------------- */
-const EQUIPO = [
-  { n:"Nombre pendiente", c:"Fundador y técnico líder", d:"Años trabajando Nissan, pendiente de confirmar." },
-  { n:"Nombre pendiente", c:"Especialista en CVT",      d:"Años trabajando Nissan, pendiente de confirmar." },
-  { n:"Nombre pendiente", c:"Diagnóstico electrónico",  d:"Años trabajando Nissan, pendiente de confirmar." }
-];
+/* Cuando lleguen los nombres y las fotos del equipo, se llenan aquí.
+   Cada persona: { n:"Nombre", c:"Cargo", d:"Años trabajando Nissan", foto:"assets/x.jpg" }
+   Con la lista vacía, la sección muestra el texto y no retratos inventados. */
+const EQUIPO = [];
 
 (()=>{
   const rejilla = $("#equipoRejilla");
+  if(!EQUIPO.length){ rejilla.remove(); return; }
   EQUIPO.forEach((p,i)=>{
     const art = document.createElement("article");
     art.className = "persona";
     art.innerHTML = `
-      <div class="retrato">
-        <svg viewBox="0 0 400 500" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-          <defs>
-            <radialGradient id="pg${i}" cx="0.42" cy="0.3" r="0.72">
-              <stop offset="0" stop-color="#5FD0FF" stop-opacity="0.16"/>
-              <stop offset="1" stop-color="#5FD0FF" stop-opacity="0"/>
-            </radialGradient>
-          </defs>
-          <rect width="400" height="500" fill="#0B1520"/>
-          <rect width="400" height="500" fill="url(#pg${i})"/>
-          <g stroke="#5FD0FF" stroke-opacity="0.09" stroke-width="1">
-            <path d="M0 125H400M0 250H400M0 375H400M100 0V500M200 0V500M300 0V500"/>
-          </g>
-          <circle cx="200" cy="196" r="62" fill="none" stroke="#8496AB" stroke-opacity=".42" stroke-width="2"/>
-          <path d="M92 430c0-62 48-112 108-112s108 50 108 112" fill="none" stroke="#8496AB" stroke-opacity=".42" stroke-width="2"/>
-          <path d="M200 134v124" stroke="#5FD0FF" stroke-opacity=".22" stroke-width="1.4" stroke-dasharray="4 7"/>
-        </svg>
-      </div>
+      <div class="retrato"><img src="${p.foto}" alt="${p.n}, ${p.c} en Tecnissan" loading="lazy"></div>
       <h3>${p.n}</h3>
       <div class="cargo">${p.c}</div>
       <p>${p.d}</p>`;
@@ -1248,6 +1261,7 @@ $("#formContacto").addEventListener("submit", e=>{
 
   let listo = false, duracion = 0, objetivo = 0, mostrado = 0;
   let buscando = false, pendiente = null, raf = null, sucio = true;
+  let modoEstatico = false;
 
   const progreso = ()=>{
     const total = hero.offsetHeight - innerHeight;
@@ -1278,6 +1292,7 @@ $("#formContacto").addEventListener("submit", e=>{
   });
 
   const cuadro = ()=>{
+    if(modoEstatico){ raf = null; return; }
     const p = progreso();
     pintaFranjas(p);
     hero.classList.toggle("movido", p > 0.02);
@@ -1296,27 +1311,35 @@ $("#formContacto").addEventListener("submit", e=>{
     if(trabajando) raf = requestAnimationFrame(cuadro);
     else raf = null;
   };
-  const despierta = ()=>{ sucio = true; if(!raf) raf = requestAnimationFrame(cuadro); };
+  const despierta = ()=>{
+    if(modoEstatico) return;
+    sucio = true;
+    if(!raf) raf = requestAnimationFrame(cuadro);
+  };
 
   addEventListener("scroll", despierta, {passive:true});
   addEventListener("resize", despierta);
   despierta();
 
-  if(!puedeScrub){
-    hero.classList.add("estatico");
-    franjas.forEach(f=>f.el.classList.add("dentro"));
-    /* en pantalla chica las franjas se apilan y se leen como una sola historia */
-    if(chico || reduce){
-      const caja = $(".hero-franjas");
-      caja.style.alignContent = "center";
-      caja.style.gap = "0";
-      franjas.forEach((f,i)=>{
-        f.el.style.gridArea = "auto";
-        f.el.style.display = i === 0 || i === franjas.length - 1 ? "block" : "none";
-      });
-    }
-    return;
-  }
+  /* sin scrub, el hero se compone como una sola portada fija:
+     el titular principal, su bajada y los botones del descanso */
+  const portadaFija = ()=>{
+    modoEstatico = true;
+    if(raf){ cancelAnimationFrame(raf); raf = null; }
+    hero.classList.add("estatico","movido");
+    const principal = franjas[1], descanso = franjas[franjas.length-1];
+    franjas.forEach(f=>{
+      f.el.classList.remove("dentro");
+      f.el.style.display = "none";
+    });
+    principal.el.style.display = "block";
+    principal.el.style.gridArea = "auto";
+    principal.el.classList.add("dentro");
+    const acciones = descanso.el.querySelector(".acciones");
+    if(acciones) principal.el.appendChild(acciones);
+  };
+
+  if(!puedeScrub){ portadaFija(); return; }
 
   /* carga el video como Blob, con anillo honesto de progreso */
   const carga = $("#cargando"), arco = $("#arco"), texto = $("#cargaTexto");
@@ -1359,8 +1382,7 @@ $("#formContacto").addEventListener("submit", e=>{
     }catch(_){
       /* el video no llegó. La página ya se ve bien sin él. */
       carga.hidden = true;
-      hero.classList.add("estatico");
-      franjas.forEach(f=>f.el.classList.add("dentro"));
+      portadaFija();
     }
   })();
 })();
