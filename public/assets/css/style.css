@@ -327,9 +327,10 @@ input, select, textarea { font: inherit; }
   position: relative;
   border-radius: var(--radius-lg);
   overflow: hidden;
-  background: var(--black);
-  min-height: 320px;
+  background: var(--gray-100);
+  aspect-ratio: 433 / 396;
   isolation: isolate;
+  box-shadow: var(--shadow-md);
 }
 .hero-visual .hv-photo {
   position: absolute;
@@ -337,44 +338,26 @@ input, select, textarea { font: inherit; }
   width: 100%;
   height: 100%;
   object-fit: cover;
-  object-position: center 20%;
   z-index: 0;
-}
-.hero-visual::before {
-  content: "";
-  position: absolute;
-  inset: -20% -10%;
-  background: linear-gradient(135deg, var(--red) 0%, var(--red) 30%, transparent 42%);
-  z-index: 1;
-  opacity: .93;
-}
-.hero-visual::after {
-  content: "";
-  position: absolute;
-  inset: 0;
-  background: linear-gradient(0deg, rgba(0,0,0,.65) 0%, rgba(0,0,0,0) 45%);
-  z-index: 1;
 }
 .hero-visual .hv-tag {
   position: absolute;
   right: 18px;
-  bottom: 16px;
+  bottom: 14px;
   z-index: 2;
   text-align: right;
-  color: var(--white);
+  color: var(--black);
   font-size: 11.5px;
   font-weight: 700;
   letter-spacing: 0.04em;
   text-transform: uppercase;
   line-height: 1.5;
-  text-shadow: 0 1px 6px rgba(0,0,0,.5);
 }
 .hero-visual .hv-tag strong { display: block; font-size: 13px; }
 
 @media (min-width: 860px) {
   .hero .container { grid-template-columns: 1.05fr 0.95fr; }
   .hero-badges { grid-template-columns: repeat(3, auto); }
-  .hero-visual { min-height: 420px; }
 }
 
 /* ===========================================================
