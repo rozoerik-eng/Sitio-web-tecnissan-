@@ -325,12 +325,8 @@ input, select, textarea { font: inherit; }
 
 .hero-visual {
   position: relative;
-  border-radius: var(--radius-lg);
-  overflow: hidden;
-  background: var(--gray-100);
   aspect-ratio: 433 / 396;
   isolation: isolate;
-  box-shadow: var(--shadow-md);
 }
 .hero-visual .hv-photo {
   position: absolute;
@@ -339,11 +335,15 @@ input, select, textarea { font: inherit; }
   height: 100%;
   object-fit: cover;
   z-index: 0;
+  /* Sin borde duro: los bordes se desvanecen y se funden con el fondo
+     de la página en vez de recortarse en un rectángulo. */
+  mask-image: radial-gradient(ellipse closest-side at 50% 46%, #000 72%, transparent 100%);
+  -webkit-mask-image: radial-gradient(ellipse closest-side at 50% 46%, #000 72%, transparent 100%);
 }
 .hero-visual .hv-tag {
   position: absolute;
-  right: 18px;
-  bottom: 14px;
+  right: 8px;
+  bottom: 6px;
   z-index: 2;
   text-align: right;
   color: var(--black);
