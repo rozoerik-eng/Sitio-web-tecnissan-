@@ -5,13 +5,13 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Tecnissan | Taller especializado en Nissan</title>
 <meta name="description" content="Taller especializado solo en Nissan en Bogotá. 10 años de experiencia, diagnóstico con escáner y presupuesto antes de tocar el carro. Revisión periódica, caja CVT, motor, frenos y aire acondicionado. Escríbanos por WhatsApp.">
-<meta name="theme-color" content="#0A1320">
+<meta name="theme-color" content="#0C0D10">
 <link rel="canonical" href="https://tecnissan.com/">
 
 <meta property="og:type" content="website">
 <meta property="og:title" content="Tecnissan | Taller especializado en Nissan">
 <meta property="og:description" content="Primero el diagnóstico, después la llave inglesa. Especialistas solo en Nissan.">
-<meta property="og:image" content="https://tecnissan.com/assets/hero-poster.svg">
+<meta property="og:image" content="https://tecnissan.com/assets/taller.jpg">
 <meta property="og:url" content="https://tecnissan.com/">
 <meta name="twitter:card" content="summary_large_image">
 
@@ -27,7 +27,7 @@
   "name":"Tecnissan",
   "description":"Taller especializado en vehículos Nissan en Bogotá. Diagnóstico con escáner y presupuesto antes de empezar.",
   "telephone":"+573112710738",
-  "address":{"@type":"PostalAddress","addressLocality":"Bogotá","addressCountry":"CO"},
+  "address":{"@type":"PostalAddress","streetAddress":"Calle 70G # 69B-70","addressLocality":"Bogotá","addressCountry":"CO"},
   "areaServed":"Bogotá",
   "sameAs":["https://www.facebook.com/Tecnissan/","https://www.instagram.com/tecnissan_sas"],
   "openingHoursSpecification":[{
@@ -52,13 +52,13 @@
    Paleta y tipografía del paquete de diseño (design/design-package.md)
    ============================================================ */
 :root{
-  --noche:#0A1320;
-  --noche-2:#0F1B2B;
-  --carbon:#16243A;
-  --acero:#8496AB;
-  --aluminio:#C9D6E4;
-  --luz:#E9F0F8;
-  --diagnos:#5FD0FF;
+  --noche:#0C0D10;
+  --noche-2:#131519;
+  --carbon:#1E2126;
+  --acero:#8A9099;
+  --aluminio:#C6CBD2;
+  --luz:#F2F4F7;
+  --rojo:#E11B22;
   --wa:#25D366;
   --wa-hover:#1FBA59;
 
@@ -93,14 +93,14 @@ body{
 .ambiente{
   position:fixed;inset:0;z-index:0;pointer-events:none;
   background:
-    radial-gradient(1200px 700px at 12% -8%, rgba(95,208,255,.10), transparent 62%),
-    radial-gradient(900px 620px at 96% 34%, rgba(95,208,255,.05), transparent 68%),
-    linear-gradient(180deg,#0A1320 0%,#091220 46%,#070E18 100%);
+    radial-gradient(1200px 700px at 12% -8%, rgba(225,27,34,.10), transparent 62%),
+    radial-gradient(900px 620px at 96% 34%, rgba(225,27,34,.05), transparent 68%),
+    linear-gradient(180deg,#0C0D10 0%,#0B0C0F 46%,#08090B 100%);
 }
 .ambiente::after{
   content:"";position:absolute;inset:0;opacity:.04;
-  background-image:linear-gradient(rgba(201,214,228,.5) 1px,transparent 1px),
-                   linear-gradient(90deg,rgba(201,214,228,.5) 1px,transparent 1px);
+  background-image:linear-gradient(rgba(198,203,210,.5) 1px,transparent 1px),
+                   linear-gradient(90deg,rgba(198,203,210,.5) 1px,transparent 1px);
   background-size:68px 68px;
   mask-image:radial-gradient(ellipse 70% 60% at 50% 30%,#000 20%,transparent 78%);
   -webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 30%,#000 20%,transparent 78%);
@@ -123,10 +123,10 @@ a{color:inherit;text-decoration:none}
 
 .etiqueta{
   font-family:var(--mono);font-size:11px;font-weight:600;
-  letter-spacing:.24em;text-transform:uppercase;color:var(--diagnos);
+  letter-spacing:.24em;text-transform:uppercase;color:var(--rojo);
   display:inline-flex;align-items:center;gap:10px;
 }
-.etiqueta::before{content:"";width:26px;height:1px;background:var(--diagnos);opacity:.65}
+.etiqueta::before{content:"";width:26px;height:1px;background:var(--rojo);opacity:.65}
 
 .seccion{position:relative;z-index:1;padding:clamp(76px,10vw,150px) var(--gut)}
 section[id]{scroll-margin-top:calc(var(--nav-h) + var(--aviso-h,0px) + 22px)}
@@ -146,9 +146,9 @@ section[id]{scroll-margin-top:calc(var(--nav-h) + var(--aviso-h,0px) + 22px)}
 .btn svg{width:18px;height:18px;flex:0 0 auto}
 .btn-wa{background:var(--wa);color:#04240F;box-shadow:0 8px 30px -12px rgba(37,211,102,.6)}
 .btn-wa:hover{background:var(--wa-hover);transform:translateY(-2px);box-shadow:0 14px 38px -12px rgba(37,211,102,.7)}
-.btn-linea{border-color:rgba(132,150,171,.34);color:var(--luz);background:rgba(22,36,58,.35)}
-.btn-linea:hover{border-color:var(--diagnos);color:var(--diagnos);transform:translateY(-2px)}
-.btn:focus-visible{outline:2px solid var(--diagnos);outline-offset:3px}
+.btn-linea{border-color:rgba(138,144,153,.34);color:var(--luz);background:rgba(22,36,58,.35)}
+.btn-linea:hover{border-color:var(--rojo);color:var(--rojo);transform:translateY(-2px)}
+.btn:focus-visible{outline:2px solid var(--rojo);outline-offset:3px}
 
 /* ============================ NAV ============================ */
 .nav{
@@ -160,14 +160,14 @@ section[id]{scroll-margin-top:calc(var(--nav-h) + var(--aviso-h,0px) + 22px)}
 }
 .nav.pegado{
   background:rgba(9,17,29,.86);backdrop-filter:blur(14px);
-  border-bottom-color:rgba(132,150,171,.16);
+  border-bottom-color:rgba(138,144,153,.16);
 }
-.marca{display:flex;align-items:center;gap:11px;font-family:var(--display);font-variation-settings:"wdth" 112;font-weight:800;font-size:19px;letter-spacing:-.02em}
-.marca svg{width:26px;height:26px}
-.marca b{color:var(--diagnos);font-weight:800}
+.marca{display:flex;align-items:center;gap:11px;font-family:var(--display);font-variation-settings:"wdth" 118;font-weight:800;font-size:19px;letter-spacing:.01em;text-transform:uppercase}
+.marca svg{width:30px;height:30px;flex:0 0 auto}
+.marca b{color:var(--rojo);font-weight:800}
 .nav-enlaces{display:flex;gap:30px;margin-left:auto;font-size:14px;color:var(--aluminio)}
 .nav-enlaces a{position:relative;padding:6px 0;transition:color .25s}
-.nav-enlaces a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--diagnos);transition:width .35s var(--ease)}
+.nav-enlaces a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--rojo);transition:width .35s var(--ease)}
 .nav-enlaces a:hover{color:var(--luz)}
 .nav-enlaces a:hover::after{width:100%}
 .nav .btn{padding:12px 19px;font-size:14px}
@@ -183,12 +183,12 @@ section[id]{scroll-margin-top:calc(var(--nav-h) + var(--aviso-h,0px) + 22px)}
     position:fixed;top:calc(var(--nav-h) + var(--aviso-h,0px));left:0;right:0;
     flex-direction:column;gap:0;margin:0;
     background:rgba(7,14,24,.98);backdrop-filter:blur(16px);
-    border-bottom:1px solid rgba(132,150,171,.16);
+    border-bottom:1px solid rgba(138,144,153,.16);
     padding:8px var(--gut) 22px;
     transform:translateY(-8px);opacity:0;pointer-events:none;transition:.3s var(--ease);
   }
   .nav.abierto .nav-enlaces{transform:none;opacity:1;pointer-events:auto}
-  .nav-enlaces a{padding:15px 0;border-bottom:1px solid rgba(132,150,171,.1);font-size:16px}
+  .nav-enlaces a{padding:15px 0;border-bottom:1px solid rgba(138,144,153,.1);font-size:16px}
   .nav > .btn-wa{display:none}
 }
 
@@ -207,13 +207,26 @@ section[id]{scroll-margin-top:calc(var(--nav-h) + var(--aviso-h,0px) + 22px)}
 .hero-lienzo img,.hero-lienzo video{
   position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
 }
+/* La foto va como fondo en capas: si el archivo aún no está,
+   el degradado de abajo sigue pintando y nada se ve roto. */
+.hero-foto{
+  position:absolute;inset:0;
+  background-color:var(--noche);
+  background-image:url("assets/taller.jpg"),
+    radial-gradient(1100px 720px at 62% 32%, #1C2027, transparent 68%),
+    linear-gradient(180deg,#12141A 0%,#0C0D10 60%,#08090B 100%);
+  background-size:cover,auto,auto;
+  background-position:center 42%;
+  background-repeat:no-repeat;
+}
 #heroVideo{opacity:0;transition:opacity .9s var(--ease)}
 #heroVideo.visible{opacity:1}
 .hero-velo{
   position:absolute;inset:0;pointer-events:none;
   background:
-    linear-gradient(90deg,rgba(7,13,22,.92) 0%,rgba(7,13,22,.55) 36%,rgba(7,13,22,.12) 62%,rgba(7,13,22,.5) 100%),
-    linear-gradient(180deg,rgba(7,13,22,.75) 0%,transparent 26%,transparent 58%,rgba(7,13,22,.9) 100%);
+    linear-gradient(90deg,rgba(6,7,9,.96) 0%,rgba(6,7,9,.88) 30%,rgba(6,7,9,.55) 58%,rgba(6,7,9,.72) 100%),
+    linear-gradient(180deg,rgba(6,7,9,.88) 0%,rgba(6,7,9,.34) 28%,rgba(6,7,9,.42) 58%,rgba(6,7,9,.94) 100%),
+    radial-gradient(760px 460px at 84% 74%, rgba(225,27,34,.14), transparent 70%);
 }
 .hero-polvo{position:absolute;inset:0;pointer-events:none;opacity:.5}
 
@@ -256,8 +269,8 @@ section[id]{scroll-margin-top:calc(var(--nav-h) + var(--aviso-h,0px) + 22px)}
 .cargando[hidden]{display:none!important}
 .anillo{width:26px;height:26px;transform:rotate(-90deg)}
 .anillo circle{fill:none;stroke-width:2.5;stroke-linecap:round}
-.anillo .pista{stroke:rgba(132,150,171,.22)}
-.anillo .arco{stroke:var(--diagnos);stroke-dasharray:69.1;stroke-dashoffset:69.1;transition:stroke-dashoffset .3s linear}
+.anillo .pista{stroke:rgba(138,144,153,.22)}
+.anillo .arco{stroke:var(--rojo);stroke-dasharray:69.1;stroke-dashoffset:69.1;transition:stroke-dashoffset .3s linear}
 
 /* pista de scroll */
 .pista-scroll{
@@ -267,40 +280,40 @@ section[id]{scroll-margin-top:calc(var(--nav-h) + var(--aviso-h,0px) + 22px)}
   font-family:var(--mono);font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--acero);
   transition:opacity .5s;
 }
-.pista-scroll i{display:block;width:1px;height:40px;background:linear-gradient(var(--diagnos),transparent);animation:baja 2.2s var(--ease) infinite}
+.pista-scroll i{display:block;width:1px;height:40px;background:linear-gradient(var(--rojo),transparent);animation:baja 2.2s var(--ease) infinite}
 @keyframes baja{0%{transform:scaleY(.2);transform-origin:top;opacity:0}40%{transform:scaleY(1);opacity:1}100%{transform:scaleY(1);transform-origin:bottom;opacity:0}}
 .hero.movido .pista-scroll{opacity:0}
 
 /* ==================== FRANJA DE PRUEBA ==================== */
 .prueba{
   position:relative;z-index:2;
-  border-top:1px solid rgba(132,150,171,.16);
-  border-bottom:1px solid rgba(132,150,171,.16);
+  border-top:1px solid rgba(138,144,153,.16);
+  border-bottom:1px solid rgba(138,144,153,.16);
   background:rgba(10,19,32,.72);backdrop-filter:blur(6px);
 }
 .prueba-rejilla{
   max-width:var(--maxw);margin:0 auto;
   display:grid;grid-template-columns:repeat(3,1fr);
 }
-.prueba-item{padding:clamp(30px,4.4vw,50px) clamp(18px,3vw,40px);border-left:1px solid rgba(132,150,171,.12)}
+.prueba-item{padding:clamp(30px,4.4vw,50px) clamp(18px,3vw,40px);border-left:1px solid rgba(138,144,153,.12)}
 .prueba-item:first-child{border-left:0}
 .cifra{
   font-family:var(--mono);font-weight:600;font-size:clamp(28px,3.6vw,46px);
-  color:var(--diagnos);line-height:1;letter-spacing:-.03em;
-  text-shadow:0 0 34px rgba(95,208,255,.35);
+  color:var(--rojo);line-height:1;letter-spacing:-.03em;
+  text-shadow:0 0 34px rgba(225,27,34,.35);
 }
 .cifra small{font-size:.46em;letter-spacing:.1em;margin-left:5px;color:var(--aluminio);text-shadow:none}
 .prueba-item p{margin-top:13px;font-size:14.5px;color:var(--aluminio);max-width:26ch}
 @media (max-width:800px){
   .prueba-rejilla{grid-template-columns:1fr}
-  .prueba-item{border-left:0;border-top:1px solid rgba(132,150,171,.12)}
+  .prueba-item{border-left:0;border-top:1px solid rgba(138,144,153,.12)}
   .prueba-item:first-child{border-top:0}
 }
 
 /* ==================== LÍNEA DE DIAGNÓSTICO ==================== */
 .costura{position:absolute;left:calc(var(--gut) / 2);top:0;bottom:0;width:2px;z-index:0;pointer-events:none}
 .costura svg{height:100%;width:2px;overflow:visible}
-.costura path{fill:none;stroke:var(--diagnos);stroke-width:1.6;opacity:.42;
+.costura path{fill:none;stroke:var(--rojo);stroke-width:1.6;opacity:.42;
   stroke-dasharray:var(--largo);stroke-dashoffset:var(--largo);
   transition:stroke-dashoffset 1.4s var(--ease-out)}
 .costura.dibujada path{stroke-dashoffset:0}
@@ -311,29 +324,29 @@ section[id]{scroll-margin-top:calc(var(--nav-h) + var(--aviso-h,0px) + 22px)}
 .tarjeta{
   position:relative;padding:clamp(24px,2.6vw,34px);
   background:linear-gradient(160deg,rgba(22,36,58,.62),rgba(15,27,43,.34));
-  border:1px solid rgba(132,150,171,.16);
+  border:1px solid rgba(138,144,153,.16);
   clip-path:polygon(0 0,calc(100% - 16px) 0,100% 16px,100% 100%,16px 100%,0 calc(100% - 16px));
   transition:transform .5s var(--ease-out),border-color .4s,background .4s;
   opacity:0;transform:translateY(30px);
 }
 .tarjeta.dentro{opacity:1;transform:none}
-.tarjeta:hover{border-color:rgba(95,208,255,.4);background:linear-gradient(160deg,rgba(24,41,66,.8),rgba(15,27,43,.46));transform:translateY(-5px)}
-.tarjeta .num{font-family:var(--mono);font-size:11px;letter-spacing:.22em;color:var(--diagnos);opacity:.85}
+.tarjeta:hover{border-color:rgba(225,27,34,.4);background:linear-gradient(160deg,rgba(24,41,66,.8),rgba(15,27,43,.46));transform:translateY(-5px)}
+.tarjeta .num{font-family:var(--mono);font-size:11px;letter-spacing:.22em;color:var(--rojo);opacity:.85}
 .tarjeta h3{margin:16px 0 11px}
 .tarjeta p{color:var(--aluminio);font-size:14.8px}
-.icono{width:34px;height:34px;stroke:var(--diagnos);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;margin-bottom:18px;opacity:.9}
+.icono{width:34px;height:34px;stroke:var(--rojo);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;margin-bottom:18px;opacity:.9}
 @media (max-width:900px){.trio{grid-template-columns:1fr}}
 
 /* ==================== SERVICIOS ==================== */
-.servicios-rejilla{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:clamp(44px,6vw,66px);background:rgba(132,150,171,.14);border:1px solid rgba(132,150,171,.14)}
+.servicios-rejilla{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:clamp(44px,6vw,66px);background:rgba(138,144,153,.14);border:1px solid rgba(138,144,153,.14)}
 .servicio{
   background:var(--noche);padding:clamp(26px,2.8vw,38px);
   transition:background .45s var(--ease);position:relative;overflow:hidden;
   opacity:0;transform:translateY(24px);
 }
 .servicio.dentro{opacity:1;transform:none}
-.servicio::after{content:"";position:absolute;left:0;top:0;width:100%;height:1px;background:var(--diagnos);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
-.servicio:hover{background:#0E1A2A}
+.servicio::after{content:"";position:absolute;left:0;top:0;width:100%;height:1px;background:var(--rojo);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
+.servicio:hover{background:#17191D}
 .servicio:hover::after{transform:scaleX(1)}
 .servicio h3{margin:0 0 10px}
 .servicio p{color:var(--aluminio);font-size:14.6px}
@@ -345,16 +358,16 @@ section[id]{scroll-margin-top:calc(var(--nav-h) + var(--aviso-h,0px) + 22px)}
   margin-top:clamp(40px,5vw,66px);
   display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(26px,3.4vw,54px);align-items:center;
   padding:clamp(30px,4vw,56px);
-  border:1px solid rgba(95,208,255,.26);
+  border:1px solid rgba(225,27,34,.26);
   background:
-    radial-gradient(700px 400px at 88% 20%,rgba(95,208,255,.11),transparent 66%),
+    radial-gradient(700px 400px at 88% 20%,rgba(225,27,34,.11),transparent 66%),
     linear-gradient(150deg,rgba(19,33,53,.9),rgba(11,20,33,.72));
   clip-path:polygon(0 0,calc(100% - 22px) 0,100% 22px,100% 100%,22px 100%,0 calc(100% - 22px));
 }
-.cvt h3{font-size:clamp(24px,2.9vw,40px);text-shadow:0 0 46px rgba(95,208,255,.28)}
+.cvt h3{font-size:clamp(24px,2.9vw,40px);text-shadow:0 0 46px rgba(225,27,34,.28)}
 .cvt p{margin-top:16px;color:var(--aluminio)}
 .cvt .acciones{margin-top:26px}
-.cvt-visual{position:relative;aspect-ratio:4/3;border:1px solid rgba(132,150,171,.2);background:#0A1320;overflow:hidden}
+.cvt-visual{position:relative;aspect-ratio:4/3;border:1px solid rgba(138,144,153,.2);background:#0C0D10;overflow:hidden}
 .cvt-visual svg{position:absolute;inset:0;width:100%;height:100%}
 @media (max-width:900px){.cvt{grid-template-columns:1fr}.cvt-visual{order:-1}}
 
@@ -367,19 +380,19 @@ section[id]{scroll-margin-top:calc(var(--nav-h) + var(--aviso-h,0px) + 22px)}
 .sintoma-btn{
   display:flex;align-items:center;gap:14px;width:100%;text-align:left;
   font-family:var(--texto);font-size:15.5px;font-weight:400;color:var(--aluminio);
-  background:rgba(22,36,58,.4);border:1px solid rgba(132,150,171,.16);
+  background:rgba(22,36,58,.4);border:1px solid rgba(138,144,153,.16);
   padding:17px 19px;cursor:pointer;
   transition:border-color .3s,color .3s,background .3s,transform .35s var(--ease);
   clip-path:polygon(0 0,calc(100% - 11px) 0,100% 11px,100% 100%,11px 100%,0 calc(100% - 11px));
 }
-.sintoma-btn .punto{width:7px;height:7px;border-radius:50%;background:rgba(132,150,171,.45);flex:0 0 auto;transition:.3s}
-.sintoma-btn:hover{color:var(--luz);border-color:rgba(95,208,255,.34);transform:translateX(4px)}
-.sintoma-btn[aria-selected="true"]{color:var(--luz);border-color:var(--diagnos);background:rgba(24,44,70,.72)}
-.sintoma-btn[aria-selected="true"] .punto{background:var(--diagnos);box-shadow:0 0 0 4px rgba(95,208,255,.18)}
-.sintoma-btn:focus-visible{outline:2px solid var(--diagnos);outline-offset:2px}
+.sintoma-btn .punto{width:7px;height:7px;border-radius:50%;background:rgba(138,144,153,.45);flex:0 0 auto;transition:.3s}
+.sintoma-btn:hover{color:var(--luz);border-color:rgba(225,27,34,.34);transform:translateX(4px)}
+.sintoma-btn[aria-selected="true"]{color:var(--luz);border-color:var(--rojo);background:rgba(24,44,70,.72)}
+.sintoma-btn[aria-selected="true"] .punto{background:var(--rojo);box-shadow:0 0 0 4px rgba(225,27,34,.18)}
+.sintoma-btn:focus-visible{outline:2px solid var(--rojo);outline-offset:2px}
 
 .sintoma-panel{
-  border:1px solid rgba(132,150,171,.2);
+  border:1px solid rgba(138,144,153,.2);
   background:linear-gradient(155deg,rgba(20,34,54,.8),rgba(11,20,33,.62));
   padding:clamp(26px,3vw,40px);min-height:260px;
   clip-path:polygon(0 0,calc(100% - 18px) 0,100% 18px,100% 100%,18px 100%,0 calc(100% - 18px));
@@ -396,16 +409,16 @@ section[id]{scroll-margin-top:calc(var(--nav-h) + var(--aviso-h,0px) + 22px)}
 
 /* ==================== PROCESO ==================== */
 .pasos{position:relative;margin-top:clamp(46px,6vw,74px);display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(18px,2.4vw,30px)}
-.pasos::before{content:"";position:absolute;left:0;right:0;top:26px;height:1px;background:rgba(132,150,171,.18)}
-.pasos-progreso{position:absolute;left:0;top:26px;height:1px;background:var(--diagnos);width:0;transition:width 1.6s var(--ease-out);box-shadow:0 0 12px rgba(95,208,255,.8)}
+.pasos::before{content:"";position:absolute;left:0;right:0;top:26px;height:1px;background:rgba(138,144,153,.18)}
+.pasos-progreso{position:absolute;left:0;top:26px;height:1px;background:var(--rojo);width:0;transition:width 1.6s var(--ease-out);box-shadow:0 0 12px rgba(225,27,34,.8)}
 .paso{position:relative;padding-top:0}
 .paso .globo{
   width:54px;height:54px;display:grid;place-items:center;
-  background:var(--noche);border:1px solid rgba(132,150,171,.3);border-radius:50%;
+  background:var(--noche);border:1px solid rgba(138,144,153,.3);border-radius:50%;
   font-family:var(--mono);font-size:15px;font-weight:600;color:var(--acero);
   transition:.5s var(--ease);position:relative;z-index:2;
 }
-.paso.dentro .globo{border-color:var(--diagnos);color:var(--diagnos);box-shadow:0 0 0 6px rgba(95,208,255,.09)}
+.paso.dentro .globo{border-color:var(--rojo);color:var(--rojo);box-shadow:0 0 0 6px rgba(225,27,34,.09)}
 .paso h3{margin:22px 0 10px}
 .paso p{color:var(--aluminio);font-size:14.6px}
 @media (max-width:900px){
@@ -422,46 +435,78 @@ section[id]{scroll-margin-top:calc(var(--nav-h) + var(--aviso-h,0px) + 22px)}
 .persona{opacity:0;transform:translateY(28px)}
 .persona.dentro{opacity:1;transform:none}
 .retrato{
-  aspect-ratio:4/5;background:#0C1724;border:1px solid rgba(132,150,171,.18);
+  aspect-ratio:4/5;background:#111316;border:1px solid rgba(138,144,153,.18);
   position:relative;overflow:hidden;
 }
 .retrato svg{position:absolute;inset:0;width:100%;height:100%}
 .retrato img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
 .persona h3{margin:20px 0 5px}
-.persona .cargo{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--diagnos)}
+.persona .cargo{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--rojo)}
 .persona p{margin-top:11px;color:var(--aluminio);font-size:14.4px}
 @media (max-width:900px){.equipo-rejilla{grid-template-columns:1fr;max-width:420px}}
 
 /* ==================== PREGUNTAS ==================== */
-.faq{margin-top:clamp(40px,5vw,62px);max-width:900px;border-top:1px solid rgba(132,150,171,.16)}
-.faq details{border-bottom:1px solid rgba(132,150,171,.16)}
+.faq{margin-top:clamp(40px,5vw,62px);max-width:900px;border-top:1px solid rgba(138,144,153,.16)}
+.faq details{border-bottom:1px solid rgba(138,144,153,.16)}
 .faq summary{
   list-style:none;cursor:pointer;padding:24px 46px 24px 0;position:relative;
   font-family:var(--display);font-variation-settings:"wdth" 108;font-weight:700;
   font-size:clamp(17px,1.55vw,21px);letter-spacing:-.012em;transition:color .3s;
 }
 .faq summary::-webkit-details-marker{display:none}
-.faq summary:hover{color:var(--diagnos)}
+.faq summary:hover{color:var(--rojo)}
 .faq summary::after{
   content:"";position:absolute;right:8px;top:50%;width:13px;height:13px;
-  border-right:1.6px solid var(--diagnos);border-bottom:1.6px solid var(--diagnos);
+  border-right:1.6px solid var(--rojo);border-bottom:1.6px solid var(--rojo);
   transform:translateY(-70%) rotate(45deg);transition:transform .35s var(--ease);
 }
 .faq details[open] summary::after{transform:translateY(-30%) rotate(225deg)}
 .faq .respuesta{padding:0 0 26px;color:var(--aluminio);max-width:66ch;animation:sube .45s var(--ease-out)}
-.faq summary:focus-visible{outline:2px solid var(--diagnos);outline-offset:3px}
+.faq summary:focus-visible{outline:2px solid var(--rojo);outline-offset:3px}
+
+/* ==================== FOTOS REALES ====================
+   Cada foto va como fondo en capas sobre un degradado.
+   Mientras el archivo no exista, se ve el degradado y nada queda roto. */
+.foto-marco{
+  position:relative;border:1px solid rgba(138,144,153,.22);
+  background-color:var(--noche-2);
+  background-repeat:no-repeat;background-position:center;background-size:cover;
+  clip-path:polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,20px 100%,0 calc(100% - 20px));
+}
+.foto-marco::after{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(180deg,transparent 52%,rgba(6,7,9,.55) 100%);
+}
+.foto-equipo{
+  aspect-ratio:16/10;
+  background-image:url("assets/equipo.jpg"),
+    linear-gradient(135deg,#1B1E23,#0E1013 60%,#17191D);
+  background-position:center 34%;
+}
+.foto-fachada{
+  aspect-ratio:16/9;
+  background-image:url("assets/fachada.jpg"),
+    linear-gradient(160deg,#20232A,#0E1013);
+  background-position:center 46%;
+}
+.foto-ancha{margin:clamp(36px,5vw,58px) 0 0}
+.foto-ancha figcaption,.pie-foto{
+  margin-top:13px;font-size:13.5px;color:var(--acero);
+  font-family:var(--mono);letter-spacing:.02em;
+}
+@media (max-width:700px){.foto-equipo{aspect-ratio:4/5;background-position:center 30%}}
 
 /* ==================== MAPA ==================== */
 .llegar{display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(26px,3.4vw,56px);margin-top:clamp(40px,5vw,62px);align-items:center}
 .mapa{
-  position:relative;aspect-ratio:16/11;border:1px solid rgba(132,150,171,.22);
-  background:#0C1724;overflow:hidden;
+  position:relative;aspect-ratio:16/11;border:1px solid rgba(138,144,153,.22);
+  background:#111316;overflow:hidden;
   clip-path:polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,20px 100%,0 calc(100% - 20px));
 }
 .mapa iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(.42) invert(.9) hue-rotate(178deg) contrast(.86) brightness(.92)}
-.dato{display:flex;gap:15px;padding:19px 0;border-top:1px solid rgba(132,150,171,.14)}
+.dato{display:flex;gap:15px;padding:19px 0;border-top:1px solid rgba(138,144,153,.14)}
 .dato:first-of-type{border-top:0}
-.dato svg{width:19px;height:19px;stroke:var(--diagnos);fill:none;stroke-width:1.6;flex:0 0 auto;margin-top:3px}
+.dato svg{width:19px;height:19px;stroke:var(--rojo);fill:none;stroke-width:1.6;flex:0 0 auto;margin-top:3px}
 .dato .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--acero)}
 .dato .v{margin-top:5px;font-size:16px}
 .llegar .acciones{margin-top:28px;display:flex;gap:12px;flex-wrap:wrap}
@@ -470,8 +515,8 @@ section[id]{scroll-margin-top:calc(var(--nav-h) + var(--aviso-h,0px) + 22px)}
 /* ==================== CIERRE ==================== */
 .cierre{
   position:relative;z-index:1;
-  border-top:1px solid rgba(132,150,171,.18);
-  background:radial-gradient(900px 500px at 50% 0%,rgba(95,208,255,.09),transparent 64%)
+  border-top:1px solid rgba(138,144,153,.18);
+  background:radial-gradient(900px 500px at 50% 0%,rgba(225,27,34,.09),transparent 64%)
 }
 .cierre-rejilla{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,4vw,64px);align-items:start}
 .cierre h2{font-size:clamp(30px,4.6vw,62px)}
@@ -480,10 +525,10 @@ form{display:grid;gap:14px}
 label{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--acero)}
 input,textarea{
   font-family:var(--texto);font-size:15.5px;color:var(--luz);
-  background:rgba(22,36,58,.46);border:1px solid rgba(132,150,171,.22);
+  background:rgba(22,36,58,.46);border:1px solid rgba(138,144,153,.22);
   padding:14px 16px;border-radius:0;transition:border-color .3s,background .3s;
 }
-input:focus,textarea:focus{outline:0;border-color:var(--diagnos);background:rgba(24,44,70,.6)}
+input:focus,textarea:focus{outline:0;border-color:var(--rojo);background:rgba(24,44,70,.6)}
 textarea{resize:vertical;min-height:104px}
 .nota{font-size:13px;color:var(--acero);margin-top:4px}
 @media (max-width:900px){.cierre-rejilla{grid-template-columns:1fr}}
@@ -491,14 +536,14 @@ textarea{resize:vertical;min-height:104px}
 /* ==================== FOOTER ==================== */
 footer{
   position:relative;z-index:1;padding:clamp(48px,6vw,76px) var(--gut) 34px;
-  border-top:1px solid rgba(132,150,171,.16);background:rgba(6,12,21,.7);
+  border-top:1px solid rgba(138,144,153,.16);background:rgba(6,12,21,.7);
 }
 .pie-rejilla{max-width:var(--maxw);margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:clamp(24px,2.6vw,44px)}
 footer h4{font-family:var(--mono);font-variation-settings:normal;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--acero);font-weight:600;margin-bottom:16px}
 footer a{color:var(--aluminio);font-size:14.6px;display:block;padding:5px 0;transition:color .25s}
-footer a:hover{color:var(--diagnos)}
+footer a:hover{color:var(--rojo)}
 footer .lema{color:var(--aluminio);font-size:14.6px;max-width:34ch;margin-top:14px}
-.pie-base{max-width:var(--maxw);margin:clamp(34px,4vw,54px) auto 0;padding-top:24px;border-top:1px solid rgba(132,150,171,.12);display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;font-size:12.6px;color:var(--acero)}
+.pie-base{max-width:var(--maxw);margin:clamp(34px,4vw,54px) auto 0;padding-top:24px;border-top:1px solid rgba(138,144,153,.12);display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;font-size:12.6px;color:var(--acero)}
 @media (max-width:980px){.pie-rejilla{grid-template-columns:1fr 1fr 1fr}.pie-rejilla>div:first-child{grid-column:1/-1}}
 @media (max-width:640px){.pie-rejilla{grid-template-columns:1fr 1fr}}
 
@@ -524,7 +569,7 @@ footer .lema{color:var(--aluminio);font-size:14.6px;max-width:34ch;margin-top:14
 [data-anim].dentro{opacity:1;transform:none}
 
 /* accesibilidad */
-.salta{position:absolute;left:-9999px;top:0;z-index:100;background:var(--diagnos);color:#04121C;padding:12px 18px;font-weight:600}
+.salta{position:absolute;left:-9999px;top:0;z-index:100;background:var(--rojo);color:#1A0203;padding:12px 18px;font-weight:600}
 .salta:focus{left:12px;top:12px}
 
 @media (prefers-reduced-motion:reduce){
@@ -552,7 +597,7 @@ footer .lema{color:var(--aluminio);font-size:14.6px;max-width:34ch;margin-top:14
      nombres del equipo (const EQUIPO) y resenas reales de clientes.
 ======================================================================== -->
 <div class="aviso-datos" id="avisoDatos">
-  <b>Vista previa.</b> Falta la dirección exacta del taller, los nombres del equipo y las reseñas reales de clientes. Todo lo demás ya está con los datos de Tecnissan.
+  <b>Vista previa.</b> Faltan por subir las fotos (fachada, taller y equipo) y las reseñas reales de clientes. Todo lo demás ya está con los datos de Tecnissan.
 </div>
 
 <div class="ambiente" aria-hidden="true"></div>
@@ -560,7 +605,19 @@ footer .lema{color:var(--aluminio);font-size:14.6px;max-width:34ch;margin-top:14
 <!-- ============================== NAV ============================== -->
 <nav class="nav" id="nav">
   <a class="marca" href="#" aria-label="Tecnissan, inicio">
-    <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#0F1B2B"/><path d="M8 23V9l8 9V9m4 0v14" stroke="#5FD0FF" stroke-width="2.4" fill="none" stroke-linecap="round"/></svg>
+    <svg viewBox="0 0 40 40" aria-hidden="true" class="mark">
+      <defs>
+        <linearGradient id="cromo" x1="0" y1="0" x2="0.3" y2="1">
+          <stop offset="0" stop-color="#F4F6F8"/><stop offset="0.34" stop-color="#9BA3AC"/>
+          <stop offset="0.52" stop-color="#E8ECEF"/><stop offset="0.74" stop-color="#6E757D"/>
+          <stop offset="1" stop-color="#C3C9D0"/>
+        </linearGradient>
+      </defs>
+      <circle cx="20" cy="20" r="18.2" fill="none" stroke="url(#cromo)" stroke-width="2.6"/>
+      <circle cx="20" cy="20" r="14.4" fill="none" stroke="#E11B22" stroke-width="1" opacity=".55"/>
+      <path d="M10.6 13.4h12.2M16.7 13.4v13.2" fill="none" stroke="url(#cromo)" stroke-width="2.6" stroke-linecap="square"/>
+      <path d="M21.6 26.6V13.4l7.8 13.2V13.4" fill="none" stroke="url(#cromo)" stroke-width="2.6" stroke-linejoin="miter" stroke-linecap="square"/>
+    </svg>
     <span>Tec<b>nissan</b></span>
   </a>
   <button class="hamburguesa" id="hamburguesa" aria-label="Abrir menú" aria-expanded="false">
@@ -585,7 +642,7 @@ footer .lema{color:var(--aluminio);font-size:14.6px;max-width:34ch;margin-top:14
 <section class="hero" id="hero" aria-label="Tecnissan, taller especializado en Nissan">
   <div class="hero-escena">
     <div class="hero-lienzo">
-      <img src="assets/hero-poster.svg" alt="Bahía de servicio de Tecnissan en penumbra, con luz fría entrando de lado" fetchpriority="high">
+      <div class="hero-foto" role="img" aria-label="Nave de servicio de Tecnissan con más de veinte vehículos en mantenimiento sobre elevadores rojos"></div>
       <video id="heroVideo" muted playsinline preload="none" disablepictureinpicture aria-hidden="true"></video>
     </div>
     <div class="hero-velo" aria-hidden="true"></div>
@@ -756,23 +813,23 @@ footer .lema{color:var(--aluminio);font-size:14.6px;max-width:34ch;margin-top:14
         <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
           <defs>
             <radialGradient id="cvtGlow" cx="0.5" cy="0.45" r="0.6">
-              <stop offset="0" stop-color="#5FD0FF" stop-opacity="0.2"/>
-              <stop offset="1" stop-color="#5FD0FF" stop-opacity="0"/>
+              <stop offset="0" stop-color="#E11B22" stop-opacity="0.2"/>
+              <stop offset="1" stop-color="#E11B22" stop-opacity="0"/>
             </radialGradient>
           </defs>
-          <rect width="400" height="300" fill="#0A1320"/>
+          <rect width="400" height="300" fill="#0C0D10"/>
           <rect width="400" height="300" fill="url(#cvtGlow)"/>
-          <g stroke="#5FD0FF" stroke-opacity="0.12" stroke-width="1">
+          <g stroke="#E11B22" stroke-opacity="0.12" stroke-width="1">
             <path d="M0 60H400M0 120H400M0 180H400M0 240H400"/>
             <path d="M80 0V300M160 0V300M240 0V300M320 0V300"/>
           </g>
-          <circle cx="150" cy="130" r="54" fill="none" stroke="#8496AB" stroke-opacity=".5" stroke-width="2"/>
-          <circle cx="150" cy="130" r="34" fill="none" stroke="#5FD0FF" stroke-opacity=".55" stroke-width="2"/>
-          <circle cx="150" cy="130" r="12" fill="#16243A" stroke="#5FD0FF" stroke-opacity=".7"/>
-          <circle cx="268" cy="192" r="38" fill="none" stroke="#8496AB" stroke-opacity=".45" stroke-width="2"/>
-          <circle cx="268" cy="192" r="21" fill="none" stroke="#5FD0FF" stroke-opacity=".45" stroke-width="2"/>
-          <path d="M150 184 v20 a14 14 0 0 0 14 14 h66" fill="none" stroke="#5FD0FF" stroke-opacity=".6" stroke-width="2" stroke-dasharray="5 6"/>
-          <path d="M96 130 h-46M204 130 h44" stroke="#8496AB" stroke-opacity=".4" stroke-width="2"/>
+          <circle cx="150" cy="130" r="54" fill="none" stroke="#8A9099" stroke-opacity=".5" stroke-width="2"/>
+          <circle cx="150" cy="130" r="34" fill="none" stroke="#E11B22" stroke-opacity=".55" stroke-width="2"/>
+          <circle cx="150" cy="130" r="12" fill="#1E2126" stroke="#E11B22" stroke-opacity=".7"/>
+          <circle cx="268" cy="192" r="38" fill="none" stroke="#8A9099" stroke-opacity=".45" stroke-width="2"/>
+          <circle cx="268" cy="192" r="21" fill="none" stroke="#E11B22" stroke-opacity=".45" stroke-width="2"/>
+          <path d="M150 184 v20 a14 14 0 0 0 14 14 h66" fill="none" stroke="#E11B22" stroke-opacity=".6" stroke-width="2" stroke-dasharray="5 6"/>
+          <path d="M96 130 h-46M204 130 h44" stroke="#8A9099" stroke-opacity=".4" stroke-width="2"/>
         </svg>
       </div>
     </div>
@@ -843,6 +900,11 @@ footer .lema{color:var(--aluminio);font-size:14.6px;max-width:34ch;margin-top:14
     <span class="etiqueta" data-anim>El equipo</span>
     <h2 data-anim>Las manos que van a tocar su carro.</h2>
     <p class="plomo" data-anim>Nadie aquí aprendió con su Nissan. Llevamos diez años en la misma marca, y esa es la diferencia entre cambiar piezas y arreglar el problema.</p>
+
+    <figure class="foto-ancha" data-anim>
+      <div class="foto-marco foto-equipo" role="img" aria-label="El equipo completo de Tecnissan en la nave de servicio, frente a un Nissan sobre el elevador"></div>
+      <figcaption>El equipo de Tecnissan, completo. Estas son las personas que reciben su carro.</figcaption>
+    </figure>
 
     <div class="trio" id="equipoTrio">
       <article class="tarjeta">
@@ -930,8 +992,12 @@ footer .lema{color:var(--aluminio);font-size:14.6px;max-width:34ch;margin-top:14
         </div>
       </div>
 
-      <div class="mapa" data-anim>
-        <iframe id="mapaIframe" title="Mapa con la ubicación de Tecnissan" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+      <div data-anim>
+        <div class="foto-marco foto-fachada" role="img" aria-label="Fachada de Tecnissan en la Calle 70G, con el aviso rojo y blanco sobre la entrada"></div>
+        <p class="pie-foto">Busque este aviso. La entrada del taller es el portón blanco de la izquierda.</p>
+        <div class="mapa" style="margin-top:18px">
+          <iframe id="mapaIframe" title="Mapa con la ubicación de Tecnissan" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
+        </div>
       </div>
     </div>
   </div>
@@ -978,7 +1044,19 @@ footer .lema{color:var(--aluminio);font-size:14.6px;max-width:34ch;margin-top:14
   <div class="pie-rejilla">
     <div>
       <a class="marca" href="#" aria-label="Tecnissan, inicio">
-        <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="7" fill="#0F1B2B"/><path d="M8 23V9l8 9V9m4 0v14" stroke="#5FD0FF" stroke-width="2.4" fill="none" stroke-linecap="round"/></svg>
+        <svg viewBox="0 0 40 40" aria-hidden="true" class="mark">
+      <defs>
+        <linearGradient id="cromo" x1="0" y1="0" x2="0.3" y2="1">
+          <stop offset="0" stop-color="#F4F6F8"/><stop offset="0.34" stop-color="#9BA3AC"/>
+          <stop offset="0.52" stop-color="#E8ECEF"/><stop offset="0.74" stop-color="#6E757D"/>
+          <stop offset="1" stop-color="#C3C9D0"/>
+        </linearGradient>
+      </defs>
+      <circle cx="20" cy="20" r="18.2" fill="none" stroke="url(#cromo)" stroke-width="2.6"/>
+      <circle cx="20" cy="20" r="14.4" fill="none" stroke="#E11B22" stroke-width="1" opacity=".55"/>
+      <path d="M10.6 13.4h12.2M16.7 13.4v13.2" fill="none" stroke="url(#cromo)" stroke-width="2.6" stroke-linecap="square"/>
+      <path d="M21.6 26.6V13.4l7.8 13.2V13.4" fill="none" stroke="url(#cromo)" stroke-width="2.6" stroke-linejoin="miter" stroke-linecap="square"/>
+    </svg>
         <span>Tec<b>nissan</b></span>
       </a>
       <p class="lema">Taller especializado en vehículos Nissan. Diagnóstico primero, presupuesto antes, y le explicamos todo.</p>
@@ -1025,9 +1103,9 @@ footer .lema{color:var(--aluminio);font-size:14.6px;max-width:34ch;margin-top:14
 const TECNISSAN = {
   wa: "573112710738",
   waVisible: "+57 311 271 0738",
-  direccion: "",                       /* dirección exacta, pendiente */
+  direccion: "Calle 70G # 69B-70",
   ciudad: "Bogotá, Colombia",
-  mapaConsulta: "Tecnissan, Bogotá, Colombia",
+  mapaConsulta: "Tecnissan, Calle 70G 69B-70, Bogotá, Colombia",
   email: "",                           /* correo del formulario, pendiente */
   facebook: "https://www.facebook.com/Tecnissan/",
   instagram: "https://www.instagram.com/tecnissan_sas",
@@ -1415,7 +1493,7 @@ $("#formContacto").addEventListener("submit", e=>{
       if(m.x < -8) m.x = ancho+8; else if(m.x > ancho+8) m.x = -8;
       ctx.beginPath();
       ctx.arc(m.x, m.y, m.r, 0, 6.2832);
-      ctx.fillStyle = `rgba(207,238,255,${m.a})`;
+      ctx.fillStyle = `rgba(230,232,236,${m.a})`;
       ctx.fill();
     }
     if(corriendo) raf = requestAnimationFrame(pinta);
