@@ -144,8 +144,10 @@ section[id]{scroll-margin-top:calc(var(--nav-h) + var(--aviso-h,0px) + 22px)}
   text-align:center;
 }
 .btn svg{width:18px;height:18px;flex:0 0 auto}
-.btn-wa{background:var(--wa);color:#04240F;box-shadow:0 8px 30px -12px rgba(37,211,102,.6)}
-.btn-wa:hover{background:var(--wa-hover);transform:translateY(-2px);box-shadow:0 14px 38px -12px rgba(37,211,102,.7)}
+/* Los llamados a la acción van en el rojo de la marca.
+   El botón flotante se queda verde, porque ahí el verde es la señal de WhatsApp. */
+.btn-wa{background:var(--rojo);color:#FFF3F3;box-shadow:0 8px 30px -12px rgba(225,27,34,.65)}
+.btn-wa:hover{background:#F5232B;transform:translateY(-2px);box-shadow:0 14px 38px -12px rgba(225,27,34,.8)}
 .btn-linea{border-color:rgba(138,144,153,.34);color:var(--luz);background:rgba(22,36,58,.35)}
 .btn-linea:hover{border-color:var(--rojo);color:var(--rojo);transform:translateY(-2px)}
 .btn:focus-visible{outline:2px solid var(--rojo);outline-offset:3px}
@@ -367,13 +369,13 @@ section[id]{scroll-margin-top:calc(var(--nav-h) + var(--aviso-h,0px) + 22px)}
 .destacado h3{font-size:clamp(24px,2.9vw,40px);text-shadow:0 0 46px rgba(225,27,34,.28)}
 .destacado p{margin-top:16px;color:var(--aluminio)}
 .destacado .acciones{margin-top:26px}
-.foto-sala{
-  aspect-ratio:4/3;
-  background-image:url("assets/sala.jpg"),
+.foto-destacado{
+  aspect-ratio:16/9;
+  background-image:url("assets/destacado.jpg"),
     linear-gradient(150deg,#22252B,#0E1013);
-  background-position:center 54%;
+  background-position:center 52%;
 }
-@media (max-width:900px){.destacado{grid-template-columns:1fr}.foto-sala{order:-1}}
+@media (max-width:900px){.destacado{grid-template-columns:1fr}.foto-destacado{order:-1}}
 
 /* ==================== SÍNTOMAS (momento interactivo) ==================== */
 .sintomas{
@@ -485,7 +487,7 @@ section[id]{scroll-margin-top:calc(var(--nav-h) + var(--aviso-h,0px) + 22px)}
   aspect-ratio:3/2;
   background-image:url("assets/equipo.jpg"),
     linear-gradient(135deg,#1B1E23,#0E1013 60%,#17191D);
-  background-position:center 58%;
+  background-position:center;
 }
 .foto-fachada{
   aspect-ratio:16/9;
@@ -498,7 +500,7 @@ section[id]{scroll-margin-top:calc(var(--nav-h) + var(--aviso-h,0px) + 22px)}
   margin-top:13px;font-size:13.5px;color:var(--acero);
   font-family:var(--mono);letter-spacing:.02em;
 }
-@media (max-width:700px){.foto-equipo{aspect-ratio:4/5;background-position:center 62%}}
+@media (max-width:700px){.foto-equipo{aspect-ratio:4/5;background-position:center}}
 
 /* ==================== MAPA ==================== */
 .llegar{display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(26px,3.4vw,56px);margin-top:clamp(40px,5vw,62px);align-items:start}
@@ -813,7 +815,7 @@ footer .lema{color:var(--aluminio);font-size:14.6px;max-width:34ch;margin-top:14
           </a>
         </div>
       </div>
-      <div class="foto-marco foto-sala" role="img" aria-label="Sala de espera de Tecnissan, con sillas rojas y negras y luz natural"></div>
+      <div class="foto-marco foto-destacado" role="img" aria-label="Vehículo sobre el elevador en una bahía de servicio"></div>
     </div>
   </div>
 </section>
