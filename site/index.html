@@ -4,7 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Tecnissan | Taller especializado en Nissan</title>
-<meta name="description" content="Taller especializado solo en Nissan en Bogotá. 10 años de experiencia, diagnóstico con escáner y presupuesto antes de tocar el carro. Revisión periódica, caja CVT, motor, frenos y aire acondicionado. Escríbanos por WhatsApp.">
+<meta name="description" content="Taller especializado solo en Nissan en Bogotá. 10 años de experiencia, diagnóstico con escáner y presupuesto antes de tocar el carro. Revisión periódica, motor, frenos, sistema eléctrico y alineación. Escríbanos por WhatsApp.">
 <meta name="theme-color" content="#0C0D10">
 <link rel="canonical" href="https://tecnissan.com/">
 
@@ -38,10 +38,10 @@
   "makesOffer":[
     {"@type":"Offer","itemOffered":{"@type":"Service","name":"Revisión periódica preventiva y correctiva"}},
     {"@type":"Offer","itemOffered":{"@type":"Service","name":"Diagnóstico electrónico Nissan"}},
-    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Servicio y reparación de caja CVT"}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Sistema eléctrico"}},
     {"@type":"Offer","itemOffered":{"@type":"Service","name":"Motor y distribución"}},
     {"@type":"Offer","itemOffered":{"@type":"Service","name":"Frenos y suspensión"}},
-    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Aire acondicionado"}}
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Alineación y balanceo"}}
   ]
 }
 </script>
@@ -353,8 +353,8 @@ section[id]{scroll-margin-top:calc(var(--nav-h) + var(--aviso-h,0px) + 22px)}
 @media (max-width:980px){.servicios-rejilla{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:620px){.servicios-rejilla{grid-template-columns:1fr}}
 
-/* bloque CVT */
-.cvt{
+/* bloque destacado */
+.destacado{
   margin-top:clamp(40px,5vw,66px);
   display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(26px,3.4vw,54px);align-items:center;
   padding:clamp(30px,4vw,56px);
@@ -364,12 +364,16 @@ section[id]{scroll-margin-top:calc(var(--nav-h) + var(--aviso-h,0px) + 22px)}
     linear-gradient(150deg,rgba(19,33,53,.9),rgba(11,20,33,.72));
   clip-path:polygon(0 0,calc(100% - 22px) 0,100% 22px,100% 100%,22px 100%,0 calc(100% - 22px));
 }
-.cvt h3{font-size:clamp(24px,2.9vw,40px);text-shadow:0 0 46px rgba(225,27,34,.28)}
-.cvt p{margin-top:16px;color:var(--aluminio)}
-.cvt .acciones{margin-top:26px}
-.cvt-visual{position:relative;aspect-ratio:4/3;border:1px solid rgba(138,144,153,.2);background:#0C0D10;overflow:hidden}
-.cvt-visual svg{position:absolute;inset:0;width:100%;height:100%}
-@media (max-width:900px){.cvt{grid-template-columns:1fr}.cvt-visual{order:-1}}
+.destacado h3{font-size:clamp(24px,2.9vw,40px);text-shadow:0 0 46px rgba(225,27,34,.28)}
+.destacado p{margin-top:16px;color:var(--aluminio)}
+.destacado .acciones{margin-top:26px}
+.foto-sala{
+  aspect-ratio:4/3;
+  background-image:url("assets/sala.jpg"),
+    linear-gradient(150deg,#22252B,#0E1013);
+  background-position:center 54%;
+}
+@media (max-width:900px){.destacado{grid-template-columns:1fr}.foto-sala{order:-1}}
 
 /* ==================== SÍNTOMAS (momento interactivo) ==================== */
 .sintomas{
@@ -478,10 +482,10 @@ section[id]{scroll-margin-top:calc(var(--nav-h) + var(--aviso-h,0px) + 22px)}
   background:linear-gradient(180deg,transparent 52%,rgba(6,7,9,.55) 100%);
 }
 .foto-equipo{
-  aspect-ratio:16/10;
+  aspect-ratio:3/2;
   background-image:url("assets/equipo.jpg"),
     linear-gradient(135deg,#1B1E23,#0E1013 60%,#17191D);
-  background-position:center 34%;
+  background-position:center 58%;
 }
 .foto-fachada{
   aspect-ratio:16/9;
@@ -494,10 +498,10 @@ section[id]{scroll-margin-top:calc(var(--nav-h) + var(--aviso-h,0px) + 22px)}
   margin-top:13px;font-size:13.5px;color:var(--acero);
   font-family:var(--mono);letter-spacing:.02em;
 }
-@media (max-width:700px){.foto-equipo{aspect-ratio:4/5;background-position:center 30%}}
+@media (max-width:700px){.foto-equipo{aspect-ratio:4/5;background-position:center 62%}}
 
 /* ==================== MAPA ==================== */
-.llegar{display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(26px,3.4vw,56px);margin-top:clamp(40px,5vw,62px);align-items:center}
+.llegar{display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(26px,3.4vw,56px);margin-top:clamp(40px,5vw,62px);align-items:start}
 .mapa{
   position:relative;aspect-ratio:16/11;border:1px solid rgba(138,144,153,.22);
   background:#111316;overflow:hidden;
@@ -597,7 +601,7 @@ footer .lema{color:var(--aluminio);font-size:14.6px;max-width:34ch;margin-top:14
      nombres del equipo (const EQUIPO) y resenas reales de clientes.
 ======================================================================== -->
 <div class="aviso-datos" id="avisoDatos">
-  <b>Vista previa.</b> Faltan por subir las fotos (fachada, taller y equipo) y las reseñas reales de clientes. Todo lo demás ya está con los datos de Tecnissan.
+  <b>Vista previa.</b> Solo faltan las reseñas reales de clientes. Todo lo demás ya está con los datos y las fotos de Tecnissan.
 </div>
 
 <div class="ambiente" aria-hidden="true"></div>
@@ -727,14 +731,14 @@ footer .lema{color:var(--aluminio);font-size:14.6px;max-width:34ch;margin-top:14
   <div class="envoltura">
     <span class="etiqueta" data-anim>Por qué un taller solo de Nissan</span>
     <h2 data-anim>El taller de la esquina sabe de carros. Nosotros sabemos de su carro.</h2>
-    <p class="plomo" data-anim>Un Nissan no se arregla igual que los demás. La caja CVT, la electrónica y los intervalos son suyos, y el que no los conoce empieza a cambiar piezas para ver si pega.</p>
+    <p class="plomo" data-anim>Un Nissan no se arregla igual que los demás. Su electrónica, sus tiempos y sus fallas típicas son suyos, y el que no los conoce empieza a cambiar piezas para ver si pega.</p>
 
     <div class="trio">
       <article class="tarjeta">
         <svg class="icono" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 4v3M12 17v3M4 12h3M17 12h3"/><circle cx="12" cy="12" r="2.6"/></svg>
         <span class="num">01</span>
-        <h3>Conocemos la caja CVT.</h3>
-        <p>Dónde suena, por qué se calienta y qué se salva a tiempo.</p>
+        <h3>Conocemos sus tiempos.</h3>
+        <p>Sabemos qué pide su Nissan a cada kilometraje, y qué no pide todavía.</p>
       </article>
       <article class="tarjeta">
         <svg class="icono" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h3l2-5 3 10 2.5-7 2 4h5.5"/></svg>
@@ -770,9 +774,9 @@ footer .lema{color:var(--aluminio);font-size:14.6px;max-width:34ch;margin-top:14
         <p>Conectamos el escáner, leemos los códigos y le explicamos qué encontró.</p>
       </article>
       <article class="servicio">
-        <svg class="icono" viewBox="0 0 24 24" aria-hidden="true"><circle cx="8" cy="8" r="4"/><circle cx="16.5" cy="16" r="3.2"/><path d="M8 12v4.5a2 2 0 0 0 2 2h3.2"/></svg>
-        <h3>Caja CVT</h3>
-        <p>Cambio de aceite en su kilometraje, revisión de temperatura y reparación cuando toca.</p>
+        <svg class="icono" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 5 13h6l-1 9 8-11h-6z"/></svg>
+        <h3>Sistema eléctrico</h3>
+        <p>Batería, alternador, arranque y esas fallas raras que aparecen y desaparecen solas.</p>
       </article>
       <article class="servicio">
         <svg class="icono" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 15V9a2 2 0 0 1 2-2h3l2-2h3l1 2h2a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-2l-1 2h-3l-2-2H7a2 2 0 0 1-2-2z"/><path d="M9 11v3"/></svg>
@@ -785,9 +789,9 @@ footer .lema{color:var(--aluminio);font-size:14.6px;max-width:34ch;margin-top:14
         <p>Pastillas, discos, amortiguadores y la alineación que se siente al volante.</p>
       </article>
       <article class="servicio">
-        <svg class="icono" viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3v18M12 8l4-3M12 8 8 5M12 16l4 3M12 16l-4 3M4 7.5l16 9M4 16.5l16-9"/></svg>
-        <h3>Aire acondicionado</h3>
-        <p>Fugas, compresor y carga de gas, para que enfríe como el primer día.</p>
+        <svg class="icono" viewBox="0 0 24 24" aria-hidden="true"><circle cx="6.5" cy="12" r="3.4"/><circle cx="17.5" cy="12" r="3.4"/><path d="M6.5 4.6v3M17.5 4.6v3M6.5 16.4v3M17.5 16.4v3M2 12h1M21 12h1"/></svg>
+        <h3>Alineación y balanceo</h3>
+        <p>Si el carro se va para un lado o el timón vibra, se siente al primer kilómetro después.</p>
       </article>
       <article class="servicio">
         <svg class="icono" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.4 2.1"/><path d="M12 3v1.6M21 12h-1.6M12 21v-1.6M3 12h1.6"/></svg>
@@ -796,42 +800,20 @@ footer .lema{color:var(--aluminio);font-size:14.6px;max-width:34ch;margin-top:14
       </article>
     </div>
 
-    <div class="cvt" data-anim>
+    <div class="destacado" data-anim>
       <div>
-        <span class="etiqueta">El dato que nadie le cuenta</span>
-        <h3 style="margin-top:18px">La mitad de las cajas CVT dañadas se podían salvar.</h3>
-        <p>La CVT pide cambio de aceite cada 40.000 a 50.000 kilómetros. Casi nadie lo hace, y a los 100.000 empieza el ruido y el recalentamiento.</p>
-        <p>Si su Nissan ya pasó de ese kilometraje y nunca le hicieron ese servicio, esto es lo primero que hay que revisar.</p>
+        <span class="etiqueta">Lo que más nos piden</span>
+        <h3 style="margin-top:18px">La revisión de hoy es la reparación que no paga mañana.</h3>
+        <p>Casi toda reparación cara empezó como un detalle barato que nadie miró a tiempo. Una revisión periódica lo encuentra mientras todavía cuesta poco.</p>
+        <p>Le entregamos el estado real del carro: qué está bien, qué hay que arreglar ya y qué puede esperar al otro mes. Usted decide con eso en la mano.</p>
         <div class="acciones">
-          <a class="btn btn-wa" data-wa="Hola Tecnissan, quiero preguntar por el servicio de la caja CVT de mi Nissan.">
+          <a class="btn btn-wa" data-wa="Hola Tecnissan, quiero agendar la revisión periódica de mi Nissan.">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.4A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3.2.9.9-3.1-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
-            Preguntar por la CVT
+            Agendar mi revisión
           </a>
         </div>
       </div>
-      <div class="cvt-visual" aria-hidden="true">
-        <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice">
-          <defs>
-            <radialGradient id="cvtGlow" cx="0.5" cy="0.45" r="0.6">
-              <stop offset="0" stop-color="#E11B22" stop-opacity="0.2"/>
-              <stop offset="1" stop-color="#E11B22" stop-opacity="0"/>
-            </radialGradient>
-          </defs>
-          <rect width="400" height="300" fill="#0C0D10"/>
-          <rect width="400" height="300" fill="url(#cvtGlow)"/>
-          <g stroke="#E11B22" stroke-opacity="0.12" stroke-width="1">
-            <path d="M0 60H400M0 120H400M0 180H400M0 240H400"/>
-            <path d="M80 0V300M160 0V300M240 0V300M320 0V300"/>
-          </g>
-          <circle cx="150" cy="130" r="54" fill="none" stroke="#8A9099" stroke-opacity=".5" stroke-width="2"/>
-          <circle cx="150" cy="130" r="34" fill="none" stroke="#E11B22" stroke-opacity=".55" stroke-width="2"/>
-          <circle cx="150" cy="130" r="12" fill="#1E2126" stroke="#E11B22" stroke-opacity=".7"/>
-          <circle cx="268" cy="192" r="38" fill="none" stroke="#8A9099" stroke-opacity=".45" stroke-width="2"/>
-          <circle cx="268" cy="192" r="21" fill="none" stroke="#E11B22" stroke-opacity=".45" stroke-width="2"/>
-          <path d="M150 184 v20 a14 14 0 0 0 14 14 h66" fill="none" stroke="#E11B22" stroke-opacity=".6" stroke-width="2" stroke-dasharray="5 6"/>
-          <path d="M96 130 h-46M204 130 h44" stroke="#8A9099" stroke-opacity=".4" stroke-width="2"/>
-        </svg>
-      </div>
+      <div class="foto-marco foto-sala" role="img" aria-label="Sala de espera de Tecnissan, con sillas rojas y negras y luz natural"></div>
     </div>
   </div>
 </section>
@@ -1065,10 +1047,10 @@ footer .lema{color:var(--aluminio);font-size:14.6px;max-width:34ch;margin-top:14
       <h4>Servicios</h4>
       <a href="#servicios">Revisión periódica</a>
       <a href="#servicios">Diagnóstico electrónico</a>
-      <a href="#servicios">Caja CVT</a>
+      <a href="#servicios">Sistema eléctrico</a>
       <a href="#servicios">Motor y distribución</a>
       <a href="#servicios">Frenos y suspensión</a>
-      <a href="#servicios">Aire acondicionado</a>
+      <a href="#servicios">Alineación y balanceo</a>
     </div>
     <div>
       <h4>Horario</h4>
@@ -1238,11 +1220,11 @@ $$(".costura").forEach(c=>{
 
 /* -------------------- síntomas -------------------- */
 const SINTOMAS = [
-  { t:"La caja suena o se calienta",
-    r:"Suele ser la CVT pidiendo aceite, y a veces el enfriador tapado. Medimos temperatura, revisamos el estado del aceite y le decimos si se salva con servicio o si ya necesita reparación.",
-    wa:"Hola Tecnissan, a mi Nissan le suena la caja y se calienta. ¿Me pueden revisar la CVT?" },
+  { t:"Suena o vibra al frenar",
+    r:"Casi siempre son pastillas gastadas o discos desnivelados. Medimos el espesor de las pastillas y el estado de los discos, y le decimos cuánto le queda de vida a cada cosa.",
+    wa:"Hola Tecnissan, mi Nissan suena y vibra al frenar. ¿Me revisan los frenos?" },
   { t:"Tirones al acelerar",
-    r:"Puede ser la CVT, las bujías o el sensor de flujo de aire. El escáner lo separa en minutos, sin desarmar nada.",
+    r:"Puede ser bujías, inyectores o el sensor de flujo de aire. El escáner lo separa en minutos, sin desarmar nada.",
     wa:"Hola Tecnissan, mi Nissan da tirones al acelerar. ¿Me hacen el diagnóstico?" },
   { t:"Se encendió un testigo en el tablero",
     r:"Leemos el código y le decimos qué significa antes de tocar una sola pieza. Muchas veces es un sensor barato, no una reparación grande.",
@@ -1250,9 +1232,9 @@ const SINTOMAS = [
   { t:"Está gastando más gasolina",
     r:"Revisamos inyectores, bujías, filtro y sensor de oxígeno. Casi siempre es uno de esos cuatro.",
     wa:"Hola Tecnissan, mi Nissan está gastando más gasolina de lo normal. ¿Qué me recomiendan revisar?" },
-  { t:"El aire ya no enfría",
-    r:"Buscamos la fuga con equipo, medimos presiones y revisamos el compresor antes de cargar gas. Cargar sin buscar la fuga solo aplaza el problema.",
-    wa:"Hola Tecnissan, el aire acondicionado de mi Nissan ya no enfría. ¿Me lo revisan?" },
+  { t:"Se va para un lado o vibra el timón",
+    r:"Revisamos alineación, balanceo y el estado de la suspensión. Es de las fallas que más se sienten al volante y de las más baratas de corregir a tiempo.",
+    wa:"Hola Tecnissan, mi Nissan se va para un lado y vibra el timón. ¿Me revisan la alineación?" },
   { t:"Le toca el mantenimiento",
     r:"Le decimos exactamente qué pide su Nissan en su kilometraje, y qué no pide todavía. Así no paga por lo que no necesita.",
     wa:"Hola Tecnissan, quiero el mantenimiento de mi Nissan. ¿Qué me toca en mi kilometraje?" }
