@@ -357,7 +357,7 @@ body{padding-top:calc(var(--nav-h) + var(--aviso-h,0px))}
 .paso .globo{
   width:52px;height:52px;display:grid;place-items:center;position:relative;z-index:2;
   background:var(--blanco);border:2px solid var(--linea);border-radius:50%;
-  font-family:var(--mono);font-size:14px;font-weight:600;color:var(--acero);
+  font-family:var(--mono);font-size:17px;font-weight:600;color:var(--acero);
   transition:.45s var(--ease);
 }
 .seccion.hueso .paso .globo{background:var(--hueso)}
