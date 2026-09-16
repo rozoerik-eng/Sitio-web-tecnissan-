@@ -124,7 +124,7 @@ section[id]{scroll-margin-top:calc(var(--nav-h) + var(--aviso-h,0px) + 18px)}
 body{padding-top:calc(var(--nav-h) + var(--aviso-h,0px))}
 
 .marca{display:flex;align-items:center;gap:12px}
-.marca svg{width:38px;height:38px;flex:0 0 auto}
+.marca img{width:auto;height:40px;flex:0 0 auto}
 .marca-txt{display:flex;flex-direction:column;line-height:1}
 .marca-nombre{
   font-family:var(--display);font-variation-settings:"wdth" 118;font-weight:800;
