@@ -164,11 +164,30 @@ body{padding-top:calc(var(--nav-h) + var(--aviso-h,0px))}
 }
 
 /* ------------------------- hero ------------------------- */
-.hero{padding:clamp(40px,5.5vw,80px) var(--gut) clamp(52px,6vw,96px);background:var(--blanco);overflow:hidden}
-.hero-rejilla{
-  max-width:var(--maxw);margin:0 auto;
-  display:grid;grid-template-columns:1.02fr .98fr;gap:clamp(28px,4vw,68px);align-items:center;
+/* La foto del taller va de fondo. Trae su propio degradado a blanco
+   por la izquierda, y encima le ponemos un velo para que el texto
+   se lea en cualquier ancho de pantalla. */
+.hero{
+  position:relative;overflow:hidden;
+  display:flex;align-items:center;
+  min-height:min(72vh,620px);
+  padding:clamp(44px,5.5vw,88px) var(--gut) clamp(52px,6vw,96px);
+  background-color:var(--blanco);
+  background-image:url("fondo.webp");
+  background-size:cover;
+  background-position:right center;
+  background-repeat:no-repeat;
 }
+.hero::before{
+  content:"";position:absolute;inset:0;pointer-events:none;
+  background:linear-gradient(90deg,
+    #fff 0%, rgba(255,255,255,.97) 34%, rgba(255,255,255,.72) 52%, rgba(255,255,255,0) 74%);
+}
+.hero-rejilla{
+  position:relative;z-index:1;
+  max-width:var(--maxw);margin:0 auto;width:100%;
+}
+.hero-rejilla > div{max-width:min(580px,54%)}
 .hero h1{margin:20px 0 0}
 .hero h1 em{font-style:normal;color:var(--rojo);display:block}
 .hero .plomo{margin-top:22px}
@@ -190,31 +209,32 @@ body{padding-top:calc(var(--nav-h) + var(--aviso-h,0px))}
   .insignia b{font-size:14px}
 }
 
-/* foto del hero con el corte diagonal rojo de la marca */
-.hero-foto{position:relative;aspect-ratio:4/3.1}
-.hero-foto::before{
-  content:"";position:absolute;left:-4%;top:-5%;width:42%;height:64%;
-  background:var(--rojo);
-  clip-path:polygon(38% 0,100% 0,62% 100%,0 100%);
-  z-index:0;
+/* debajo de 1000px no queda ancho para poner el texto al lado de la foto:
+   la foto pasa a una franja abajo. La imagen es 16:9, asi que a ancho
+   completo la franja mide 56.3vw; se topa en 430px para que en tableta
+   no se coma la pantalla. */
+@media (max-width:1000px){
+  .hero{
+    background-position:center bottom;
+    background-size:100% auto;
+    align-items:flex-start;
+    min-height:auto;
+    padding-bottom:min(calc(56.3vw + 10px), 430px);
+  }
+  /* el velo se mide desde abajo: deja limpia la franja de la foto y
+     sube a blanco justo donde empieza el texto */
+  .hero::before{
+    background:linear-gradient(to top,
+      rgba(255,255,255,0) 0,
+      rgba(255,255,255,0) min(40vw,300px),
+      #fff min(56vw,420px),
+      #fff 100%);
+  }
+  .hero-rejilla > div{max-width:100%}
 }
-.hero-foto .marco{
-  position:absolute;inset:0;z-index:1;margin:6% 0 0 9%;
-  background-size:cover;background-position:center 58%;background-repeat:no-repeat;
-  background-color:var(--negro-2);
-  clip-path:polygon(0 0,calc(100% - 26px) 0,100% 26px,100% 100%,26px 100%,0 calc(100% - 26px));
-}
-.hero-pie{
-  position:absolute;right:0;bottom:-34px;z-index:2;text-align:right;
-  font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;
-  text-transform:uppercase;color:var(--acero);line-height:1.7;
-}
-@media (max-width:920px){
-  .hero-rejilla{grid-template-columns:1fr}
-  .hero-foto{aspect-ratio:4/3;order:-1;margin-bottom:56px}
-  /* se queda absoluto: el marco flota, así que en flujo normal
-     el pie se subiría hasta arriba de la foto */
-  .hero-pie{left:9%;right:0;bottom:-42px;text-align:left}
+/* en celular basta la version liviana de la foto */
+@media (max-width:760px){
+  .hero{background-image:url("fondo-movil.webp")}
 }
 
 /* ------------------------- tarjetas ------------------------- */
