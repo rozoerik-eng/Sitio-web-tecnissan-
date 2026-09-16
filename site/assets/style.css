@@ -343,7 +343,7 @@ body{padding-top:calc(var(--nav-h) + var(--aviso-h,0px))}
 .f-taller{background-image:url("taller.jpg")}
 .f-fachada{background-image:url("fachada.jpg");aspect-ratio:16/9}
 .f-equipo{background-image:url("equipo.jpg");aspect-ratio:3/2}
-.f-nave{background-image:url("nave.jpg");aspect-ratio:4/3;background-position:center 58%}
+.f-nave{background-image:url("nave.jpg");aspect-ratio:4/3;background-position:center}
 @media (max-width:700px){.f-equipo{aspect-ratio:4/5}}
 
 .galeria{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,1.4vw,18px);margin-top:clamp(28px,3.4vw,44px)}
