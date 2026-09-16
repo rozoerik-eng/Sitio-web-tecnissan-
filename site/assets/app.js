@@ -145,10 +145,10 @@ const SINTOMAS = [
     r: "Puede ser bujías, inyectores o el sensor de flujo de aire. El escáner lo separa en minutos, sin desarmar nada.",
     wa: "Hola Tecnissan, mi Nissan da tirones al acelerar. ¿Me hacen el diagnóstico?" },
   { t: "Se encendió un testigo en el tablero",
-    r: "Leemos el código y le decimos qué significa antes de tocar una sola pieza. Muchas veces es un sensor barato, no una reparación grande.",
+    r: "Leemos el código y te decimos qué significa antes de tocar una sola pieza. Muchas veces es un sensor barato, no una reparación grande.",
     wa: "Hola Tecnissan, se me encendió un testigo en el tablero del Nissan. ¿Me leen el código?" },
   { t: "Suena o vibra al frenar",
-    r: "Casi siempre son pastillas gastadas o discos desnivelados. Medimos el espesor de las pastillas y el estado de los discos, y le decimos cuánto le queda de vida a cada cosa.",
+    r: "Casi siempre son pastillas gastadas o discos desnivelados. Medimos el espesor de las pastillas y el estado de los discos, y te decimos cuánto le queda de vida a cada cosa.",
     wa: "Hola Tecnissan, mi Nissan suena y vibra al frenar. ¿Me revisan los frenos?" },
   { t: "Está gastando más gasolina",
     r: "Revisamos inyectores, bujías, filtro y sensor de oxígeno. Casi siempre es uno de esos cuatro.",
@@ -157,7 +157,7 @@ const SINTOMAS = [
     r: "Revisamos alineación, balanceo y el estado de la suspensión. Es de las fallas que más se sienten al volante y de las más baratas de corregir a tiempo.",
     wa: "Hola Tecnissan, mi Nissan se va para un lado y vibra el timón. ¿Me revisan la alineación?" },
   { t: "Le toca el mantenimiento",
-    r: "Le decimos exactamente qué pide su Nissan en su kilometraje, y qué no pide todavía. Así no paga por lo que no necesita.",
+    r: "Te decimos exactamente qué pide tu Nissan en tu kilometraje, y qué no pide todavía. Así no pagas por lo que no necesitas.",
     wa: "Hola Tecnissan, quiero el mantenimiento de mi Nissan. ¿Qué me toca en mi kilometraje?" }
 ];
 

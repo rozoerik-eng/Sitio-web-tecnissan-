@@ -1,5 +1,5 @@
 /* ===========================================================
-   TECNISSAN — hoja de estilos compartida por todas las páginas
+   TECNISSAN: hoja de estilos compartida por todas las páginas
    Blanco y rojo de la marca. Un solo acento: el rojo del aviso.
    =========================================================== */
 
@@ -270,13 +270,34 @@ body{padding-top:calc(var(--nav-h) + var(--aviso-h,0px))}
 }
 
 /* ------------------------- modelos ------------------------- */
-.modelos{display:flex;flex-wrap:wrap;gap:10px;margin-top:clamp(24px,3vw,36px)}
-.modelo{
-  font-family:var(--mono);font-size:12.5px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
-  padding:11px 18px;border:1px solid var(--linea);background:var(--blanco);color:var(--grafito);
-  clip-path:var(--corte);transition:border-color .3s,color .3s,transform .3s var(--ease);
+.modelos{
+  display:grid;grid-template-columns:repeat(5,1fr);
+  gap:clamp(12px,1.4vw,20px);margin-top:clamp(26px,3.2vw,42px);
 }
-.modelo:hover{border-color:var(--rojo);color:var(--rojo);transform:translateY(-2px)}
+.modelo{
+  display:flex;flex-direction:column;align-items:center;
+  padding:14px 12px 16px;background:var(--blanco);border:1px solid var(--linea);
+  clip-path:var(--corte);
+  transition:border-color .3s,transform .4s var(--ease-out),box-shadow .4s;
+}
+.modelo img{
+  /* height:auto es obligatorio: sin él, el atributo height del HTML
+     le gana a aspect-ratio y la tarjeta se estira */
+  width:100%;height:auto;aspect-ratio:3/2;object-fit:contain;
+  transition:transform .45s var(--ease-out);
+}
+.modelo span{
+  margin-top:10px;font-family:var(--mono);font-size:11.5px;font-weight:600;
+  letter-spacing:.14em;text-transform:uppercase;color:var(--grafito);
+  transition:color .3s;text-align:center;
+}
+.modelo:hover{border-color:var(--rojo);transform:translateY(-4px);box-shadow:0 16px 34px -26px rgba(21,23,26,.6)}
+.modelo:hover img{transform:scale(1.05)}
+.modelo:hover span{color:var(--rojo)}
+.modelo:focus-visible{outline:2px solid var(--rojo);outline-offset:3px}
+@media (max-width:1040px){.modelos{grid-template-columns:repeat(4,1fr)}}
+@media (max-width:760px){.modelos{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:480px){.modelos{grid-template-columns:repeat(2,1fr)}}
 
 /* ------------------------- síntomas ------------------------- */
 .sintomas{display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(20px,2.8vw,44px);margin-top:clamp(30px,4vw,48px);align-items:start}
