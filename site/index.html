@@ -3,13 +3,13 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Tecnissan | Taller especializado en Nissan</title>
-<meta name="description" content="Taller especializado solo en Nissan en Bogotá. 10 años de experiencia, diagnóstico con escáner y presupuesto antes de tocar el carro. Revisión periódica, motor, frenos, sistema eléctrico y alineación. Escríbanos por WhatsApp.">
-<meta name="theme-color" content="#0C0D10">
+<title>Tecnissan | Taller especializado en Nissan en Bogotá</title>
+<meta name="description" content="Taller especializado solo en Nissan en Bogotá. 10 años de experiencia, diagnóstico con escáner y el precio dicho antes de empezar. Revisión periódica, motor, frenos, sistema eléctrico y alineación. Escríbanos por WhatsApp.">
+<meta name="theme-color" content="#FFFFFF">
 <link rel="canonical" href="https://tecnissan.com/">
 
 <meta property="og:type" content="website">
-<meta property="og:title" content="Tecnissan | Taller especializado en Nissan">
+<meta property="og:title" content="Tecnissan | Taller especializado en Nissan en Bogotá">
 <meta property="og:description" content="Primero el diagnóstico, después la llave inglesa. Especialistas solo en Nissan.">
 <meta property="og:image" content="https://tecnissan.com/assets/taller.jpg">
 <meta property="og:url" content="https://tecnissan.com/">
@@ -18,7 +18,8 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,100..900&family=JetBrains+Mono:wght@400;600&family=Sora:wght@300..600&display=swap" rel="stylesheet">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230A1320'/%3E%3Cpath d='M8 23V9l8 9V9m4 0v14' stroke='%235FD0FF' stroke-width='2.4' fill='none' stroke-linecap='round'/%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/style.css">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 40 40'%3E%3Crect width='40' height='40' rx='9' fill='%230E1013'/%3E%3Cpath d='M10 13h12M16 13v14M22 27V13l8 14V13' stroke='%23E11B22' stroke-width='2.6' fill='none'/%3E%3C/svg%3E">
 
 <script type="application/ld+json">
 {
@@ -27,8 +28,9 @@
   "name":"Tecnissan",
   "description":"Taller especializado en vehículos Nissan en Bogotá. Diagnóstico con escáner y presupuesto antes de empezar.",
   "telephone":"+573112710738",
-  "address":{"@type":"PostalAddress","streetAddress":"Calle 70G # 69B-70","addressLocality":"Bogotá","addressCountry":"CO"},
+  "address":{"@type":"PostalAddress","streetAddress":"Carrera 70G # 69B-70","addressLocality":"Bogotá","addressCountry":"CO"},
   "areaServed":"Bogotá",
+  "image":"https://tecnissan.com/assets/taller.jpg",
   "sameAs":["https://www.facebook.com/Tecnissan/","https://www.instagram.com/tecnissan_sas"],
   "openingHoursSpecification":[{
     "@type":"OpeningHoursSpecification",
@@ -38,799 +40,263 @@
   "makesOffer":[
     {"@type":"Offer","itemOffered":{"@type":"Service","name":"Revisión periódica preventiva y correctiva"}},
     {"@type":"Offer","itemOffered":{"@type":"Service","name":"Diagnóstico electrónico Nissan"}},
-    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Sistema eléctrico"}},
     {"@type":"Offer","itemOffered":{"@type":"Service","name":"Motor y distribución"}},
     {"@type":"Offer","itemOffered":{"@type":"Service","name":"Frenos y suspensión"}},
+    {"@type":"Offer","itemOffered":{"@type":"Service","name":"Sistema eléctrico"}},
     {"@type":"Offer","itemOffered":{"@type":"Service","name":"Alineación y balanceo"}}
   ]
 }
 </script>
-
-<style>
-/* ============================================================
-   TECNISSAN
-   Paleta y tipografía del paquete de diseño (design/design-package.md)
-   ============================================================ */
-:root{
-  --noche:#0C0D10;
-  --noche-2:#131519;
-  --carbon:#1E2126;
-  --acero:#8A9099;
-  --aluminio:#C6CBD2;
-  --luz:#F2F4F7;
-  --rojo:#E11B22;
-  --wa:#25D366;
-  --wa-hover:#1FBA59;
-
-  --display:"Archivo","Archivo Black",system-ui,sans-serif;
-  --texto:"Sora",system-ui,-apple-system,sans-serif;
-  --mono:"JetBrains Mono",ui-monospace,monospace;
-
-  --nav-h:68px;
-  --ease:cubic-bezier(.22,.61,.36,1);
-  --ease-out:cubic-bezier(.16,1,.3,1);
-  --gut:clamp(18px,5vw,80px);
-  --maxw:1240px;
-}
-
-*,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
-
-body{
-  margin:0;
-  background:var(--noche);
-  color:var(--luz);
-  font-family:var(--texto);
-  font-weight:300;
-  font-size:clamp(15px,1.02vw,17px);
-  line-height:1.65;
-  overflow-x:hidden;
-  -webkit-font-smoothing:antialiased;
-}
-
-/* ---- capa de ambiente fija, una sola para toda la página ---- */
-.ambiente{
-  position:fixed;inset:0;z-index:0;pointer-events:none;
-  background:
-    radial-gradient(1200px 700px at 12% -8%, rgba(225,27,34,.10), transparent 62%),
-    radial-gradient(900px 620px at 96% 34%, rgba(225,27,34,.05), transparent 68%),
-    linear-gradient(180deg,#0C0D10 0%,#0B0C0F 46%,#08090B 100%);
-}
-.ambiente::after{
-  content:"";position:absolute;inset:0;opacity:.04;
-  background-image:linear-gradient(rgba(198,203,210,.5) 1px,transparent 1px),
-                   linear-gradient(90deg,rgba(198,203,210,.5) 1px,transparent 1px);
-  background-size:68px 68px;
-  mask-image:radial-gradient(ellipse 70% 60% at 50% 30%,#000 20%,transparent 78%);
-  -webkit-mask-image:radial-gradient(ellipse 70% 60% at 50% 30%,#000 20%,transparent 78%);
-}
-
-/* ---- tipografía ---- */
-h1,h2,h3,h4{
-  font-family:var(--display);
-  font-variation-settings:"wdth" 112;
-  font-weight:800;
-  line-height:1.02;
-  letter-spacing:-.018em;
-  margin:0;
-  text-wrap:balance;
-}
-h2{font-size:clamp(30px,4.1vw,58px)}
-h3{font-size:clamp(19px,1.5vw,23px);font-weight:700;letter-spacing:-.01em;line-height:1.2}
-p{margin:0}
-a{color:inherit;text-decoration:none}
-
-.etiqueta{
-  font-family:var(--mono);font-size:11px;font-weight:600;
-  letter-spacing:.24em;text-transform:uppercase;color:var(--rojo);
-  display:inline-flex;align-items:center;gap:10px;
-}
-.etiqueta::before{content:"";width:26px;height:1px;background:var(--rojo);opacity:.65}
-
-.seccion{position:relative;z-index:1;padding:clamp(76px,10vw,150px) var(--gut)}
-section[id]{scroll-margin-top:calc(var(--nav-h) + var(--aviso-h,0px) + 22px)}
-.envoltura{max-width:var(--maxw);margin:0 auto}
-.plomo{color:var(--aluminio);font-size:clamp(16px,1.2vw,19px);max-width:60ch;margin-top:18px}
-.apagado{color:var(--acero)}
-
-/* ---- botones ---- */
-.btn{
-  display:inline-flex;align-items:center;justify-content:center;gap:10px;
-  font-family:var(--texto);font-weight:600;font-size:15px;line-height:1;
-  padding:16px 26px;border-radius:2px;border:1px solid transparent;
-  cursor:pointer;transition:transform .35s var(--ease),background .3s,border-color .3s,box-shadow .35s;
-  clip-path:polygon(0 0,calc(100% - 9px) 0,100% 9px,100% 100%,9px 100%,0 calc(100% - 9px));
-  text-align:center;
-}
-.btn svg{width:18px;height:18px;flex:0 0 auto}
-/* Los llamados a la acción van en el rojo de la marca.
-   El botón flotante se queda verde, porque ahí el verde es la señal de WhatsApp. */
-.btn-wa{background:var(--rojo);color:#FFF3F3;box-shadow:0 8px 30px -12px rgba(225,27,34,.65)}
-.btn-wa:hover{background:#F5232B;transform:translateY(-2px);box-shadow:0 14px 38px -12px rgba(225,27,34,.8)}
-.btn-linea{border-color:rgba(138,144,153,.34);color:var(--luz);background:rgba(22,36,58,.35)}
-.btn-linea:hover{border-color:var(--rojo);color:var(--rojo);transform:translateY(-2px)}
-.btn:focus-visible{outline:2px solid var(--rojo);outline-offset:3px}
-
-/* ============================ NAV ============================ */
-.nav{
-  position:fixed;top:var(--aviso-h,0px);left:0;right:0;z-index:60;height:var(--nav-h);
-  display:flex;align-items:center;gap:20px;
-  padding:0 var(--gut);
-  transition:background .4s var(--ease),border-color .4s,backdrop-filter .4s;
-  border-bottom:1px solid transparent;
-}
-.nav.pegado{
-  background:rgba(9,17,29,.86);backdrop-filter:blur(14px);
-  border-bottom-color:rgba(138,144,153,.16);
-}
-.marca{display:flex;align-items:center;gap:11px;font-family:var(--display);font-variation-settings:"wdth" 118;font-weight:800;font-size:19px;letter-spacing:.01em;text-transform:uppercase}
-.marca svg{width:30px;height:30px;flex:0 0 auto}
-.marca b{color:var(--rojo);font-weight:800}
-.nav-enlaces{display:flex;gap:30px;margin-left:auto;font-size:14px;color:var(--aluminio)}
-.nav-enlaces a{position:relative;padding:6px 0;transition:color .25s}
-.nav-enlaces a::after{content:"";position:absolute;left:0;bottom:0;width:0;height:1px;background:var(--rojo);transition:width .35s var(--ease)}
-.nav-enlaces a:hover{color:var(--luz)}
-.nav-enlaces a:hover::after{width:100%}
-.nav .btn{padding:12px 19px;font-size:14px}
-.hamburguesa{display:none;background:none;border:0;padding:8px;cursor:pointer;margin-left:auto}
-.hamburguesa span{display:block;width:22px;height:2px;background:var(--luz);margin:4px 0;transition:transform .3s,opacity .3s}
-.nav.abierto .hamburguesa span:nth-child(1){transform:translateY(6px) rotate(45deg)}
-.nav.abierto .hamburguesa span:nth-child(2){opacity:0}
-.nav.abierto .hamburguesa span:nth-child(3){transform:translateY(-6px) rotate(-45deg)}
-
-@media (max-width:920px){
-  .hamburguesa{display:block}
-  .nav-enlaces{
-    position:fixed;top:calc(var(--nav-h) + var(--aviso-h,0px));left:0;right:0;
-    flex-direction:column;gap:0;margin:0;
-    background:rgba(7,14,24,.98);backdrop-filter:blur(16px);
-    border-bottom:1px solid rgba(138,144,153,.16);
-    padding:8px var(--gut) 22px;
-    transform:translateY(-8px);opacity:0;pointer-events:none;transition:.3s var(--ease);
-  }
-  .nav.abierto .nav-enlaces{transform:none;opacity:1;pointer-events:auto}
-  .nav-enlaces a{padding:15px 0;border-bottom:1px solid rgba(138,144,153,.1);font-size:16px}
-  .nav > .btn-wa{display:none}
-}
-
-/* ============================ HERO ============================ */
-.hero{position:relative;z-index:1;height:420vh}
-.hero.estatico{height:auto;min-height:100vh}
-.hero-escena{
-  position:sticky;top:0;height:100vh;overflow:hidden;
-  display:grid;place-items:stretch;
-}
-.hero.estatico .hero-escena{position:relative;height:auto;min-height:100vh}
-.hero.estatico .hero-franjas{min-height:100vh}
-.hero.estatico .pista-scroll{opacity:0}
-
-.hero-lienzo{position:absolute;inset:0}
-.hero-lienzo img,.hero-lienzo video{
-  position:absolute;inset:0;width:100%;height:100%;object-fit:cover;
-}
-/* La foto va como fondo en capas: si el archivo aún no está,
-   el degradado de abajo sigue pintando y nada se ve roto. */
-.hero-foto{
-  position:absolute;inset:0;
-  background-color:var(--noche);
-  background-image:url("assets/taller.jpg"),
-    radial-gradient(1100px 720px at 62% 32%, #1C2027, transparent 68%),
-    linear-gradient(180deg,#12141A 0%,#0C0D10 60%,#08090B 100%);
-  background-size:cover,auto,auto;
-  background-position:center 42%;
-  background-repeat:no-repeat;
-}
-#heroVideo{opacity:0;transition:opacity .9s var(--ease)}
-#heroVideo.visible{opacity:1}
-.hero-velo{
-  position:absolute;inset:0;pointer-events:none;
-  background:
-    linear-gradient(90deg,rgba(6,7,9,.96) 0%,rgba(6,7,9,.88) 30%,rgba(6,7,9,.55) 58%,rgba(6,7,9,.72) 100%),
-    linear-gradient(180deg,rgba(6,7,9,.88) 0%,rgba(6,7,9,.34) 28%,rgba(6,7,9,.42) 58%,rgba(6,7,9,.94) 100%),
-    radial-gradient(760px 460px at 84% 74%, rgba(225,27,34,.14), transparent 70%);
-}
-.hero-polvo{position:absolute;inset:0;pointer-events:none;opacity:.5}
-
-/* franjas de subtítulos */
-.hero-franjas{
-  position:relative;z-index:3;height:100%;
-  display:grid;align-content:center;
-  padding:var(--nav-h) var(--gut) clamp(40px,8vh,90px);
-  max-width:var(--maxw);margin:0 auto;width:100%;
-}
-.franja{
-  grid-area:1/1;max-width:min(620px,58%);
-  opacity:0;transform:translateY(26px);
-  transition:opacity .7s var(--ease),transform .9s var(--ease-out);
-  pointer-events:none;
-}
-.franja.dentro{opacity:1;transform:none;pointer-events:auto}
-.franja h1,.franja .titular{
-  font-family:var(--display);font-variation-settings:"wdth" 112;font-weight:800;
-  font-size:clamp(34px,5.3vw,76px);line-height:.98;letter-spacing:-.025em;margin:0;
-  text-shadow:0 2px 30px rgba(5,10,18,.75);
-}
-.franja p{margin-top:18px;font-size:clamp(16px,1.35vw,21px);color:var(--aluminio);max-width:38ch;text-shadow:0 1px 16px rgba(5,10,18,.8)}
-.franja .etiqueta{margin-bottom:20px}
-.franja .acciones{margin-top:30px;display:flex;gap:12px;flex-wrap:wrap}
-
-@media (max-width:920px){
-  .franja{max-width:100%}
-  .hero-velo{background:
-    linear-gradient(180deg,rgba(7,13,22,.86) 0%,rgba(7,13,22,.45) 34%,rgba(7,13,22,.6) 66%,rgba(7,13,22,.95) 100%)}
-}
-
-/* anillo de carga */
-.cargando{
-  position:absolute;z-index:4;right:var(--gut);bottom:clamp(26px,5vh,44px);
-  display:flex;align-items:center;gap:12px;
-  font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--acero);
-  transition:opacity .6s;
-}
-.cargando[hidden]{display:none!important}
-.anillo{width:26px;height:26px;transform:rotate(-90deg)}
-.anillo circle{fill:none;stroke-width:2.5;stroke-linecap:round}
-.anillo .pista{stroke:rgba(138,144,153,.22)}
-.anillo .arco{stroke:var(--rojo);stroke-dasharray:69.1;stroke-dashoffset:69.1;transition:stroke-dashoffset .3s linear}
-
-/* pista de scroll */
-.pista-scroll{
-  position:absolute;z-index:4;left:50%;transform:translateX(-50%);
-  bottom:clamp(22px,4vh,38px);
-  display:flex;flex-direction:column;align-items:center;gap:9px;
-  font-family:var(--mono);font-size:10px;letter-spacing:.26em;text-transform:uppercase;color:var(--acero);
-  transition:opacity .5s;
-}
-.pista-scroll i{display:block;width:1px;height:40px;background:linear-gradient(var(--rojo),transparent);animation:baja 2.2s var(--ease) infinite}
-@keyframes baja{0%{transform:scaleY(.2);transform-origin:top;opacity:0}40%{transform:scaleY(1);opacity:1}100%{transform:scaleY(1);transform-origin:bottom;opacity:0}}
-.hero.movido .pista-scroll{opacity:0}
-
-/* ==================== FRANJA DE PRUEBA ==================== */
-.prueba{
-  position:relative;z-index:2;
-  border-top:1px solid rgba(138,144,153,.16);
-  border-bottom:1px solid rgba(138,144,153,.16);
-  background:rgba(10,19,32,.72);backdrop-filter:blur(6px);
-}
-.prueba-rejilla{
-  max-width:var(--maxw);margin:0 auto;
-  display:grid;grid-template-columns:repeat(3,1fr);
-}
-.prueba-item{padding:clamp(30px,4.4vw,50px) clamp(18px,3vw,40px);border-left:1px solid rgba(138,144,153,.12)}
-.prueba-item:first-child{border-left:0}
-.cifra{
-  font-family:var(--mono);font-weight:600;font-size:clamp(28px,3.6vw,46px);
-  color:var(--rojo);line-height:1;letter-spacing:-.03em;
-  text-shadow:0 0 34px rgba(225,27,34,.35);
-}
-.cifra small{font-size:.46em;letter-spacing:.1em;margin-left:5px;color:var(--aluminio);text-shadow:none}
-.prueba-item p{margin-top:13px;font-size:14.5px;color:var(--aluminio);max-width:26ch}
-@media (max-width:800px){
-  .prueba-rejilla{grid-template-columns:1fr}
-  .prueba-item{border-left:0;border-top:1px solid rgba(138,144,153,.12)}
-  .prueba-item:first-child{border-top:0}
-}
-
-/* ==================== LÍNEA DE DIAGNÓSTICO ==================== */
-.costura{position:absolute;left:calc(var(--gut) / 2);top:0;bottom:0;width:2px;z-index:0;pointer-events:none}
-.costura svg{height:100%;width:2px;overflow:visible}
-.costura path{fill:none;stroke:var(--rojo);stroke-width:1.6;opacity:.42;
-  stroke-dasharray:var(--largo);stroke-dashoffset:var(--largo);
-  transition:stroke-dashoffset 1.4s var(--ease-out)}
-.costura.dibujada path{stroke-dashoffset:0}
-@media (max-width:980px){.costura{display:none}}
-
-/* ==================== POR QUÉ ==================== */
-.trio{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,2.6vw,34px);margin-top:clamp(44px,6vw,70px)}
-.tarjeta{
-  position:relative;padding:clamp(24px,2.6vw,34px);
-  background:linear-gradient(160deg,rgba(22,36,58,.62),rgba(15,27,43,.34));
-  border:1px solid rgba(138,144,153,.16);
-  clip-path:polygon(0 0,calc(100% - 16px) 0,100% 16px,100% 100%,16px 100%,0 calc(100% - 16px));
-  transition:transform .5s var(--ease-out),border-color .4s,background .4s;
-  opacity:0;transform:translateY(30px);
-}
-.tarjeta.dentro{opacity:1;transform:none}
-.tarjeta:hover{border-color:rgba(225,27,34,.4);background:linear-gradient(160deg,rgba(24,41,66,.8),rgba(15,27,43,.46));transform:translateY(-5px)}
-.tarjeta .num{font-family:var(--mono);font-size:11px;letter-spacing:.22em;color:var(--rojo);opacity:.85}
-.tarjeta h3{margin:16px 0 11px}
-.tarjeta p{color:var(--aluminio);font-size:14.8px}
-.icono{width:34px;height:34px;stroke:var(--rojo);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;margin-bottom:18px;opacity:.9}
-@media (max-width:900px){.trio{grid-template-columns:1fr}}
-
-/* ==================== SERVICIOS ==================== */
-.servicios-rejilla{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;margin-top:clamp(44px,6vw,66px);background:rgba(138,144,153,.14);border:1px solid rgba(138,144,153,.14)}
-.servicio{
-  background:var(--noche);padding:clamp(26px,2.8vw,38px);
-  transition:background .45s var(--ease);position:relative;overflow:hidden;
-  opacity:0;transform:translateY(24px);
-}
-.servicio.dentro{opacity:1;transform:none}
-.servicio::after{content:"";position:absolute;left:0;top:0;width:100%;height:1px;background:var(--rojo);transform:scaleX(0);transform-origin:left;transition:transform .5s var(--ease)}
-.servicio:hover{background:#17191D}
-.servicio:hover::after{transform:scaleX(1)}
-.servicio h3{margin:0 0 10px}
-.servicio p{color:var(--aluminio);font-size:14.6px}
-@media (max-width:980px){.servicios-rejilla{grid-template-columns:repeat(2,1fr)}}
-@media (max-width:620px){.servicios-rejilla{grid-template-columns:1fr}}
-
-/* bloque destacado */
-.destacado{
-  margin-top:clamp(40px,5vw,66px);
-  display:grid;grid-template-columns:1.15fr .85fr;gap:clamp(26px,3.4vw,54px);align-items:center;
-  padding:clamp(30px,4vw,56px);
-  border:1px solid rgba(225,27,34,.26);
-  background:
-    radial-gradient(700px 400px at 88% 20%,rgba(225,27,34,.11),transparent 66%),
-    linear-gradient(150deg,rgba(19,33,53,.9),rgba(11,20,33,.72));
-  clip-path:polygon(0 0,calc(100% - 22px) 0,100% 22px,100% 100%,22px 100%,0 calc(100% - 22px));
-}
-.destacado h3{font-size:clamp(24px,2.9vw,40px);text-shadow:0 0 46px rgba(225,27,34,.28)}
-.destacado p{margin-top:16px;color:var(--aluminio)}
-.destacado .acciones{margin-top:26px}
-.foto-destacado{
-  aspect-ratio:16/9;
-  background-image:url("assets/destacado.jpg"),
-    linear-gradient(150deg,#22252B,#0E1013);
-  background-position:center 52%;
-}
-@media (max-width:900px){.destacado{grid-template-columns:1fr}.foto-destacado{order:-1}}
-
-/* ==================== SÍNTOMAS (momento interactivo) ==================== */
-.sintomas{
-  display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(24px,3.2vw,52px);
-  margin-top:clamp(40px,5vw,64px);align-items:start;
-}
-.sintoma-lista{display:flex;flex-direction:column;gap:9px}
-.sintoma-btn{
-  display:flex;align-items:center;gap:14px;width:100%;text-align:left;
-  font-family:var(--texto);font-size:15.5px;font-weight:400;color:var(--aluminio);
-  background:rgba(22,36,58,.4);border:1px solid rgba(138,144,153,.16);
-  padding:17px 19px;cursor:pointer;
-  transition:border-color .3s,color .3s,background .3s,transform .35s var(--ease);
-  clip-path:polygon(0 0,calc(100% - 11px) 0,100% 11px,100% 100%,11px 100%,0 calc(100% - 11px));
-}
-.sintoma-btn .punto{width:7px;height:7px;border-radius:50%;background:rgba(138,144,153,.45);flex:0 0 auto;transition:.3s}
-.sintoma-btn:hover{color:var(--luz);border-color:rgba(225,27,34,.34);transform:translateX(4px)}
-.sintoma-btn[aria-selected="true"]{color:var(--luz);border-color:var(--rojo);background:rgba(24,44,70,.72)}
-.sintoma-btn[aria-selected="true"] .punto{background:var(--rojo);box-shadow:0 0 0 4px rgba(225,27,34,.18)}
-.sintoma-btn:focus-visible{outline:2px solid var(--rojo);outline-offset:2px}
-
-.sintoma-panel{
-  border:1px solid rgba(138,144,153,.2);
-  background:linear-gradient(155deg,rgba(20,34,54,.8),rgba(11,20,33,.62));
-  padding:clamp(26px,3vw,40px);min-height:260px;
-  clip-path:polygon(0 0,calc(100% - 18px) 0,100% 18px,100% 100%,18px 100%,0 calc(100% - 18px));
-  display:flex;flex-direction:column;
-}
-.sintoma-panel .etiqueta{margin-bottom:18px}
-#sintomaTitulo{font-size:clamp(20px,2.1vw,29px);margin-bottom:14px}
-#sintomaTexto{color:var(--aluminio);font-size:15.5px}
-.sintoma-panel .acciones{margin-top:auto;padding-top:28px}
-.panel-vacio{color:var(--acero);font-size:15px}
-.fundido{animation:sube .55s var(--ease-out)}
-@keyframes sube{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
-@media (max-width:900px){.sintomas{grid-template-columns:1fr}}
-
-/* ==================== PROCESO ==================== */
-.pasos{position:relative;margin-top:clamp(46px,6vw,74px);display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(18px,2.4vw,30px)}
-.pasos::before{content:"";position:absolute;left:0;right:0;top:26px;height:1px;background:rgba(138,144,153,.18)}
-.pasos-progreso{position:absolute;left:0;top:26px;height:1px;background:var(--rojo);width:0;transition:width 1.6s var(--ease-out);box-shadow:0 0 12px rgba(225,27,34,.8)}
-.paso{position:relative;padding-top:0}
-.paso .globo{
-  width:54px;height:54px;display:grid;place-items:center;
-  background:var(--noche);border:1px solid rgba(138,144,153,.3);border-radius:50%;
-  font-family:var(--mono);font-size:15px;font-weight:600;color:var(--acero);
-  transition:.5s var(--ease);position:relative;z-index:2;
-}
-.paso.dentro .globo{border-color:var(--rojo);color:var(--rojo);box-shadow:0 0 0 6px rgba(225,27,34,.09)}
-.paso h3{margin:22px 0 10px}
-.paso p{color:var(--aluminio);font-size:14.6px}
-@media (max-width:900px){
-  .pasos{grid-template-columns:1fr;gap:30px}
-  .pasos::before,.pasos-progreso{left:26px;right:auto;top:0;bottom:0;width:1px;height:auto}
-  .pasos-progreso{transition:height 1.6s var(--ease-out);width:1px;height:0}
-  .paso{display:grid;grid-template-columns:54px 1fr;gap:22px;align-items:start}
-  .paso .globo{grid-row:1/3}
-  .paso h3{margin:14px 0 8px}
-}
-
-/* ==================== EQUIPO ==================== */
-.equipo-rejilla{display:grid;grid-template-columns:repeat(3,1fr);gap:clamp(20px,2.6vw,32px);margin-top:clamp(44px,6vw,68px)}
-.persona{opacity:0;transform:translateY(28px)}
-.persona.dentro{opacity:1;transform:none}
-.retrato{
-  aspect-ratio:4/5;background:#111316;border:1px solid rgba(138,144,153,.18);
-  position:relative;overflow:hidden;
-}
-.retrato svg{position:absolute;inset:0;width:100%;height:100%}
-.retrato img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
-.persona h3{margin:20px 0 5px}
-.persona .cargo{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--rojo)}
-.persona p{margin-top:11px;color:var(--aluminio);font-size:14.4px}
-@media (max-width:900px){.equipo-rejilla{grid-template-columns:1fr;max-width:420px}}
-
-/* ==================== PREGUNTAS ==================== */
-.faq{margin-top:clamp(40px,5vw,62px);max-width:900px;border-top:1px solid rgba(138,144,153,.16)}
-.faq details{border-bottom:1px solid rgba(138,144,153,.16)}
-.faq summary{
-  list-style:none;cursor:pointer;padding:24px 46px 24px 0;position:relative;
-  font-family:var(--display);font-variation-settings:"wdth" 108;font-weight:700;
-  font-size:clamp(17px,1.55vw,21px);letter-spacing:-.012em;transition:color .3s;
-}
-.faq summary::-webkit-details-marker{display:none}
-.faq summary:hover{color:var(--rojo)}
-.faq summary::after{
-  content:"";position:absolute;right:8px;top:50%;width:13px;height:13px;
-  border-right:1.6px solid var(--rojo);border-bottom:1.6px solid var(--rojo);
-  transform:translateY(-70%) rotate(45deg);transition:transform .35s var(--ease);
-}
-.faq details[open] summary::after{transform:translateY(-30%) rotate(225deg)}
-.faq .respuesta{padding:0 0 26px;color:var(--aluminio);max-width:66ch;animation:sube .45s var(--ease-out)}
-.faq summary:focus-visible{outline:2px solid var(--rojo);outline-offset:3px}
-
-/* ==================== FOTOS REALES ====================
-   Cada foto va como fondo en capas sobre un degradado.
-   Mientras el archivo no exista, se ve el degradado y nada queda roto. */
-.foto-marco{
-  position:relative;border:1px solid rgba(138,144,153,.22);
-  background-color:var(--noche-2);
-  background-repeat:no-repeat;background-position:center;background-size:cover;
-  clip-path:polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,20px 100%,0 calc(100% - 20px));
-}
-.foto-marco::after{
-  content:"";position:absolute;inset:0;pointer-events:none;
-  background:linear-gradient(180deg,transparent 52%,rgba(6,7,9,.55) 100%);
-}
-.foto-equipo{
-  aspect-ratio:3/2;
-  background-image:url("assets/equipo.jpg"),
-    linear-gradient(135deg,#1B1E23,#0E1013 60%,#17191D);
-  background-position:center;
-}
-.foto-fachada{
-  aspect-ratio:16/9;
-  background-image:url("assets/fachada.jpg"),
-    linear-gradient(160deg,#20232A,#0E1013);
-  background-position:center 46%;
-}
-.foto-ancha{margin:clamp(36px,5vw,58px) 0 0}
-.foto-ancha figcaption,.pie-foto{
-  margin-top:13px;font-size:13.5px;color:var(--acero);
-  font-family:var(--mono);letter-spacing:.02em;
-}
-@media (max-width:700px){.foto-equipo{aspect-ratio:4/5;background-position:center}}
-
-/* ==================== MAPA ==================== */
-.llegar{display:grid;grid-template-columns:.92fr 1.08fr;gap:clamp(26px,3.4vw,56px);margin-top:clamp(40px,5vw,62px);align-items:start}
-.mapa{
-  position:relative;aspect-ratio:16/11;border:1px solid rgba(138,144,153,.22);
-  background:#111316;overflow:hidden;
-  clip-path:polygon(0 0,calc(100% - 20px) 0,100% 20px,100% 100%,20px 100%,0 calc(100% - 20px));
-}
-.mapa iframe{position:absolute;inset:0;width:100%;height:100%;border:0;filter:grayscale(.42) invert(.9) hue-rotate(178deg) contrast(.86) brightness(.92)}
-.dato{display:flex;gap:15px;padding:19px 0;border-top:1px solid rgba(138,144,153,.14)}
-.dato:first-of-type{border-top:0}
-.dato svg{width:19px;height:19px;stroke:var(--rojo);fill:none;stroke-width:1.6;flex:0 0 auto;margin-top:3px}
-.dato .k{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--acero)}
-.dato .v{margin-top:5px;font-size:16px}
-.llegar .acciones{margin-top:28px;display:flex;gap:12px;flex-wrap:wrap}
-@media (max-width:900px){.llegar{grid-template-columns:1fr}}
-
-/* ==================== CIERRE ==================== */
-.cierre{
-  position:relative;z-index:1;
-  border-top:1px solid rgba(138,144,153,.18);
-  background:radial-gradient(900px 500px at 50% 0%,rgba(225,27,34,.09),transparent 64%)
-}
-.cierre-rejilla{display:grid;grid-template-columns:1fr 1fr;gap:clamp(30px,4vw,64px);align-items:start}
-.cierre h2{font-size:clamp(30px,4.6vw,62px)}
-form{display:grid;gap:14px}
-.campo{display:grid;gap:7px}
-label{font-family:var(--mono);font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--acero)}
-input,textarea{
-  font-family:var(--texto);font-size:15.5px;color:var(--luz);
-  background:rgba(22,36,58,.46);border:1px solid rgba(138,144,153,.22);
-  padding:14px 16px;border-radius:0;transition:border-color .3s,background .3s;
-}
-input:focus,textarea:focus{outline:0;border-color:var(--rojo);background:rgba(24,44,70,.6)}
-textarea{resize:vertical;min-height:104px}
-.nota{font-size:13px;color:var(--acero);margin-top:4px}
-@media (max-width:900px){.cierre-rejilla{grid-template-columns:1fr}}
-
-/* ==================== FOOTER ==================== */
-footer{
-  position:relative;z-index:1;padding:clamp(48px,6vw,76px) var(--gut) 34px;
-  border-top:1px solid rgba(138,144,153,.16);background:rgba(6,12,21,.7);
-}
-.pie-rejilla{max-width:var(--maxw);margin:0 auto;display:grid;grid-template-columns:1.5fr 1fr 1fr 1fr;gap:clamp(24px,2.6vw,44px)}
-footer h4{font-family:var(--mono);font-variation-settings:normal;font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;color:var(--acero);font-weight:600;margin-bottom:16px}
-footer a{color:var(--aluminio);font-size:14.6px;display:block;padding:5px 0;transition:color .25s}
-footer a:hover{color:var(--rojo)}
-footer .lema{color:var(--aluminio);font-size:14.6px;max-width:34ch;margin-top:14px}
-.pie-base{max-width:var(--maxw);margin:clamp(34px,4vw,54px) auto 0;padding-top:24px;border-top:1px solid rgba(138,144,153,.12);display:flex;flex-wrap:wrap;gap:14px;justify-content:space-between;font-size:12.6px;color:var(--acero)}
-@media (max-width:980px){.pie-rejilla{grid-template-columns:1fr 1fr 1fr}.pie-rejilla>div:first-child{grid-column:1/-1}}
-@media (max-width:640px){.pie-rejilla{grid-template-columns:1fr 1fr}}
-
-/* botón flotante de WhatsApp */
-.wa-flota{
-  position:fixed;z-index:70;right:clamp(14px,3vw,26px);bottom:clamp(14px,3vw,26px);
-  width:56px;height:56px;border-radius:50%;background:var(--wa);
-  display:grid;place-items:center;
-  box-shadow:0 12px 34px -8px rgba(37,211,102,.62);
-  transform:scale(0) translateY(14px);transition:transform .45s var(--ease-out),background .3s;
-}
-.wa-flota.dentro{transform:none}
-.wa-flota:hover{background:var(--wa-hover)}
-.wa-flota svg{width:29px;height:29px;fill:#04240F}
-.wa-flota::after{
-  content:"";position:absolute;inset:-5px;border-radius:50%;
-  border:1.5px solid rgba(37,211,102,.5);animation:latido 2.6s var(--ease) infinite;
-}
-@keyframes latido{0%{transform:scale(.92);opacity:.8}70%,100%{transform:scale(1.35);opacity:0}}
-
-/* entradas al hacer scroll */
-[data-anim]{opacity:0;transform:translateY(28px);transition:opacity .8s var(--ease),transform 1s var(--ease-out)}
-[data-anim].dentro{opacity:1;transform:none}
-
-/* accesibilidad */
-.salta{position:absolute;left:-9999px;top:0;z-index:100;background:var(--rojo);color:#1A0203;padding:12px 18px;font-weight:600}
-.salta:focus{left:12px;top:12px}
-
-@media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation-duration:.001ms!important;animation-iteration-count:1!important;transition-duration:.001ms!important}
-  [data-anim],.tarjeta,.servicio,.persona,.franja{opacity:1!important;transform:none!important}
-  .costura path{stroke-dashoffset:0!important}
-  .wa-flota{transform:none!important}
-}
-
-/* aviso de datos pendientes: se borra cuando lleguen los datos reales */
-.aviso-datos{
-  position:fixed;top:0;left:0;right:0;z-index:80;background:#FFB43A;color:#221500;
-  font-family:var(--mono);font-size:12px;line-height:1.6;
-  padding:10px var(--gut);text-align:center;
-}
-.aviso-datos b{font-weight:600}
-</style>
 </head>
 <body>
 <a class="salta" href="#contenido">Saltar al contenido</a>
 
-<!-- =======================================================================
-     AVISO TEMPORAL. Borrar este bloque cuando lleguen los ultimos datos.
-     Pendiente: direccion exacta del taller (TECNISSAN.direccion),
-     nombres del equipo (const EQUIPO) y resenas reales de clientes.
-======================================================================== -->
+<!-- AVISO TEMPORAL: borrar este bloque cuando lleguen las resenas reales -->
 <div class="aviso-datos" id="avisoDatos">
   <b>Vista previa.</b> Solo faltan las reseñas reales de clientes. Todo lo demás ya está con los datos y las fotos de Tecnissan.
 </div>
 
-<div class="ambiente" aria-hidden="true"></div>
-
-<!-- ============================== NAV ============================== -->
 <nav class="nav" id="nav">
-  <a class="marca" href="#" aria-label="Tecnissan, inicio">
-    <svg viewBox="0 0 40 40" aria-hidden="true" class="mark">
-      <defs>
-        <linearGradient id="cromo" x1="0" y1="0" x2="0.3" y2="1">
-          <stop offset="0" stop-color="#F4F6F8"/><stop offset="0.34" stop-color="#9BA3AC"/>
-          <stop offset="0.52" stop-color="#E8ECEF"/><stop offset="0.74" stop-color="#6E757D"/>
-          <stop offset="1" stop-color="#C3C9D0"/>
-        </linearGradient>
-      </defs>
-      <circle cx="20" cy="20" r="18.2" fill="none" stroke="url(#cromo)" stroke-width="2.6"/>
-      <circle cx="20" cy="20" r="14.4" fill="none" stroke="#E11B22" stroke-width="1" opacity=".55"/>
-      <path d="M10.6 13.4h12.2M16.7 13.4v13.2" fill="none" stroke="url(#cromo)" stroke-width="2.6" stroke-linecap="square"/>
-      <path d="M21.6 26.6V13.4l7.8 13.2V13.4" fill="none" stroke="url(#cromo)" stroke-width="2.6" stroke-linejoin="miter" stroke-linecap="square"/>
+  <a class="marca" href="index.html" aria-label="Tecnissan, inicio">
+    <svg viewBox="0 0 40 40" aria-hidden="true">
+      <defs><linearGradient id="cromo" x1="0" y1="0" x2="0.3" y2="1">
+        <stop offset="0" stop-color="#4A4F56"/><stop offset="0.38" stop-color="#15171A"/>
+        <stop offset="0.56" stop-color="#5C626A"/><stop offset="0.8" stop-color="#1B1E22"/>
+        <stop offset="1" stop-color="#40454C"/>
+      </linearGradient></defs>
+      <circle cx="20" cy="20" r="18.4" fill="none" stroke="url(#cromo)" stroke-width="2.4"/>
+      <circle cx="20" cy="20" r="14.6" fill="none" stroke="#E11B22" stroke-width="1" opacity=".5"/>
+      <path d="M10.8 13.6h12M16.8 13.6v12.8" fill="none" stroke="url(#cromo)" stroke-width="2.6" stroke-linecap="square"/>
+      <path d="M21.6 26.4V13.6l7.6 12.8V13.6" fill="none" stroke="url(#cromo)" stroke-width="2.6" stroke-linecap="square"/>
     </svg>
-    <span>Tec<b>nissan</b></span>
+    <span class="marca-txt">
+      <span class="marca-nombre">Tec<b>nissan</b></span>
+      <span class="marca-sub">Servicio especializado</span>
+    </span>
   </a>
   <button class="hamburguesa" id="hamburguesa" aria-label="Abrir menú" aria-expanded="false">
     <span></span><span></span><span></span>
   </button>
   <div class="nav-enlaces" id="navEnlaces">
-    <a href="#servicios">Servicios</a>
+    <a href="servicios/index.html">Servicios</a>
     <a href="#diagnostico">Diagnóstico</a>
+    <a href="#nosotros">Nosotros</a>
     <a href="#equipo">Equipo</a>
     <a href="#preguntas">Preguntas</a>
     <a href="#llegar">Cómo llegar</a>
   </div>
-  <a class="btn btn-wa" data-wa="Hola Tecnissan, quiero agendar un diagnóstico para mi Nissan.">
-    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.1-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.2-.5-2.3-1.5-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.2.4-.5.5-.7.2-.2.2-.4.3-.6.1-.2 0-.4 0-.6 0-.2-.7-1.7-.9-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.1 1.1-1.1 2.6s1.1 3 1.3 3.3c.1.2 2 3.3 5 4.5 2.9 1.1 3.3.9 3.9.8.6-.1 1.9-.8 2.2-1.5.3-.8.3-1.4.2-1.5 0-.2-.2-.3-.4-.4z"/><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.4A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3.2.9.9-3.1-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
-    WhatsApp
+  <a class="btn btn-wa" data-wa="Hola Tecnissan, quiero agendar una cita para mi Nissan.">
+    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.4A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3.2.9.9-3.1-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
+    Agendar cita
   </a>
 </nav>
 
 <main id="contenido">
 
 <!-- ============================== HERO ============================== -->
-<section class="hero" id="hero" aria-label="Tecnissan, taller especializado en Nissan">
-  <div class="hero-escena">
-    <div class="hero-lienzo">
-      <div class="hero-foto" role="img" aria-label="Nave de servicio de Tecnissan con más de veinte vehículos en mantenimiento sobre elevadores rojos"></div>
-      <video id="heroVideo" muted playsinline preload="none" disablepictureinpicture aria-hidden="true"></video>
-    </div>
-    <div class="hero-velo" aria-hidden="true"></div>
-    <canvas class="hero-polvo" id="polvo" aria-hidden="true"></canvas>
-
-    <div class="hero-franjas">
-      <div class="franja" data-in="0" data-out="0.10">
-        <span class="etiqueta">Especialistas Nissan</span>
-        <p class="titular" style="font-size:clamp(26px,3.2vw,44px)">Tecnissan</p>
-        <p>El taller que solo hace Nissan.</p>
+<section class="hero" id="hero">
+  <div class="hero-rejilla">
+    <div>
+      <span class="etiqueta">Especialistas en Nissan</span>
+      <h1>Tu Nissan no necesita <em>adivinanzas.</em></h1>
+      <p class="plomo">Necesita a quien lo conoce por dentro. Diagnosticamos con escáner, le decimos el precio completo antes de empezar y le explicamos qué encontramos en palabras normales.</p>
+      <div class="acciones">
+        <a class="btn btn-wa" data-wa="Hola Tecnissan, quiero agendar un diagnóstico para mi Nissan.">
+          <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.4A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3.2.9.9-3.1-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
+          Agendar por WhatsApp
+        </a>
+        <a class="mas" href="#diagnostico">Ver qué le suena a su carro <span>→</span></a>
       </div>
 
-      <div class="franja" data-in="0.10" data-out="0.32">
-        <h1>Tu Nissan no necesita adivinanzas.</h1>
-        <p>Necesita a quien lo conoce por dentro.</p>
-      </div>
-
-      <div class="franja" data-in="0.34" data-out="0.56">
-        <span class="etiqueta">Diagnóstico</span>
-        <p class="titular">Primero el diagnóstico. Después la llave inglesa.</p>
-        <p>Con el escáner de Nissan, no con el oído.</p>
-      </div>
-
-      <div class="franja" data-in="0.58" data-out="0.78">
-        <span class="etiqueta">Presupuesto</span>
-        <p class="titular">El precio, dicho antes de empezar.</p>
-        <p>Nunca una pieza que no necesitaba.</p>
-      </div>
-
-      <div class="franja" data-in="0.80" data-out="1.01">
-        <span class="etiqueta">Tecnissan</span>
-        <p class="titular">Solo Nissan. Nada más.</p>
-        <p>Escríbanos y le decimos qué revisamos primero.</p>
-        <div class="acciones">
-          <a class="btn btn-wa" data-wa="Hola Tecnissan, quiero agendar un diagnóstico para mi Nissan.">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.1-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.2-.5-2.3-1.5-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.2.4-.5.5-.7.2-.2.2-.4.3-.6.1-.2 0-.4 0-.6 0-.2-.7-1.7-.9-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.1 1.1-1.1 2.6s1.1 3 1.3 3.3c.1.2 2 3.3 5 4.5 2.9 1.1 3.3.9 3.9.8.6-.1 1.9-.8 2.2-1.5.3-.8.3-1.4.2-1.5 0-.2-.2-.3-.4-.4z"/><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.4A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3.2.9.9-3.1-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
-            Agendar por WhatsApp
-          </a>
-          <a class="btn btn-linea" href="#diagnostico">Ver qué le suena</a>
+      <div class="insignias">
+        <div class="insignia">
+          <i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7.5 3v5.5c0 4.4-3.1 8.4-7.5 9.5-4.4-1.1-7.5-5.1-7.5-9.5V6z"/><path d="M9 12l2.2 2.2L15.5 10"/></svg></i>
+          <b>Solo Nissan, 10 años</b>
+        </div>
+        <div class="insignia">
+          <i><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4M7 9l2.5 3L12 8l2 4 3-3"/></svg></i>
+          <b>Escáner de diagnóstico</b>
+        </div>
+        <div class="insignia">
+          <i><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.5 9.3 9.3 0 0 1-3.7-.8L3 21l1.4-4.1A8.4 8.4 0 0 1 3.5 11 8.5 8.5 0 0 1 12 3a8.4 8.4 0 0 1 9 8.5z"/><path d="M9 10h6M9 13.5h4"/></svg></i>
+          <b>El precio, dicho antes</b>
         </div>
       </div>
     </div>
 
-    <div class="cargando" id="cargando" hidden>
-      <svg class="anillo" viewBox="0 0 26 26" aria-hidden="true">
-        <circle class="pista" cx="13" cy="13" r="11"/>
-        <circle class="arco" id="arco" cx="13" cy="13" r="11"/>
-      </svg>
-      <span id="cargaTexto">Cargando 0%</span>
-    </div>
-
-    <div class="pista-scroll" aria-hidden="true">
-      <i></i>
-      <span>Baje</span>
+    <div class="hero-foto">
+      <div class="marco f-taller" role="img" aria-label="Nave de servicio de Tecnissan con más de veinte vehículos en mantenimiento sobre elevadores rojos"></div>
+      <p class="hero-pie">Más que un taller,<br>especialistas en tu Nissan</p>
     </div>
   </div>
 </section>
 
-<!-- ========================= FRANJA DE PRUEBA ========================= -->
-<section class="prueba" aria-label="Por qué confiar en Tecnissan">
-  <div class="prueba-rejilla">
-    <div class="prueba-item">
-      <div class="cifra" data-cuenta="10">0<small>AÑOS</small></div>
-      <p>Solo Nissan, desde el primer día.</p>
-    </div>
-    <div class="prueba-item">
-      <div class="cifra">ESCÁNER</div>
-      <p>Leemos el módulo del carro. No trabajamos a oído.</p>
-    </div>
-    <div class="prueba-item">
-      <div class="cifra">0<small>SORPRESAS</small></div>
-      <p>El precio completo lo sabe antes de que toquemos el carro.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ============================== POR QUÉ ============================== -->
-<section class="seccion" id="porque">
-  <div class="costura" id="costura1" aria-hidden="true">
-    <svg preserveAspectRatio="none" viewBox="0 0 2 100"><path d="M1 0 V100"/></svg>
-  </div>
+<!-- ============================== CIFRAS ============================== -->
+<section class="seccion hueso" style="padding-top:clamp(40px,4.4vw,64px);padding-bottom:clamp(40px,4.4vw,64px)">
   <div class="envoltura">
-    <span class="etiqueta" data-anim>Por qué un taller solo de Nissan</span>
-    <h2 data-anim>El taller de la esquina sabe de carros. Nosotros sabemos de su carro.</h2>
-    <p class="plomo" data-anim>Un Nissan no se arregla igual que los demás. Su electrónica, sus tiempos y sus fallas típicas son suyos, y el que no los conoce empieza a cambiar piezas para ver si pega.</p>
-
-    <div class="trio">
-      <article class="tarjeta">
-        <svg class="icono" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8"/><path d="M12 4v3M12 17v3M4 12h3M17 12h3"/><circle cx="12" cy="12" r="2.6"/></svg>
-        <span class="num">01</span>
-        <h3>Conocemos sus tiempos.</h3>
-        <p>Sabemos qué pide su Nissan a cada kilometraje, y qué no pide todavía.</p>
-      </article>
-      <article class="tarjeta">
-        <svg class="icono" viewBox="0 0 24 24" aria-hidden="true"><path d="M3 12h3l2-5 3 10 2.5-7 2 4h5.5"/></svg>
-        <span class="num">02</span>
-        <h3>Leemos el carro, no lo adivinamos.</h3>
-        <p>El escáner nos dice el código y nosotros le decimos qué significa.</p>
-      </article>
-      <article class="tarjeta">
-        <svg class="icono" viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.5 9.3 9.3 0 0 1-3.7-.8L3 21l1.4-4.1A8.4 8.4 0 0 1 3.5 11 8.5 8.5 0 0 1 12 3a8.4 8.4 0 0 1 9 8.5z"/><path d="M9 10h6M9 13.5h4"/></svg>
-        <span class="num">03</span>
-        <h3>Le hablamos claro.</h3>
-        <p>Qué tiene, qué es urgente y qué puede esperar al otro mes.</p>
-      </article>
+    <div class="cifras" data-anim>
+      <div class="cifra-item">
+        <div class="cifra" data-cuenta="10">0<small>AÑOS</small></div>
+        <p>Solo Nissan, desde el primer día.</p>
+      </div>
+      <div class="cifra-item">
+        <div class="cifra">ESCÁNER</div>
+        <p>Leemos el módulo del carro. No trabajamos a oído.</p>
+      </div>
+      <div class="cifra-item">
+        <div class="cifra">0<small>SORPRESAS</small></div>
+        <p>El precio completo lo sabe antes de que toquemos el carro.</p>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- ============================== SERVICIOS ============================== -->
-<section class="seccion" id="servicios" style="padding-top:0">
+<section class="seccion" id="servicios">
   <div class="envoltura">
-    <span class="etiqueta" data-anim>Servicios</span>
-    <h2 data-anim>Todo lo que su Nissan necesita, en un solo taller.</h2>
+    <div class="cabeza" data-anim>
+      <div>
+        <span class="etiqueta">Nuestros servicios</span>
+        <h2>Todo lo que su Nissan necesita</h2>
+      </div>
+      <p class="plomo">Mantenimiento, diagnóstico y reparación con equipo especializado en la marca. Cada servicio tiene su página, con lo que incluye y cuánto se demora.</p>
+    </div>
 
-    <div class="servicios-rejilla">
-      <article class="servicio">
-        <svg class="icono" viewBox="0 0 24 24" aria-hidden="true"><path d="M4 17a8 8 0 1 1 16 0"/><path d="M12 17 16 10"/><circle cx="12" cy="17" r="1.4"/><path d="M2 20h20"/></svg>
+    <div class="rejilla r3" style="margin-top:clamp(30px,3.6vw,48px)">
+      <article class="tarjeta" data-anim>
+        <div class="icono-caja"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 17a8 8 0 1 1 16 0"/><path d="M12 17 16 10"/><circle cx="12" cy="17" r="1.4"/><path d="M2 20h20"/></svg></div>
         <h3>Revisión periódica</h3>
-        <p>Preventiva y correctiva. Lo revisamos completo, le decimos qué está bien, qué hay que arreglar ya y qué puede esperar.</p>
+        <p>Preventiva y correctiva. Le decimos qué está bien, qué hay que arreglar ya y qué puede esperar.</p>
+        <a class="mas" href="servicios/revision-periodica.html">Ver el servicio <span>→</span></a>
       </article>
-      <article class="servicio">
-        <svg class="icono" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4M7 9l2.5 3L12 8l2 4 3-3"/></svg>
+      <article class="tarjeta" data-anim>
+        <div class="icono-caja"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="4" width="18" height="13" rx="2"/><path d="M8 21h8M12 17v4M7 9l2.5 3L12 8l2 4 3-3"/></svg></div>
         <h3>Diagnóstico electrónico</h3>
         <p>Conectamos el escáner, leemos los códigos y le explicamos qué encontró.</p>
+        <a class="mas" href="servicios/diagnostico-electronico.html">Ver el servicio <span>→</span></a>
       </article>
-      <article class="servicio">
-        <svg class="icono" viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 5 13h6l-1 9 8-11h-6z"/></svg>
-        <h3>Sistema eléctrico</h3>
-        <p>Batería, alternador, arranque y esas fallas raras que aparecen y desaparecen solas.</p>
-      </article>
-      <article class="servicio">
-        <svg class="icono" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 15V9a2 2 0 0 1 2-2h3l2-2h3l1 2h2a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-2l-1 2h-3l-2-2H7a2 2 0 0 1-2-2z"/><path d="M9 11v3"/></svg>
+      <article class="tarjeta" data-anim>
+        <div class="icono-caja"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 15V9a2 2 0 0 1 2-2h3l2-2h3l1 2h2a2 2 0 0 1 2 2v6a2 2 0 0 1-2 2h-2l-1 2h-3l-2-2H7a2 2 0 0 1-2-2z"/><path d="M9 11v3"/></svg></div>
         <h3>Motor y distribución</h3>
         <p>Sincronización, empaques, inyección y el ruido que lleva meses molestando.</p>
+        <a class="mas" href="servicios/motor-y-distribucion.html">Ver el servicio <span>→</span></a>
       </article>
-      <article class="servicio">
-        <svg class="icono" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="3.6"/><path d="M12 3.5v5M12 15.5v5M3.5 12h5M15.5 12h5"/></svg>
+      <article class="tarjeta" data-anim>
+        <div class="icono-caja"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="3.6"/><path d="M12 3.5v5M12 15.5v5M3.5 12h5M15.5 12h5"/></svg></div>
         <h3>Frenos y suspensión</h3>
         <p>Pastillas, discos, amortiguadores y la alineación que se siente al volante.</p>
+        <a class="mas" href="servicios/frenos-y-suspension.html">Ver el servicio <span>→</span></a>
       </article>
-      <article class="servicio">
-        <svg class="icono" viewBox="0 0 24 24" aria-hidden="true"><circle cx="6.5" cy="12" r="3.4"/><circle cx="17.5" cy="12" r="3.4"/><path d="M6.5 4.6v3M17.5 4.6v3M6.5 16.4v3M17.5 16.4v3M2 12h1M21 12h1"/></svg>
+      <article class="tarjeta" data-anim>
+        <div class="icono-caja"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M13 2 5 13h6l-1 9 8-11h-6z"/></svg></div>
+        <h3>Sistema eléctrico</h3>
+        <p>Batería, alternador, arranque y esas fallas raras que aparecen y desaparecen solas.</p>
+        <a class="mas" href="servicios/sistema-electrico.html">Ver el servicio <span>→</span></a>
+      </article>
+      <article class="tarjeta" data-anim>
+        <div class="icono-caja"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="6.5" cy="12" r="3.4"/><circle cx="17.5" cy="12" r="3.4"/><path d="M6.5 4.6v3M17.5 4.6v3M6.5 16.4v3M17.5 16.4v3M2 12h1M21 12h1"/></svg></div>
         <h3>Alineación y balanceo</h3>
         <p>Si el carro se va para un lado o el timón vibra, se siente al primer kilómetro después.</p>
-      </article>
-      <article class="servicio">
-        <svg class="icono" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3.4 2.1"/><path d="M12 3v1.6M21 12h-1.6M12 21v-1.6M3 12h1.6"/></svg>
-        <h3>Mantenimiento por kilometraje</h3>
-        <p>Lo que su Nissan pide a los 10, 20, 40 y 100 mil, sin lo que no pide.</p>
+        <a class="mas" href="servicios/alineacion-y-balanceo.html">Ver el servicio <span>→</span></a>
       </article>
     </div>
 
-    <div class="destacado" data-anim>
-      <div>
-        <span class="etiqueta">Lo que más nos piden</span>
-        <h3 style="margin-top:18px">La revisión de hoy es la reparación que no paga mañana.</h3>
-        <p>Casi toda reparación cara empezó como un detalle barato que nadie miró a tiempo. Una revisión periódica lo encuentra mientras todavía cuesta poco.</p>
-        <p>Le entregamos el estado real del carro: qué está bien, qué hay que arreglar ya y qué puede esperar al otro mes. Usted decide con eso en la mano.</p>
-        <div class="acciones">
-          <a class="btn btn-wa" data-wa="Hola Tecnissan, quiero agendar la revisión periódica de mi Nissan.">
-            <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.4A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3.2.9.9-3.1-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
-            Agendar mi revisión
-          </a>
-        </div>
-      </div>
-      <div class="foto-marco foto-destacado" role="img" aria-label="Vehículo sobre el elevador en una bahía de servicio"></div>
+    <div style="margin-top:clamp(28px,3vw,42px);display:flex;justify-content:center">
+      <a class="btn btn-linea" href="servicios/index.html">Ver todos los servicios</a>
     </div>
   </div>
 </section>
 
-<!-- ======================= MOMENTO INTERACTIVO ======================= -->
-<section class="seccion" id="diagnostico" style="padding-top:0">
+<!-- ============================== POR QUÉ ============================== -->
+<section class="seccion hueso" id="nosotros">
   <div class="envoltura">
-    <span class="etiqueta" data-anim>Diagnóstico rápido</span>
-    <h2 data-anim>¿Qué le suena a su Nissan?</h2>
-    <p class="plomo" data-anim>Elija lo que está sintiendo y le decimos qué revisamos primero. Sin costo y sin compromiso.</p>
+    <div class="detalle">
+      <div>
+        <span class="etiqueta" data-anim>Por qué elegir Tecnissan</span>
+        <h2 data-anim style="margin-top:18px">El taller de la esquina sabe de carros. Nosotros sabemos del suyo.</h2>
+        <p class="plomo" data-anim style="margin-top:18px">Un Nissan no se arregla igual que los demás. Su electrónica, sus tiempos y sus fallas típicas son suyos, y el que no los conoce empieza a cambiar piezas para ver si pega.</p>
+
+        <div class="razones" data-anim>
+          <div class="razon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="9" cy="8" r="3.2"/><path d="M3 20c0-3.3 2.7-6 6-6s6 2.7 6 6"/><path d="M16 5.5a3.2 3.2 0 0 1 0 6M18 20c0-2.2-.8-4.2-2.2-5.6"/></svg>
+            <div><h3>Especialistas en Nissan</h3><p>Diez años viendo los mismos motores y las mismas fallas. Reconocemos el ruido antes de abrir.</p></div>
+          </div>
+          <div class="razon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3l7.5 3v5.5c0 4.4-3.1 8.4-7.5 9.5-4.4-1.1-7.5-5.1-7.5-9.5V6z"/><path d="M9 12l2.2 2.2L15.5 10"/></svg>
+            <div><h3>Diagnóstico confiable</h3><p>El escáner nos da el código y nosotros le decimos qué significa, antes de tocar una pieza.</p></div>
+          </div>
+          <div class="razon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M20.5 7.5 12 3 3.5 7.5v9L12 21l8.5-4.5z"/><path d="M12 12v9M3.5 7.5 12 12l8.5-4.5"/></svg>
+            <div><h3>Repuestos de calidad</h3><p>Originales y homologados. Si hay una alternativa buena y más barata, se la decimos con los dos precios.</p></div>
+          </div>
+          <div class="razon">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M21 11.5a8.4 8.4 0 0 1-9 8.5 9.3 9.3 0 0 1-3.7-.8L3 21l1.4-4.1A8.4 8.4 0 0 1 3.5 11 8.5 8.5 0 0 1 12 3a8.4 8.4 0 0 1 9 8.5z"/><path d="M9 10h6M9 13.5h4"/></svg>
+            <div><h3>Atención cercana</h3><p>Usted habla con quien hace el trabajo. Aquí no hay un asesor repitiendo lo que le dijeron.</p></div>
+          </div>
+        </div>
+      </div>
+
+      <div data-anim>
+        <div class="foto f-bahia" style="aspect-ratio:4/3"></div>
+        <p class="pie-foto">Cada carro entra con diagnóstico y sale con el trabajo explicado.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== BANDA DE CITA ============================== -->
+<section class="seccion" style="padding-top:clamp(40px,4.6vw,66px);padding-bottom:0">
+  <div class="envoltura">
+    <div class="banda" data-anim>
+      <div class="banda-icono"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 9.5h17M8 3v4M16 3v4M9 14l2 2 4-4"/></svg></div>
+      <div>
+        <span class="etiqueta">Agende su cita</span>
+        <h3>Su Nissan, listo para seguir.</h3>
+        <p>Escríbanos por WhatsApp y le decimos qué revisamos primero. Le responde una persona, no un robot.</p>
+      </div>
+      <a class="btn btn-wa" data-wa="Hola Tecnissan, quiero agendar una cita para mi Nissan.">
+        <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.4A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3.2.9.9-3.1-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
+        Agendar por WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================== MODELOS ============================== -->
+<section class="seccion" style="padding-bottom:clamp(50px,5.6vw,82px)">
+  <div class="envoltura">
+    <span class="etiqueta" data-anim>Trabajamos con todos los modelos</span>
+    <h2 data-anim style="margin-top:18px;font-size:clamp(24px,2.8vw,38px)">Su Nissan, en buenas manos</h2>
+    <div class="modelos" data-anim>
+      <span class="modelo">Versa</span>
+      <span class="modelo">Sentra</span>
+      <span class="modelo">March</span>
+      <span class="modelo">Kicks</span>
+      <span class="modelo">X-Trail</span>
+      <span class="modelo">Qashqai</span>
+      <span class="modelo">NP300</span>
+      <span class="modelo">Frontier</span>
+      <span class="modelo">Tiida</span>
+      <span class="modelo">Navara</span>
+    </div>
+    <p class="plomo" style="margin-top:22px">Si el suyo no está en la lista, escríbanos igual. Atendemos Nissan nuevos y de años atrás.</p>
+  </div>
+</section>
+
+<!-- ============================== DIAGNÓSTICO ============================== -->
+<section class="seccion hueso" id="diagnostico">
+  <div class="envoltura">
+    <div class="cabeza" data-anim>
+      <div>
+        <span class="etiqueta">Diagnóstico rápido</span>
+        <h2>¿Qué le suena a su Nissan?</h2>
+      </div>
+      <p class="plomo">Elija lo que está sintiendo y le decimos qué revisamos primero. Sin costo y sin compromiso.</p>
+    </div>
 
     <div class="sintomas">
       <div class="sintoma-lista" role="tablist" aria-label="Síntomas de su Nissan" id="sintomaLista"></div>
-
-      <div class="sintoma-panel" role="tabpanel" aria-live="polite" id="sintomaPanel">
+      <div class="sintoma-panel" role="tabpanel" aria-live="polite">
         <span class="etiqueta">Qué revisamos</span>
         <div id="sintomaCuerpo">
           <p class="panel-vacio">Elija un síntoma de la lista y aquí le decimos por dónde empezamos.</p>
@@ -847,10 +313,15 @@ footer .lema{color:var(--aluminio);font-size:14.6px;max-width:34ch;margin-top:14
 </section>
 
 <!-- ============================== PROCESO ============================== -->
-<section class="seccion" id="proceso" style="padding-top:0">
+<section class="seccion" id="proceso">
   <div class="envoltura">
-    <span class="etiqueta" data-anim>Cómo trabajamos</span>
-    <h2 data-anim>Cuatro pasos, y usted decide en el tercero.</h2>
+    <div class="cabeza" data-anim>
+      <div>
+        <span class="etiqueta">Cómo trabajamos</span>
+        <h2>Cuatro pasos, y usted decide en el tercero</h2>
+      </div>
+      <p class="plomo">Ningún trabajo empieza sin que usted sepa qué tiene el carro y cuánto cuesta arreglarlo.</p>
+    </div>
 
     <div class="pasos" id="pasos">
       <div class="pasos-progreso" id="pasosProgreso" aria-hidden="true"></div>
@@ -879,44 +350,60 @@ footer .lema{color:var(--aluminio);font-size:14.6px;max-width:34ch;margin-top:14
 </section>
 
 <!-- ============================== EQUIPO ============================== -->
-<section class="seccion" id="equipo" style="padding-top:0">
+<section class="seccion hueso" id="equipo">
   <div class="envoltura">
-    <span class="etiqueta" data-anim>El equipo</span>
-    <h2 data-anim>Las manos que van a tocar su carro.</h2>
-    <p class="plomo" data-anim>Nadie aquí aprendió con su Nissan. Llevamos diez años en la misma marca, y esa es la diferencia entre cambiar piezas y arreglar el problema.</p>
-
-    <figure class="foto-ancha" data-anim>
-      <div class="foto-marco foto-equipo" role="img" aria-label="El equipo completo de Tecnissan en la nave de servicio, frente a un Nissan sobre el elevador"></div>
-      <figcaption>El equipo de Tecnissan, completo. Estas son las personas que reciben su carro.</figcaption>
-    </figure>
-
-    <div class="trio" id="equipoTrio">
-      <article class="tarjeta">
-        <span class="num">10 AÑOS</span>
-        <h3>La misma marca, todos los días.</h3>
-        <p>Diez años viendo los mismos motores, las mismas cajas y las mismas fallas. Por eso reconocemos el ruido antes de abrir.</p>
-      </article>
-      <article class="tarjeta">
-        <span class="num">EL TALLER</span>
-        <h3>Usted habla con quien hace el trabajo.</h3>
-        <p>Aquí no hay un asesor que le repite lo que le dijeron. El que revisó su carro es el que le explica.</p>
-      </article>
-      <article class="tarjeta">
-        <span class="num">BOGOTÁ</span>
-        <h3>Un taller, no una cadena.</h3>
-        <p>Nos conoce por el nombre y nosotros a su carro por la placa. Eso no se consigue en un concesionario.</p>
-      </article>
+    <div class="cabeza" data-anim>
+      <div>
+        <span class="etiqueta">El equipo</span>
+        <h2>Las manos que van a tocar su carro</h2>
+      </div>
+      <p class="plomo">Nadie aquí aprendió con su Nissan. Llevamos diez años en la misma marca, y esa es la diferencia entre cambiar piezas y arreglar el problema.</p>
     </div>
 
-    <div class="equipo-rejilla" id="equipoRejilla"></div>
+    <figure style="margin:clamp(28px,3.4vw,44px) 0 0" data-anim>
+      <div class="foto f-equipo"></div>
+      <figcaption class="pie-foto">El equipo de Tecnissan, completo. Estas son las personas que reciben su carro.</figcaption>
+    </figure>
+  </div>
+</section>
+
+<!-- ============================== RESEÑAS ============================== -->
+<section class="seccion" id="resenas">
+  <div class="envoltura">
+    <div class="cabeza" data-anim>
+      <div>
+        <span class="etiqueta">Testimonios</span>
+        <h2>La confianza de nuestros clientes</h2>
+      </div>
+      <p class="plomo">Estamos reuniendo las reseñas verificadas de Google. Si ya nos visitó, la suya nos ayuda muchísimo.</p>
+    </div>
+
+    <div class="resenas">
+      <div class="resena-cta" data-anim>
+        <span class="etiqueta">Reseñas de Google</span>
+        <h3>Cuéntele a otros conductores cómo le fue</h3>
+        <p>Una reseña suya vale más que cualquier cosa que nosotros escribamos en esta página. Toma un minuto.</p>
+        <div class="acciones">
+          <a class="btn btn-wa" data-red="google">Dejar una reseña en Google</a>
+        </div>
+      </div>
+      <div class="resena-vacio" data-anim>
+        <p>Aquí van las reseñas reales de clientes, con nombre y modelo del Nissan.<br>Este espacio se llena en cuanto lleguen las primeras.</p>
+      </div>
+    </div>
   </div>
 </section>
 
 <!-- ============================== PREGUNTAS ============================== -->
-<section class="seccion" id="preguntas" style="padding-top:0">
+<section class="seccion hueso" id="preguntas">
   <div class="envoltura">
-    <span class="etiqueta" data-anim>Preguntas</span>
-    <h2 data-anim>Lo que todos preguntan antes de dejar el carro.</h2>
+    <div class="cabeza" data-anim>
+      <div>
+        <span class="etiqueta">Preguntas</span>
+        <h2>Lo que todos preguntan antes de dejar el carro</h2>
+      </div>
+      <p class="plomo">Si la suya no está aquí, escríbanos por WhatsApp y se la respondemos hoy.</p>
+    </div>
 
     <div class="faq" data-anim>
       <details>
@@ -937,48 +424,53 @@ footer .lema{color:var(--aluminio);font-size:14.6px;max-width:34ch;margin-top:14
       </details>
       <details>
         <summary>¿Cuánto se demoran?</summary>
-        <div class="respuesta">Un mantenimiento sale el mismo día. Una reparación de caja o de motor lleva más, y le damos la fecha antes de recibirle el carro.</div>
+        <div class="respuesta">Un mantenimiento sale el mismo día. Una reparación de motor lleva más, y le damos la fecha antes de recibirle el carro.</div>
       </details>
       <details>
         <summary>¿Atienden todos los Nissan?</summary>
-        <div class="respuesta">Sí. March, Versa, Sentra, Tiida, Kicks, Qashqai, X-Trail y los demás, nuevos y de años atrás.</div>
+        <div class="respuesta">Sí. March, Versa, Sentra, Tiida, Kicks, Qashqai, X-Trail, NP300, Frontier y los demás, nuevos y de años atrás.</div>
       </details>
     </div>
   </div>
 </section>
 
 <!-- ============================== CÓMO LLEGAR ============================== -->
-<section class="seccion" id="llegar" style="padding-top:0">
+<section class="seccion" id="llegar">
   <div class="envoltura">
-    <span class="etiqueta" data-anim>Cómo llegar</span>
-    <h2 data-anim>Venga al taller. Aquí estamos.</h2>
+    <div class="cabeza" data-anim>
+      <div>
+        <span class="etiqueta">Cómo llegar</span>
+        <h2>Venga al taller. Aquí estamos.</h2>
+      </div>
+      <p class="plomo">Estamos en Bogotá, sobre la Carrera 70G. La entrada del taller es el portón blanco que queda a la izquierda del aviso.</p>
+    </div>
 
     <div class="llegar">
       <div data-anim>
         <div class="dato">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-5.4-7-10.5A7 7 0 0 1 19 10.5C19 15.6 12 21 12 21z"/><circle cx="12" cy="10.4" r="2.6"/></svg>
-          <div><div class="k">Dirección</div><div class="v" id="vDireccion">Calle 00 # 00-00<br>Ciudad, Colombia</div></div>
+          <div><div class="k">Dirección</div><div class="v"><span data-dato="direccion"></span><br><span data-dato="ciudad"></span></div></div>
         </div>
         <div class="dato">
           <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7.5V12l3.2 2"/></svg>
-          <div><div class="k">Horario</div><div class="v">Lunes a viernes, 7:30 a.m. a 6:00 p.m.<br><span class="apagado">Sábados y domingos cerrado</span></div></div>
+          <div><div class="k">Horario</div><div class="v"><span data-dato="horarioSemana"></span><br><span class="apagado" data-dato="horarioFinde"></span></div></div>
         </div>
         <div class="dato">
           <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 5h5l2 5-3 2a12 12 0 0 0 5 5l2-3 5 2v5a15 15 0 0 1-16-16z"/></svg>
-          <div><div class="k">WhatsApp</div><div class="v" id="vTelefono">+57 300 000 0000</div></div>
+          <div><div class="k">WhatsApp</div><div class="v" data-dato="waVisible"></div></div>
         </div>
-        <div class="acciones">
+        <div class="acciones" style="margin-top:26px">
           <a class="btn btn-wa" data-wa="Hola Tecnissan, quiero pasar al taller. ¿Me confirman el horario de hoy?">
             <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.4A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3.2.9.9-3.1-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
             Escribir por WhatsApp
           </a>
-          <a class="btn btn-linea" id="btnMapa" target="_blank" rel="noopener">Abrir en Google Maps</a>
+          <a class="btn btn-linea" data-mapa-link>Abrir en Google Maps</a>
         </div>
       </div>
 
       <div data-anim>
-        <div class="foto-marco foto-fachada" role="img" aria-label="Fachada de Tecnissan en la Calle 70G, con el aviso rojo y blanco sobre la entrada"></div>
-        <p class="pie-foto">Busque este aviso. La entrada del taller es el portón blanco de la izquierda.</p>
+        <div class="foto f-fachada"></div>
+        <p class="pie-foto">Busque este aviso sobre la Carrera 70G.</p>
         <div class="mapa" style="margin-top:18px">
           <iframe id="mapaIframe" title="Mapa con la ubicación de Tecnissan" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
         </div>
@@ -988,13 +480,13 @@ footer .lema{color:var(--aluminio);font-size:14.6px;max-width:34ch;margin-top:14
 </section>
 
 <!-- ============================== CIERRE ============================== -->
-<section class="seccion cierre" id="contacto">
+<section class="seccion hueso" id="contacto">
   <div class="envoltura cierre-rejilla">
     <div data-anim>
       <span class="etiqueta">Su turno</span>
-      <h2 style="margin-top:20px">Cuéntenos qué le está pasando a su Nissan.</h2>
-      <p class="plomo">Le respondemos hoy y le decimos qué revisamos primero, sin compromiso.</p>
-      <div class="acciones" style="margin-top:30px">
+      <h2 style="margin-top:18px">Cuéntenos qué le está pasando a su Nissan.</h2>
+      <p class="plomo" style="margin-top:18px">Le respondemos hoy y le decimos qué revisamos primero, sin compromiso.</p>
+      <div class="acciones" style="margin-top:28px">
         <a class="btn btn-wa" data-wa="Hola Tecnissan, quiero agendar un diagnóstico para mi Nissan.">
           <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.4A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3.2.9.9-3.1-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
           Escribir por WhatsApp
@@ -1012,6 +504,18 @@ footer .lema{color:var(--aluminio);font-size:14.6px;max-width:34ch;margin-top:14
         <input id="fCarro" name="carro" type="text" placeholder="Sentra 2018" required>
       </div>
       <div class="campo">
+        <label for="fServicio">Qué necesita</label>
+        <select id="fServicio" name="servicio">
+          <option value="">No estoy seguro</option>
+          <option>Revisión periódica</option>
+          <option>Diagnóstico electrónico</option>
+          <option>Motor y distribución</option>
+          <option>Frenos y suspensión</option>
+          <option>Sistema eléctrico</option>
+          <option>Alineación y balanceo</option>
+        </select>
+      </div>
+      <div class="campo">
         <label for="fMensaje">Qué está sintiendo</label>
         <textarea id="fMensaje" name="mensaje" required></textarea>
       </div>
@@ -1023,50 +527,52 @@ footer .lema{color:var(--aluminio);font-size:14.6px;max-width:34ch;margin-top:14
 
 </main>
 
-<!-- ============================== FOOTER ============================== -->
 <footer>
   <div class="pie-rejilla">
     <div>
-      <a class="marca" href="#" aria-label="Tecnissan, inicio">
-        <svg viewBox="0 0 40 40" aria-hidden="true" class="mark">
-      <defs>
-        <linearGradient id="cromo" x1="0" y1="0" x2="0.3" y2="1">
-          <stop offset="0" stop-color="#F4F6F8"/><stop offset="0.34" stop-color="#9BA3AC"/>
-          <stop offset="0.52" stop-color="#E8ECEF"/><stop offset="0.74" stop-color="#6E757D"/>
-          <stop offset="1" stop-color="#C3C9D0"/>
-        </linearGradient>
-      </defs>
-      <circle cx="20" cy="20" r="18.2" fill="none" stroke="url(#cromo)" stroke-width="2.6"/>
-      <circle cx="20" cy="20" r="14.4" fill="none" stroke="#E11B22" stroke-width="1" opacity=".55"/>
-      <path d="M10.6 13.4h12.2M16.7 13.4v13.2" fill="none" stroke="url(#cromo)" stroke-width="2.6" stroke-linecap="square"/>
-      <path d="M21.6 26.6V13.4l7.8 13.2V13.4" fill="none" stroke="url(#cromo)" stroke-width="2.6" stroke-linejoin="miter" stroke-linecap="square"/>
-    </svg>
-        <span>Tec<b>nissan</b></span>
+      <a class="marca" href="index.html" aria-label="Tecnissan, inicio">
+        <svg viewBox="0 0 40 40" aria-hidden="true">
+          <defs><linearGradient id="cromoPie" x1="0" y1="0" x2="0.3" y2="1">
+            <stop offset="0" stop-color="#F4F6F8"/><stop offset="0.38" stop-color="#9BA3AC"/>
+            <stop offset="0.56" stop-color="#E8ECEF"/><stop offset="0.8" stop-color="#6E757D"/>
+            <stop offset="1" stop-color="#C3C9D0"/>
+          </linearGradient></defs>
+          <circle cx="20" cy="20" r="18.4" fill="none" stroke="url(#cromoPie)" stroke-width="2.4"/>
+          <circle cx="20" cy="20" r="14.6" fill="none" stroke="#E11B22" stroke-width="1" opacity=".55"/>
+          <path d="M10.8 13.6h12M16.8 13.6v12.8" fill="none" stroke="url(#cromoPie)" stroke-width="2.6" stroke-linecap="square"/>
+          <path d="M21.6 26.4V13.6l7.6 12.8V13.6" fill="none" stroke="url(#cromoPie)" stroke-width="2.6" stroke-linecap="square"/>
+        </svg>
+        <span class="marca-txt">
+          <span class="marca-nombre">Tec<b>nissan</b></span>
+          <span class="marca-sub">Servicio especializado</span>
+        </span>
       </a>
       <p class="lema">Taller especializado en vehículos Nissan. Diagnóstico primero, presupuesto antes, y le explicamos todo.</p>
     </div>
     <div>
       <h4>Servicios</h4>
-      <a href="#servicios">Revisión periódica</a>
-      <a href="#servicios">Diagnóstico electrónico</a>
-      <a href="#servicios">Sistema eléctrico</a>
-      <a href="#servicios">Motor y distribución</a>
-      <a href="#servicios">Frenos y suspensión</a>
-      <a href="#servicios">Alineación y balanceo</a>
+      <a href="servicios/revision-periodica.html">Revisión periódica</a>
+      <a href="servicios/diagnostico-electronico.html">Diagnóstico electrónico</a>
+      <a href="servicios/motor-y-distribucion.html">Motor y distribución</a>
+      <a href="servicios/frenos-y-suspension.html">Frenos y suspensión</a>
+      <a href="servicios/sistema-electrico.html">Sistema eléctrico</a>
+      <a href="servicios/alineacion-y-balanceo.html">Alineación y balanceo</a>
     </div>
     <div>
-      <h4>Horario</h4>
-      <span style="color:var(--aluminio);font-size:14.6px;display:block;padding:5px 0">Lunes a viernes<br>7:30 a.m. a 6:00 p.m.</span>
-      <span class="apagado" style="font-size:14.6px;display:block;padding:5px 0">Sábados y domingos cerrado</span>
-      <span style="color:var(--aluminio);font-size:14.6px;display:block;padding:5px 0">Bogotá, Colombia</span>
+      <h4>Taller</h4>
+      <div class="pie-dato" data-dato="direccion"></div>
+      <div class="pie-dato" data-dato="ciudad"></div>
+      <div class="pie-dato" data-dato="horarioSemana"></div>
+      <div class="pie-dato" data-dato="horarioFinde"></div>
+      <a data-mapa-link>Abrir en Google Maps</a>
     </div>
     <div>
       <h4>Contacto</h4>
       <a data-wa="Hola Tecnissan, tengo una pregunta sobre mi Nissan.">WhatsApp +57 311 271 0738</a>
-      <a href="#llegar">Cómo llegar</a>
-      <a href="#preguntas">Preguntas frecuentes</a>
       <a data-red="facebook">Facebook</a>
       <a data-red="instagram">Instagram</a>
+      <a data-red="google">Reseñas en Google</a>
+      <a href="#preguntas">Preguntas frecuentes</a>
     </div>
   </div>
   <div class="pie-base">
@@ -1080,416 +586,6 @@ footer .lema{color:var(--aluminio);font-size:14.6px;max-width:34ch;margin-top:14
   <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M17.5 14.4c-.3-.2-1.8-.9-2.1-1-.3-.1-.5-.2-.7.1-.2.3-.8 1-1 1.2-.2.2-.4.2-.7.1-.3-.2-1.2-.5-2.3-1.5-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6.1-.2.4-.5.5-.7.2-.2.2-.4.3-.6.1-.2 0-.4 0-.6 0-.2-.7-1.7-.9-2.3-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.6.1-.9.4-.3.3-1.1 1.1-1.1 2.6s1.1 3 1.3 3.3c.1.2 2 3.3 5 4.5 2.9 1.1 3.3.9 3.9.8.6-.1 1.9-.8 2.2-1.5.3-.8.3-1.4.2-1.5 0-.2-.2-.3-.4-.4z"/><path d="M12 2a10 10 0 0 0-8.5 15.3L2 22l4.8-1.4A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3.2.9.9-3.1-.2-.3A8.2 8.2 0 1 1 12 20.2z"/></svg>
 </a>
 
-<script>
-/* ===========================================================
-   CONFIGURACIÓN. Al llegar los datos reales, solo cambia esto.
-   =========================================================== */
-const TECNISSAN = {
-  wa: "573112710738",
-  waVisible: "+57 311 271 0738",
-  direccion: "Calle 70G # 69B-70",
-  ciudad: "Bogotá, Colombia",
-  mapaConsulta: "Tecnissan, Calle 70G 69B-70, Bogotá, Colombia",
-  email: "",                           /* correo del formulario, pendiente */
-  facebook: "https://www.facebook.com/Tecnissan/",
-  instagram: "https://www.instagram.com/tecnissan_sas",
-  videoSrc: "assets/hero.mp4"
-};
-
-/* -------------------- utilidades -------------------- */
-const $  = (s,r=document)=>r.querySelector(s);
-const $$ = (s,r=document)=>[...r.querySelectorAll(s)];
-const tope = (v,a,b)=>v<a?a:v>b?b:v;
-const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-
-/* -------------------- WhatsApp -------------------- */
-const waUrl = msg => `https://wa.me/${TECNISSAN.wa}?text=${encodeURIComponent(msg)}`;
-$$("[data-wa]").forEach(el=>{
-  el.setAttribute("href", waUrl(el.dataset.wa));
-  el.setAttribute("target","_blank");
-  el.setAttribute("rel","noopener");
-});
-
-/* -------------------- datos de contacto -------------------- */
-$("#vDireccion").innerHTML = TECNISSAN.direccion
-  ? `${TECNISSAN.direccion}<br>${TECNISSAN.ciudad}`
-  : TECNISSAN.ciudad;
-$("#vTelefono").textContent = TECNISSAN.waVisible;
-$("#anio").textContent = new Date().getFullYear();
-const consulta = encodeURIComponent(
-  TECNISSAN.direccion ? `${TECNISSAN.direccion}, ${TECNISSAN.ciudad}` : TECNISSAN.mapaConsulta
-);
-$("#mapaIframe").src = `https://www.google.com/maps?q=${consulta}&output=embed`;
-$("#btnMapa").href = `https://www.google.com/maps/search/?api=1&query=${consulta}`;
-
-$$("[data-red]").forEach(a=>{
-  const url = TECNISSAN[a.dataset.red];
-  if(url){ a.href = url; a.target = "_blank"; a.rel = "noopener"; }
-  else a.remove();
-});
-
-/* -------------------- aviso temporal, empuja el menú -------------------- */
-(()=>{
-  const aviso = $("#avisoDatos");
-  if(!aviso) return;
-  const mide = ()=> document.documentElement.style.setProperty("--aviso-h", aviso.offsetHeight + "px");
-  mide();
-  addEventListener("resize", mide);
-})();
-
-/* -------------------- nav -------------------- */
-const nav = $("#nav");
-const alHacerScrollNav = ()=> nav.classList.toggle("pegado", window.scrollY > 30);
-alHacerScrollNav();
-addEventListener("scroll", alHacerScrollNav, {passive:true});
-
-const hamb = $("#hamburguesa");
-hamb.addEventListener("click", ()=>{
-  const abierto = nav.classList.toggle("abierto");
-  hamb.setAttribute("aria-expanded", String(abierto));
-  hamb.setAttribute("aria-label", abierto ? "Cerrar menú" : "Abrir menú");
-});
-$$("#navEnlaces a").forEach(a=>a.addEventListener("click", ()=>{
-  nav.classList.remove("abierto");
-  hamb.setAttribute("aria-expanded","false");
-}));
-
-/* -------------------- entradas al hacer scroll -------------------- */
-const entrada = new IntersectionObserver((filas)=>{
-  filas.forEach(f=>{
-    if(!f.isIntersecting) return;
-    f.target.classList.add("dentro");
-    entrada.unobserve(f.target);
-  });
-},{rootMargin:"0px 0px -12% 0px",threshold:.12});
-
-$$("[data-anim], .tarjeta, .servicio, .persona").forEach((el,i)=>{
-  el.style.transitionDelay = `${Math.min(i%6,5)*70}ms`;
-  entrada.observe(el);
-});
-
-/* botón flotante de WhatsApp, aparece al salir del hero */
-const flota = $("#waFlota");
-new IntersectionObserver(([f])=>{
-  flota.classList.toggle("dentro", !f.isIntersecting);
-},{threshold:.04}).observe($("#hero"));
-
-/* -------------------- cifras que cuentan -------------------- */
-$$("[data-cuenta]").forEach(el=>{
-  const fin = parseInt(el.dataset.cuenta,10);
-  const pequeno = el.querySelector("small");
-  const pinta = n => { el.textContent = String(n); if(pequeno) el.appendChild(pequeno); };
-  const obs = new IntersectionObserver(([f])=>{
-    if(!f.isIntersecting) return;
-    obs.disconnect();
-    if(reduce){ pinta(fin); return; }
-    const t0 = performance.now(), dur = 1100;
-    const paso = t =>{
-      const p = tope((t-t0)/dur,0,1);
-      pinta(Math.round(fin * (1-Math.pow(1-p,3))));
-      if(p<1) requestAnimationFrame(paso);
-    };
-    requestAnimationFrame(paso);
-  },{threshold:.5});
-  obs.observe(el);
-});
-
-/* -------------------- línea de diagnóstico -------------------- */
-$$(".costura").forEach(c=>{
-  const path = c.querySelector("path");
-  const largo = path.getTotalLength ? path.getTotalLength() : 100;
-  path.style.setProperty("--largo", largo);
-  new IntersectionObserver(([f])=>{
-    if(f.isIntersecting) c.classList.add("dibujada");
-  },{threshold:.06}).observe(c);
-});
-
-/* -------------------- progreso de los pasos -------------------- */
-(()=>{
-  const pasos = $("#pasos"), barra = $("#pasosProgreso");
-  if(!pasos) return;
-  const items = $$(".paso", pasos);
-  const vertical = ()=> matchMedia("(max-width:900px)").matches;
-  new IntersectionObserver(([f])=>{
-    if(!f.isIntersecting) return;
-    items.forEach((p,i)=>setTimeout(()=>p.classList.add("dentro"), i*220));
-    setTimeout(()=>{
-      if(vertical()) barra.style.height = "100%";
-      else barra.style.width = "100%";
-    }, 140);
-  },{threshold:.3}).observe(pasos);
-})();
-
-/* -------------------- síntomas -------------------- */
-const SINTOMAS = [
-  { t:"Suena o vibra al frenar",
-    r:"Casi siempre son pastillas gastadas o discos desnivelados. Medimos el espesor de las pastillas y el estado de los discos, y le decimos cuánto le queda de vida a cada cosa.",
-    wa:"Hola Tecnissan, mi Nissan suena y vibra al frenar. ¿Me revisan los frenos?" },
-  { t:"Tirones al acelerar",
-    r:"Puede ser bujías, inyectores o el sensor de flujo de aire. El escáner lo separa en minutos, sin desarmar nada.",
-    wa:"Hola Tecnissan, mi Nissan da tirones al acelerar. ¿Me hacen el diagnóstico?" },
-  { t:"Se encendió un testigo en el tablero",
-    r:"Leemos el código y le decimos qué significa antes de tocar una sola pieza. Muchas veces es un sensor barato, no una reparación grande.",
-    wa:"Hola Tecnissan, se me encendió un testigo en el tablero del Nissan. ¿Me leen el código?" },
-  { t:"Está gastando más gasolina",
-    r:"Revisamos inyectores, bujías, filtro y sensor de oxígeno. Casi siempre es uno de esos cuatro.",
-    wa:"Hola Tecnissan, mi Nissan está gastando más gasolina de lo normal. ¿Qué me recomiendan revisar?" },
-  { t:"Se va para un lado o vibra el timón",
-    r:"Revisamos alineación, balanceo y el estado de la suspensión. Es de las fallas que más se sienten al volante y de las más baratas de corregir a tiempo.",
-    wa:"Hola Tecnissan, mi Nissan se va para un lado y vibra el timón. ¿Me revisan la alineación?" },
-  { t:"Le toca el mantenimiento",
-    r:"Le decimos exactamente qué pide su Nissan en su kilometraje, y qué no pide todavía. Así no paga por lo que no necesita.",
-    wa:"Hola Tecnissan, quiero el mantenimiento de mi Nissan. ¿Qué me toca en mi kilometraje?" }
-];
-
-(()=>{
-  const lista = $("#sintomaLista"), cuerpo = $("#sintomaCuerpo");
-  const acciones = $("#sintomaAcciones"), boton = $("#sintomaWa");
-
-  SINTOMAS.forEach((s,i)=>{
-    const b = document.createElement("button");
-    b.type = "button";
-    b.className = "sintoma-btn";
-    b.setAttribute("role","tab");
-    b.setAttribute("aria-selected","false");
-    b.innerHTML = `<span class="punto"></span><span>${s.t}</span>`;
-    b.addEventListener("click", ()=>{
-      $$(".sintoma-btn", lista).forEach(o=>o.setAttribute("aria-selected","false"));
-      b.setAttribute("aria-selected","true");
-      cuerpo.innerHTML = `<h3 id="sintomaTitulo">${s.t}</h3><p id="sintomaTexto">${s.r}</p>`;
-      cuerpo.classList.remove("fundido");
-      void cuerpo.offsetWidth;
-      if(!reduce) cuerpo.classList.add("fundido");
-      boton.href = waUrl(s.wa);
-      acciones.hidden = false;
-    });
-    lista.appendChild(b);
-  });
-})();
-
-/* -------------------- equipo -------------------- */
-/* Cuando lleguen los nombres y las fotos del equipo, se llenan aquí.
-   Cada persona: { n:"Nombre", c:"Cargo", d:"Años trabajando Nissan", foto:"assets/x.jpg" }
-   Con la lista vacía, la sección muestra el texto y no retratos inventados. */
-const EQUIPO = [];
-
-(()=>{
-  const rejilla = $("#equipoRejilla");
-  if(!EQUIPO.length){ rejilla.remove(); return; }
-  EQUIPO.forEach((p,i)=>{
-    const art = document.createElement("article");
-    art.className = "persona";
-    art.innerHTML = `
-      <div class="retrato"><img src="${p.foto}" alt="${p.n}, ${p.c} en Tecnissan" loading="lazy"></div>
-      <h3>${p.n}</h3>
-      <div class="cargo">${p.c}</div>
-      <p>${p.d}</p>`;
-    rejilla.appendChild(art);
-    entrada.observe(art);
-  });
-})();
-
-/* -------------------- formulario: arma el mensaje de WhatsApp -------------------- */
-$("#formContacto").addEventListener("submit", e=>{
-  e.preventDefault();
-  const f = e.target;
-  const vacio = [...f.elements].find(el => el.required && !el.value.trim());
-  if(vacio){ vacio.focus(); return; }
-  const msg =
-    `Hola Tecnissan, soy ${f.nombre.value.trim()}.\n` +
-    `Mi carro es un ${f.carro.value.trim()}.\n` +
-    `${f.mensaje.value.trim()}`;
-  window.open(waUrl(msg), "_blank", "noopener");
-});
-
-/* ===========================================================
-   HERO: el video que se mueve con el scroll
-   =========================================================== */
-(()=>{
-  const hero = $("#hero"), video = $("#heroVideo");
-  const franjas = $$(".franja").map(el=>({
-    el,
-    ini:parseFloat(el.dataset.in),
-    fin:parseFloat(el.dataset.out),
-    dentro:null
-  }));
-
-  /* las cinco puertas: si alguna se cierra, queda la imagen fija diseñada */
-  const conexion = navigator.connection || {};
-  const lenta = conexion.saveData === true || /(^|-)2g$/.test(conexion.effectiveType || "");
-  const chico = matchMedia("(max-width: 920px)").matches;
-  const puedeScrub = !chico && !reduce && !lenta && typeof fetch === "function"
-                     && video.canPlayType && video.canPlayType("video/mp4") !== "";
-
-  let listo = false, duracion = 0, objetivo = 0, mostrado = 0;
-  let buscando = false, pendiente = null, raf = null, sucio = true;
-  let modoEstatico = false;
-
-  const progreso = ()=>{
-    const total = hero.offsetHeight - innerHeight;
-    if(total <= 0) return 0;
-    return tope(-hero.getBoundingClientRect().top / total, 0, 1);
-  };
-
-  /* solo escribe en el DOM cuando el estado cambia */
-  const pintaFranjas = p =>{
-    for(const f of franjas){
-      const dentro = p >= f.ini && p < f.fin;
-      if(dentro === f.dentro) continue;
-      f.dentro = dentro;
-      f.el.classList.toggle("dentro", dentro);
-    }
-  };
-
-  /* una sola búsqueda a la vez, nunca encimadas */
-  const busca = t =>{
-    if(buscando){ pendiente = t; return; }
-    if(Math.abs(video.currentTime - t) < 1/50) return;
-    buscando = true;
-    try { video.currentTime = t; } catch(_){ buscando = false; }
-  };
-  video.addEventListener("seeked", ()=>{
-    buscando = false;
-    if(pendiente !== null){ const t = pendiente; pendiente = null; busca(t); }
-  });
-
-  const cuadro = ()=>{
-    if(modoEstatico){ raf = null; return; }
-    const p = progreso();
-    pintaFranjas(p);
-    hero.classList.toggle("movido", p > 0.02);
-
-    let trabajando = sucio;
-    sucio = false;
-
-    if(listo && duracion > 0){
-      objetivo = p * duracion;
-      mostrado += (objetivo - mostrado) * 0.14;
-      if(Math.abs(objetivo - mostrado) < 0.004) mostrado = objetivo;
-      else trabajando = true;
-      busca(mostrado);
-    }
-
-    if(trabajando) raf = requestAnimationFrame(cuadro);
-    else raf = null;
-  };
-  const despierta = ()=>{
-    if(modoEstatico) return;
-    sucio = true;
-    if(!raf) raf = requestAnimationFrame(cuadro);
-  };
-
-  addEventListener("scroll", despierta, {passive:true});
-  addEventListener("resize", despierta);
-  despierta();
-
-  /* sin scrub, el hero se compone como una sola portada fija:
-     el titular principal, su bajada y los botones del descanso */
-  const portadaFija = ()=>{
-    modoEstatico = true;
-    if(raf){ cancelAnimationFrame(raf); raf = null; }
-    hero.classList.add("estatico","movido");
-    const principal = franjas[1], descanso = franjas[franjas.length-1];
-    franjas.forEach(f=>{
-      f.el.classList.remove("dentro");
-      f.el.style.display = "none";
-    });
-    principal.el.style.display = "block";
-    principal.el.style.gridArea = "auto";
-    principal.el.classList.add("dentro");
-    const acciones = descanso.el.querySelector(".acciones");
-    if(acciones) principal.el.appendChild(acciones);
-  };
-
-  if(!puedeScrub){ portadaFija(); return; }
-
-  /* carga el video como Blob, con anillo honesto de progreso */
-  const carga = $("#cargando"), arco = $("#arco"), texto = $("#cargaTexto");
-  const LARGO = 69.1;
-
-  (async ()=>{
-    try{
-      const res = await fetch(TECNISSAN.videoSrc);
-      if(!res.ok) throw new Error(res.status);
-      const total = +(res.headers.get("content-length") || 0);
-      if(total > 900000){ carga.hidden = false; }
-
-      let recibido = 0;
-      const trozos = [];
-      const lector = res.body.getReader();
-      for(;;){
-        const {done, value} = await lector.read();
-        if(done) break;
-        trozos.push(value);
-        recibido += value.length;
-        if(total){
-          const p = tope(recibido/total, 0, 1);
-          arco.style.strokeDashoffset = String(LARGO * (1-p));
-          texto.textContent = `Cargando ${Math.round(p*100)}%`;
-        }
-      }
-      const blob = new Blob(trozos, {type:"video/mp4"});
-      video.src = URL.createObjectURL(blob);
-      await new Promise((ok,mal)=>{
-        video.addEventListener("loadedmetadata", ok, {once:true});
-        video.addEventListener("error", mal, {once:true});
-      });
-      duracion = video.duration || 0;
-      if(!duracion || !isFinite(duracion)) throw new Error("sin duración");
-      video.currentTime = 0;
-      video.classList.add("visible");
-      listo = true;
-      carga.hidden = true;
-      despierta();
-    }catch(_){
-      /* el video no llegó. La página ya se ve bien sin él. */
-      carga.hidden = true;
-      portadaFija();
-    }
-  })();
-})();
-
-/* -------------------- polvo en el hero, a nivel de susurro -------------------- */
-(()=>{
-  const lienzo = $("#polvo");
-  if(!lienzo || reduce || matchMedia("(max-width:920px)").matches){ lienzo?.remove(); return; }
-  const ctx = lienzo.getContext("2d");
-  let ancho = 0, alto = 0, motas = [], corriendo = true, raf;
-
-  const medir = ()=>{
-    const dpr = Math.min(devicePixelRatio || 1, 2);
-    ancho = lienzo.width = lienzo.offsetWidth * dpr;
-    alto  = lienzo.height = lienzo.offsetHeight * dpr;
-    const cuantas = Math.round(Math.min(58, ancho/34));
-    motas = Array.from({length:cuantas}, ()=>({
-      x:Math.random()*ancho, y:Math.random()*alto,
-      r:(Math.random()*1.5+0.4)*dpr,
-      vx:(Math.random()-0.5)*0.16*dpr,
-      vy:(-Math.random()*0.22-0.04)*dpr,
-      a:Math.random()*0.32+0.06
-    }));
-  };
-  const pinta = ()=>{
-    ctx.clearRect(0,0,ancho,alto);
-    for(const m of motas){
-      m.x += m.vx; m.y += m.vy;
-      if(m.y < -8){ m.y = alto+8; m.x = Math.random()*ancho; }
-      if(m.x < -8) m.x = ancho+8; else if(m.x > ancho+8) m.x = -8;
-      ctx.beginPath();
-      ctx.arc(m.x, m.y, m.r, 0, 6.2832);
-      ctx.fillStyle = `rgba(230,232,236,${m.a})`;
-      ctx.fill();
-    }
-    if(corriendo) raf = requestAnimationFrame(pinta);
-  };
-  medir(); pinta();
-  addEventListener("resize", medir);
-  new IntersectionObserver(([f])=>{
-    corriendo = f.isIntersecting;
-    if(corriendo && !raf) raf = requestAnimationFrame(pinta);
-    else if(!corriendo){ cancelAnimationFrame(raf); raf = null; }
-  },{threshold:0}).observe($("#hero"));
-})();
-</script>
+<script src="assets/app.js"></script>
 </body>
 </html>
