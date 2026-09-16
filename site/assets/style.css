@@ -256,7 +256,12 @@ body{padding-top:calc(var(--nav-h) + var(--aviso-h,0px))}
 .cifra-item{padding:clamp(24px,3vw,38px);border-left:1px solid var(--linea)}
 .cifra-item:first-child{border-left:0}
 .cifra{font-family:var(--mono);font-weight:600;font-size:clamp(26px,3.2vw,42px);color:var(--rojo);line-height:1;letter-spacing:-.03em}
-.cifra small{font-size:.44em;letter-spacing:.1em;margin-left:6px;color:var(--grafito)}
+/* la etiqueta va debajo de la cifra: así caben rótulos largos
+   como "Años de experiencia" sin descuadrar la franja */
+.cifra small{
+  display:block;margin-top:11px;color:var(--grafito);
+  font-size:11.5px;font-weight:600;letter-spacing:.18em;text-transform:uppercase;
+}
 .cifra-item p{margin-top:12px;font-size:14.4px;color:var(--grafito);max-width:28ch}
 @media (max-width:800px){
   .cifras{grid-template-columns:1fr}
@@ -338,7 +343,7 @@ body{padding-top:calc(var(--nav-h) + var(--aviso-h,0px))}
 .f-taller{background-image:url("taller.jpg")}
 .f-fachada{background-image:url("fachada.jpg");aspect-ratio:16/9}
 .f-equipo{background-image:url("equipo.jpg");aspect-ratio:3/2}
-.f-bahia{background-image:url("destacado.jpg");aspect-ratio:16/9}
+.f-nave{background-image:url("nave.jpg");aspect-ratio:4/3;background-position:center 58%}
 @media (max-width:700px){.f-equipo{aspect-ratio:4/5}}
 
 .galeria{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,1.4vw,18px);margin-top:clamp(28px,3.4vw,44px)}
