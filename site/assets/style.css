@@ -559,7 +559,15 @@ body{padding-top:calc(var(--nav-h) + var(--aviso-h,0px))}
 
 /* ------------------------- cómo llegar ------------------------- */
 .llegar{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(24px,3.2vw,52px);margin-top:clamp(28px,3.4vw,44px);align-items:start}
-.mapa{position:relative;aspect-ratio:16/10;background:var(--hueso);overflow:hidden;border:1px solid var(--linea);clip-path:var(--corte)}
+/* el mapa ocupa todo el ancho, debajo de las dos columnas: dentro de
+   la columna derecha quedaba angosto y dejaba un vacio al lado */
+.mapa{
+  position:relative;aspect-ratio:21/9;
+  margin-top:clamp(22px,2.6vw,36px);
+  background:var(--hueso);overflow:hidden;
+  border:1px solid var(--linea);clip-path:var(--corte);
+}
+@media (max-width:760px){.mapa{aspect-ratio:4/3}}
 /* el iframe va encima del respaldo y SIN fondo propio: si no carga,
    queda transparente y se ve lo de abajo */
 .mapa iframe{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:1}
