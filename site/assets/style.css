@@ -510,7 +510,22 @@ body{padding-top:calc(var(--nav-h) + var(--aviso-h,0px))}
   border:2px dashed var(--linea);padding:clamp(26px,3vw,40px);
   display:grid;place-items:center;text-align:center;color:var(--acero);font-size:14.6px;
 }
-@media (max-width:860px){.resenas{grid-template-columns:1fr}}
+/* Tarjeta de una resena real de Google. La rejilla pasa a tres columnas
+   cuando hay tarjetas: .resenas.con-tarjetas */
+.resenas.con-tarjetas{grid-template-columns:repeat(3,1fr)}
+.resena{
+  display:flex;flex-direction:column;
+  background:var(--blanco);border:1px solid var(--linea);clip-path:var(--corte);
+  padding:clamp(20px,2.2vw,28px);
+}
+.resena-estrellas{display:flex;gap:3px;color:#F5A623}
+.resena-estrellas svg{width:16px;height:16px;fill:currentColor;stroke:none}
+.resena blockquote{margin:14px 0 0;font-size:15px;line-height:1.66;color:var(--tinta)}
+.resena figcaption{margin-top:auto;padding-top:18px;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
+.resena .quien{font-weight:600;font-size:14.6px}
+.resena .cuando{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--acero)}
+@media (max-width:1040px){.resenas.con-tarjetas{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:860px){.resenas,.resenas.con-tarjetas{grid-template-columns:1fr}}
 
 /* ------------------------- preguntas ------------------------- */
 .faq{margin-top:clamp(28px,3.4vw,44px);max-width:920px;border-top:1px solid var(--linea)}
