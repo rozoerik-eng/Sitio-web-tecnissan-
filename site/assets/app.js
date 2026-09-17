@@ -74,15 +74,6 @@ $$("[data-mapa-link]").forEach(a => {
 const anio = $("#anio");
 if (anio) anio.textContent = new Date().getFullYear();
 
-/* -------------------- aviso temporal, empuja la barra -------------------- */
-(() => {
-  const aviso = $("#avisoDatos");
-  if (!aviso) return;
-  const mide = () => document.documentElement.style.setProperty("--aviso-h", aviso.offsetHeight + "px");
-  mide();
-  addEventListener("resize", mide);
-})();
-
 /* -------------------- barra superior -------------------- */
 (() => {
   const nav = $("#nav");
