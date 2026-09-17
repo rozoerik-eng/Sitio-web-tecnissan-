@@ -516,23 +516,25 @@ body{padding-top:calc(var(--nav-h) + var(--aviso-h,0px))}
 .resena-cta .acciones{margin-top:auto;padding-top:26px}
 /* Tarjeta de una resena real de Google. La rejilla pasa a tres columnas
    cuando hay tarjetas: .resenas.con-tarjetas */
-.resenas.con-tarjetas{grid-template-columns:repeat(3,1fr)}
+.resenas.con-tarjetas{grid-template-columns:repeat(3,1fr);gap:clamp(12px,1.4vw,18px)}
 .resena{
   display:flex;flex-direction:column;
   background:var(--blanco);border:1px solid var(--linea);clip-path:var(--corte);
-  padding:clamp(20px,2.2vw,28px);
+  padding:clamp(15px,1.5vw,20px);
 }
 .resena-estrellas{display:flex;gap:3px;color:#F5A623}
 .resena-estrellas svg{width:16px;height:16px;fill:currentColor;stroke:none}
+.resena .resena-estrellas svg{width:13px;height:13px}
+.resena .resena-estrellas{gap:2px}
 /* media estrella: una gris debajo y encima la dorada recortada al 60%,
    que es lo que vale el 4,6 */
 .resena-estrellas .media{position:relative;display:block;width:16px;height:16px}
 .resena-estrellas .media svg:first-child{color:#D8DBE0}
 .resena-estrellas .media svg:last-child{position:absolute;inset:0;clip-path:inset(0 40% 0 0)}
-.resena blockquote{margin:14px 0 0;font-size:15px;line-height:1.66;color:var(--tinta)}
-.resena figcaption{margin-top:auto;padding-top:18px;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap}
-.resena .quien{font-weight:600;font-size:14.6px}
-.resena .cuando{font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--acero)}
+.resena blockquote{margin:11px 0 0;font-size:13.4px;line-height:1.56;color:var(--tinta)}
+.resena figcaption{margin-top:auto;padding-top:13px;display:flex;align-items:baseline;gap:8px;flex-wrap:wrap}
+.resena .quien{font-weight:600;font-size:13.2px}
+.resena .cuando{font-family:var(--mono);font-size:9.6px;letter-spacing:.08em;text-transform:uppercase;color:var(--acero)}
 @media (max-width:1040px){.resenas.con-tarjetas{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:860px){.resenas,.resenas.con-tarjetas{grid-template-columns:1fr}}
 
