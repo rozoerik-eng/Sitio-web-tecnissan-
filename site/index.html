@@ -577,6 +577,14 @@
         <div class="foto f-fachada"></div>
         <p class="pie-foto">Busca este aviso sobre la Carrera 70G.</p>
         <div class="mapa" style="margin-top:18px">
+          <!-- Se ve cuando el mapa no alcanza a cargar o el navegador
+               bloquea el iframe de Google. Cuando el mapa carga lo tapa,
+               porque es opaco y va encima. -->
+          <div class="mapa-alterno">
+            <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 21s-7-5.4-7-10.5A7 7 0 0 1 19 10.5C19 15.6 12 21 12 21z"/><circle cx="12" cy="10.4" r="2.6"/></svg>
+            <p><b data-dato="direccion"></b><br><span data-dato="ciudad"></span></p>
+            <a class="btn btn-linea" data-mapa-link>Abrir en Google Maps</a>
+          </div>
           <iframe id="mapaIframe" title="Mapa con la ubicación de Tecnissan" loading="lazy" referrerpolicy="no-referrer-when-downgrade" allowfullscreen></iframe>
         </div>
       </div>

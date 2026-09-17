@@ -560,7 +560,16 @@ body{padding-top:calc(var(--nav-h) + var(--aviso-h,0px))}
 /* ------------------------- cómo llegar ------------------------- */
 .llegar{display:grid;grid-template-columns:.9fr 1.1fr;gap:clamp(24px,3.2vw,52px);margin-top:clamp(28px,3.4vw,44px);align-items:start}
 .mapa{position:relative;aspect-ratio:16/10;background:var(--hueso);overflow:hidden;border:1px solid var(--linea);clip-path:var(--corte)}
-.mapa iframe{position:absolute;inset:0;width:100%;height:100%;border:0}
+/* el iframe va encima del respaldo y SIN fondo propio: si no carga,
+   queda transparente y se ve lo de abajo */
+.mapa iframe{position:absolute;inset:0;width:100%;height:100%;border:0;z-index:1}
+.mapa-alterno{
+  position:absolute;inset:0;display:grid;place-content:center;justify-items:center;
+  gap:13px;padding:24px;text-align:center;background:var(--hueso);
+}
+.mapa-alterno svg{width:30px;height:30px;stroke:var(--rojo);fill:none;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round}
+.mapa-alterno p{font-size:14.4px;line-height:1.55;color:var(--grafito)}
+.mapa-alterno b{color:var(--tinta)}
 .dato{display:flex;gap:15px;padding:18px 0;border-top:1px solid var(--linea)}
 .dato:first-of-type{border-top:0;padding-top:0}
 .dato svg{width:20px;height:20px;stroke:var(--rojo);fill:none;stroke-width:1.7;flex:0 0 auto;margin-top:3px;stroke-linecap:round;stroke-linejoin:round}

@@ -74,6 +74,18 @@ $$("[data-mapa-link]").forEach(a => {
 const anio = $("#anio");
 if (anio) anio.textContent = new Date().getFullYear();
 
+/* Si el navegador bloquea el iframe de Google (politica de seguridad de
+   la pagina que nos embebe, bloqueo de rastreadores, red corporativa),
+   el marco queda ahi tapando el respaldo. Se quita para que se vea el
+   panel con la direccion y el boton a Google Maps. */
+if (mapa) {
+  addEventListener("securitypolicyviolation", e => {
+    const esMarco = String(e.violatedDirective || "").startsWith("frame-src");
+    const esGoogle = String(e.blockedURI || "").includes("google.com");
+    if (esMarco || esGoogle) mapa.remove();
+  });
+}
+
 /* -------------------- barra superior -------------------- */
 (() => {
   const nav = $("#nav");
