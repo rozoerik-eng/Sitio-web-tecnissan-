@@ -535,6 +535,13 @@ input,textarea,select{
   transition:border-color .3s,box-shadow .3s;
 }
 input:focus,textarea:focus,select:focus{outline:0;border-color:var(--rojo);box-shadow:0 0 0 3px rgba(225,27,34,.12)}
+/* Los campos y el boton de linea son blancos con borde claro: nacieron
+   para ir sobre el fondo hueso. En una seccion blanca ese borde solo no
+   se lee, asi que ahi se rellenan de hueso. */
+.seccion:not(.hueso):not(.oscura) input,
+.seccion:not(.hueso):not(.oscura) textarea,
+.seccion:not(.hueso):not(.oscura) select{background:var(--hueso)}
+.seccion:not(.hueso):not(.oscura) .btn-linea{background:var(--hueso);border-color:#D3D7DD}
 textarea{resize:vertical;min-height:110px}
 .nota{font-size:13px;color:var(--acero);margin-top:2px}
 @media (max-width:900px){.cierre-rejilla{grid-template-columns:1fr}}
