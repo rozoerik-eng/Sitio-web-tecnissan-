@@ -16,6 +16,32 @@ const TECNISSAN = {
   google: "https://share.google/HBCb4Xj500gyGIL2d"
 };
 
+/* -------------------- cada pagina abre arriba --------------------
+   Safari y Chrome recuerdan por URL donde quedo el scroll y al volver
+   a entrar abren la pagina ahi mismo: si la ultima vez se leyo hasta
+   abajo, al abrirla de nuevo aparece el pie primero. Le quitamos esa
+   restauracion y la mandamos arriba, salvo que la URL traiga un ancla
+   (#diagnostico, #llegar...), que ahi si hay que respetar el destino. */
+(() => {
+  if ("scrollRestoration" in history) history.scrollRestoration = "manual";
+  if (location.hash) return;
+
+  let tocado = false;
+  const marcar = () => { tocado = true; };
+  const opciones = { passive: true, once: true };
+  addEventListener("wheel", marcar, opciones);
+  addEventListener("touchstart", marcar, opciones);
+  addEventListener("keydown", marcar, { once: true });
+
+  // behavior instant porque html lleva scroll-behavior:smooth y si no
+  // se ve la pagina bajando sola al abrirla
+  const arriba = () => {
+    if (!tocado && scrollY > 0) scrollTo({ top: 0, left: 0, behavior: "instant" });
+  };
+  arriba();
+  addEventListener("load", arriba);
+})();
+
 const $  = (s, r = document) => r.querySelector(s);
 const $$ = (s, r = document) => [...r.querySelectorAll(s)];
 const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
