@@ -252,6 +252,9 @@ body{padding-top:calc(var(--nav-h) + var(--aviso-h,0px))}
    foto en celular (alto/ancho del recorte movil, en vw). El velo movil
    se calcula solo a partir de ese valor. */
 .hero-equipo{--franja:103.1vw;background-image:url("equipo-fondo.webp")}
+/* la portada de Equipo crece un poco: asi la foto baja y no queda
+   cortada tan arriba */
+.hero-equipo{min-height:min(80vh,700px)}
 .hero-nosotros{--franja:89.4vw;background-image:url("nosotros-fondo.webp")}
 /* Velo mas suave que en el inicio: alli la izquierda de la foto es la
    pared del taller y da igual lavarla, aqui son las caras de la gente
@@ -267,8 +270,19 @@ body{padding-top:calc(var(--nav-h) + var(--aviso-h,0px))}
 .hero-nosotros{border-top:1px solid var(--linea);border-bottom:1px solid var(--linea)}
 /* las razones van en una columna: a dos se salian de la zona blanca y el
    texto de la segunda caia encima de la gente, ilegible */
-.hero-nosotros .razones{grid-template-columns:1fr;gap:clamp(15px,1.8vw,22px);margin-top:clamp(24px,2.8vw,36px)}
-.hero-nosotros .razon p{max-width:46ch}
+.hero-nosotros .razones{grid-template-columns:1fr;gap:clamp(14px,1.6vw,20px);margin-top:clamp(20px,2.4vw,30px)}
+/* La columna se angosta de 580 a 500px: con 580 el parrafo llegaba hasta
+   donde empieza la gente y se leia sobre las caras. Ahora termina antes.
+   Y el titular baja de tamanio para que la seccion no crezca al angostarla.
+   Solo de 1001px para arriba: por debajo la foto ya esta abajo, no al lado,
+   y el texto usa todo el ancho. */
+@media (min-width:1001px){
+  .hero-nosotros .hero-rejilla > div{max-width:min(500px,42%)}
+}
+.hero-nosotros h2{font-size:clamp(25px,2.7vw,38px)}
+.hero-nosotros .plomo{font-size:clamp(15px,1.02vw,16.4px);margin-top:16px}
+.hero-nosotros .razon p{font-size:14px}
+.hero-nosotros{padding-top:clamp(40px,4.6vw,70px);padding-bottom:clamp(40px,4.6vw,70px);min-height:0}
 @media (max-width:760px){
   /* las versiones movil van recortadas a la gente, sin el degradado
      blanco: en pantalla angosta ese triangulo parecia un error. Al quedar
@@ -289,6 +303,12 @@ body{padding-top:calc(var(--nav-h) + var(--aviso-h,0px))}
 }
 /* la miga de pan abre la portada, encima de la etiqueta */
 .hero .miga{margin-bottom:14px}
+
+/* El hueco blanco que quedaba debajo de una portada con foto era el
+   relleno de arriba de la seccion siguiente. Se recorta para que la foto
+   llegue casi hasta el contenido. Las secciones con relleno puesto a mano
+   en el html mandan sobre esta regla. */
+.hero + .seccion{padding-top:clamp(24px,2.8vw,40px)}
 
 /* ------------------------- tarjetas ------------------------- */
 .rejilla{display:grid;gap:clamp(16px,1.8vw,24px)}
