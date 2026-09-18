@@ -244,6 +244,39 @@ body{padding-top:calc(var(--nav-h) + var(--aviso-h,0px))}
   .hero{background-image:url("fondo-movil.webp")}
 }
 
+/* Portada de la pagina de equipo: hereda toda la estructura de .hero y
+   solo cambia la foto. La imagen viene compuesta igual que la del inicio,
+   con su degradado a blanco por la izquierda. Estas reglas van despues de
+   las de .hero para ganarle por orden de aparicion. */
+.hero-equipo{background-image:url("equipo-fondo.webp")}
+/* Velo mas suave que en el inicio: alli la izquierda de la foto es la
+   pared del taller y da igual lavarla, aqui son las personas del equipo
+   y el velo del inicio les quitaba la cara. La foto ya trae su propio
+   degradado a blanco, asi que con menos alcanza. */
+.hero-equipo::before{
+  background:linear-gradient(90deg,
+    #fff 0%, rgba(255,255,255,.92) 27%, rgba(255,255,255,.42) 41%, rgba(255,255,255,0) 56%);
+}
+@media (max-width:760px){
+  .hero-equipo{
+    background-image:url("equipo-fondo-movil.webp");
+    /* la version movil va recortada al equipo, sin el degradado blanco:
+       en pantalla angosta ese triangulo se veia como un error. Al ser mas
+       cuadrada que la del inicio, la franja necesita su propio alto. */
+    padding-bottom:min(calc(89.4vw + 10px), 430px);
+  }
+  /* y el velo sube mas arriba, para no lavarle las caras */
+  .hero-equipo::before{
+    background:linear-gradient(to top,
+      rgba(255,255,255,0) 0,
+      rgba(255,255,255,0) min(72vw,320px),
+      #fff min(86vw,400px),
+      #fff 100%);
+  }
+}
+/* la miga de pan abre la portada, encima de la etiqueta */
+.hero .miga{margin-bottom:14px}
+
 /* ------------------------- tarjetas ------------------------- */
 .rejilla{display:grid;gap:clamp(16px,1.8vw,24px)}
 .r3{grid-template-columns:repeat(3,1fr)}
@@ -475,9 +508,7 @@ body{padding-top:calc(var(--nav-h) + var(--aviso-h,0px))}
 
 .f-taller{background-image:url("taller.jpg")}
 .f-fachada{background-image:url("fachada.jpg");aspect-ratio:16/9}
-.f-equipo{background-image:url("equipo.jpg");aspect-ratio:3/2}
 .f-nave{background-image:url("nave.jpg");aspect-ratio:4/3;background-position:center}
-@media (max-width:700px){.f-equipo{aspect-ratio:4/5}}
 
 .galeria{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,1.4vw,18px);margin-top:clamp(28px,3.4vw,44px)}
 .galeria .foto{aspect-ratio:4/3;transition:transform .5s var(--ease-out)}
