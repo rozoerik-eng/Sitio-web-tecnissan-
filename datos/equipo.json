@@ -1,0 +1,17 @@
+{
+  "_formato": {
+    "_nota": "Cada persona del taller es un objeto dentro de 'personas'. Borra, agrega o reordena libremente: el orden de esta lista es el orden en que salen las tarjetas. Despues de editar, corre: node herramientas/equipo.mjs",
+    "nombre": "Obligatorio. Nombre y apellido como quiere que lo vea el cliente.",
+    "cargo": "Obligatorio. Cargo o especialidad, corto. Ej: 'Tecnico de diagnostico electronico'.",
+    "texto": "Obligatorio. Una o dos frases de que hace en el taller, en lenguaje de cliente.",
+    "anos": "Opcional. Numero de anos en Tecnissan. Si no esta, no sale la linea.",
+    "numero": "Opcional. El numero del overol (28, 01, 02...). Sale como placa en la tarjeta.",
+    "foto": "Opcional. Nombre del archivo dentro de site/assets/equipo/. Si no hay foto, la tarjeta muestra las iniciales."
+  },
+  "encabezado": {
+    "etiqueta": "Uno por uno",
+    "titulo": "Quién es quién en el taller",
+    "entrada": "Cuando dejas el carro, dejas de tratar con una empresa y empiezas a tratar con una persona. Estas son."
+  },
+  "personas": []
+}

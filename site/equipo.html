@@ -22,21 +22,28 @@
 <link rel="icon" type="image/png" href="assets/favicon-64.png">
 <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
 
+<!-- EMPLEADOS:INICIO -->
 <script type="application/ld+json">
 {
-  "@context":"https://schema.org",
-  "@type":"AboutPage",
-  "name":"El equipo de Tecnissan",
-  "url":"https://tecnissan.com/equipo.html",
-  "about":{
-    "@type":"AutoRepair",
-    "name":"Tecnissan",
-    "url":"https://tecnissan.com/",
-    "address":{"@type":"PostalAddress","streetAddress":"Carrera 70G # 69B-70","addressLocality":"Bogotá","addressCountry":"CO"},
-    "telephone":"+573112710738"
+  "@context": "https://schema.org",
+  "@type": "AboutPage",
+  "name": "El equipo de Tecnissan",
+  "url": "https://tecnissan.com/equipo.html",
+  "about": {
+    "@type": "AutoRepair",
+    "name": "Tecnissan",
+    "url": "https://tecnissan.com/",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "Carrera 70G # 69B-70",
+      "addressLocality": "Bogotá",
+      "addressCountry": "CO"
+    },
+    "telephone": "+573112710738"
   }
 }
 </script>
+<!-- EMPLEADOS:FIN -->
 </head>
 <body>
 <a class="salta" href="#contenido">Saltar al contenido</a>
@@ -87,41 +94,11 @@
 </section>
 
 <!-- ============================== UNO POR UNO ==============================
-  ESTA SECCION ESTA APAGADA hasta que lleguen las fotos y los datos.
-  Para encenderla: quita este comentario de apertura y el de cierre de
-  abajo, y mete una tarjeta por persona dentro de .equipo-rejilla.
-
-  Las fotos van en assets/equipo/, recortadas 3:4 (vertical).
-
-  Plantilla de una tarjeta:
-
-  <article class="persona" data-anim>
-    <img class="persona-foto" src="assets/equipo/nombre.webp"
-         alt="Nombre Apellido, cargo en Tecnissan" loading="lazy" width="600" height="800">
-    <div class="persona-txt">
-      <h3>Nombre Apellido</h3>
-      <span class="cargo">Cargo o especialidad</span>
-      <p>Una o dos frases de que hace en el taller.</p>
-      <span class="anos">8 anos en Tecnissan</span>
-    </div>
-  </article>
-
-<section class="seccion hueso" id="personas">
-  <div class="envoltura">
-    <div class="cabeza" data-anim>
-      <div>
-        <span class="etiqueta">Uno por uno</span>
-        <h2>Quién es quién en el taller</h2>
-      </div>
-      <p class="plomo">Cuando dejas el carro, dejas de tratar con una empresa y empiezas a tratar con una persona. Estas son.</p>
-    </div>
-
-    <div class="equipo-rejilla" id="equipoRejilla">
-    </div>
-  </div>
-</section>
-
-============================== FIN UNO POR UNO ============================== -->
+  Esta seccion la genera herramientas/equipo.mjs a partir de datos/equipo.json.
+  No la edites a mano: corre  node herramientas/equipo.mjs  y se reescribe.
+========================================================================== -->
+<!-- PERSONAS:INICIO -->
+<!-- PERSONAS:FIN -->
 
 <!-- ============================== BANDA DE CITA ============================== -->
 <section class="seccion" style="padding-bottom:clamp(44px,5vw,72px)">
