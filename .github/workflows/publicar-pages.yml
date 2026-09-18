@@ -1,0 +1,53 @@
+name: Publicar el sitio en GitHub Pages
+
+# Publica la carpeta site/ en GitHub Pages para poder revisar el sitio con
+# un enlace real, donde el mapa de Google si carga.
+#
+# Es una VISTA PREVIA, no el sitio definitivo: se marca noindex y se sube
+# un robots.txt que lo cierra a los buscadores, para que no compita en
+# Google con el sitio real cuando se publique en su propio dominio.
+# El noindex se inyecta aqui y no en los archivos del repositorio, para
+# que esos queden listos para el dominio definitivo.
+
+on:
+  push:
+    branches: [claude/compassionate-hawking-ffgum8]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  pages: write
+  id-token: write
+
+concurrency:
+  group: "pages"
+  cancel-in-progress: false
+
+jobs:
+  publicar:
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.despliegue.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Cerrar la vista previa a los buscadores
+        run: |
+          printf 'User-agent: *\nDisallow: /\n' > site/robots.txt
+          find site -name '*.html' -print0 | xargs -0 sed -i \
+            's|<meta name="viewport" content="width=device-width, initial-scale=1">|<meta name="viewport" content="width=device-width, initial-scale=1">\n<meta name="robots" content="noindex, nofollow">|'
+          echo "Paginas marcadas noindex: $(grep -rl 'noindex' site --include='*.html' | wc -l)"
+
+      - uses: actions/configure-pages@v5
+        with:
+          enablement: true
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+
+      - id: despliegue
+        uses: actions/deploy-pages@v4
+
+      - run: echo "Sitio publicado en ${{ steps.despliegue.outputs.page_url }}"
