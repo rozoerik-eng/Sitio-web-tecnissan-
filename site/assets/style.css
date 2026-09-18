@@ -188,6 +188,10 @@ body{padding-top:calc(var(--nav-h) + var(--aviso-h,0px))}
   padding:clamp(44px,5.5vw,88px) var(--gut) clamp(52px,6vw,96px);
   background-color:var(--blanco);
   background-image:url("fondo.webp");
+  /* border-box y no el padding-box de siempre: si no, el navegador mide el
+     fondo contra el area de texto (pantalla menos los dos margenes) y deja
+     una franja blanca en el borde. */
+  background-origin:border-box;
   background-size:cover;
   background-position:right center;
   background-repeat:no-repeat;
@@ -223,42 +227,52 @@ body{padding-top:calc(var(--nav-h) + var(--aviso-h,0px))}
   .insignia b{font-size:14px}
 }
 
-/* debajo de 1000px no queda ancho para poner el texto al lado de la foto:
-   la foto pasa a una franja abajo. La imagen es 16:9, asi que a ancho
-   completo la franja mide 56.3vw; se topa en 430px para que en tableta
-   no se coma la pantalla. */
+/* Debajo de 1000px no queda ancho para poner el texto al lado de la foto:
+   la foto pasa a una banda abajo, de borde a borde.
+
+   La banda es una CAJA de alto definido (el ::before), no el fondo del
+   .hero. Eso importa: con el fondo del hero la unica forma de que la foto
+   llegue a los bordes es background-size:100% auto, y entonces el alto lo
+   manda la imagen y hay que adivinarlo con el relleno de abajo. Si los dos
+   numeros no coinciden aparece blanco, y si se le pone tope al relleno
+   dejan de coincidir por definicion. Con una caja de alto --banda y la
+   foto en cover, el relleno y la foto miden lo mismo siempre, y el tope
+   recorta la foto en vez de dejar hueco.
+
+   El velo va en la misma caja, como capa de encima: en background-image la
+   primera capa se pinta arriba. */
 @media (max-width:1000px){
   .hero{
-    background-position:center bottom;
-    background-size:100% auto;
+    /* 98.13vw es alto/ancho de fondo-banda.webp: hasta ahi la foto sale
+       entera. Pasado el tope, cover le recorta el techo. */
+    --banda:min(98.13vw, 520px);
+    background-image:none;
     align-items:flex-start;
     min-height:auto;
-    padding-bottom:min(calc(56.3vw + 10px), 430px);
+    padding-bottom:var(--banda);
   }
-  /* el velo se mide desde abajo: deja limpia la franja de la foto y
-     sube a blanco justo donde empieza el texto */
   .hero::before{
-    background:linear-gradient(to top,
-      rgba(255,255,255,0) 0,
-      rgba(255,255,255,0) min(40vw,300px),
-      #fff min(56vw,420px),
-      #fff 100%);
+    inset:auto 0 0 0;
+    height:var(--banda);
+    background-image:
+      linear-gradient(180deg,#fff 0,rgba(255,255,255,0) 26%),
+      url("fondo-banda.webp");
+    background-size:100% 100%, cover;
+    /* anclada abajo: si hay que recortar, se va el techo y se quedan los
+       carros, que es lo que el cliente quiere ver */
+    background-position:center top, center bottom;
+    background-repeat:no-repeat;
   }
   .hero-rejilla > div{max-width:100%}
-}
-/* en celular basta la version liviana de la foto */
-@media (max-width:760px){
-  .hero{background-image:url("fondo-movil.webp")}
 }
 
 /* Portada de la pagina de equipo: hereda toda la estructura de .hero y
    solo cambia la foto. La imagen viene compuesta igual que la del inicio,
    con su degradado a blanco por la izquierda. Estas reglas van despues de
    las de .hero para ganarle por orden de aparicion. */
-/* Cada portada declara su foto y, en --franja, el alto que necesita esa
-   foto en celular (alto/ancho del recorte movil, en vw). El velo movil
-   se calcula solo a partir de ese valor. */
-.hero-equipo{--franja:103.1vw;background-image:url("equipo-fondo.webp")}
+/* Cada portada declara su foto; el alto de su banda de celular lo declara
+   en --banda, mas abajo, porque depende del recorte movil y no de esta. */
+.hero-equipo{background-image:url("equipo-fondo.webp")}
 /* la portada de Equipo crece un poco: asi la foto baja y no queda
    cortada tan arriba */
 .hero-equipo{min-height:min(80vh,700px)}
@@ -315,21 +329,30 @@ body{padding-top:calc(var(--nav-h) + var(--aviso-h,0px))}
     mask-image:linear-gradient(180deg,transparent 0,#000 16%);
   }
 }
-@media (max-width:760px){
-  /* las versiones movil van recortadas a la gente, sin el degradado
-     blanco: en pantalla angosta ese triangulo parecia un error. Al quedar
-     mas cuadradas que la del inicio, cada franja lleva su propio alto. */
-  .hero-equipo{background-image:url("equipo-fondo-movil.webp")}
-  .hero-equipo{padding-bottom:min(calc(var(--franja) + 10px), 430px)}
-  /* y el velo sube mas arriba, para no lavarle las caras */
+/* Mismo corte que el inicio: en cuanto la foto pasa a ser banda de abajo
+   entra el recorte sin el degradado blanco. Ese triangulo blanco es lo que
+   deja leer el texto encima en escritorio, pero de banda es un cuarto de
+   foto en blanco que parece un error.
+   Va despues de la regla suelta de .hero-equipo de arriba: las dos tienen
+   la misma especificidad y decide el orden de aparicion. */
+@media (max-width:1000px){
+  /* el recorte movil es 900x928, casi cuadrado, asi que su banda es mas
+     alta que la del inicio: cada portada lleva su propia proporcion */
+  /* background-image:none otra vez aqui: la regla suelta de .hero-equipo
+     de mas arriba tiene la misma especificidad y esta despues del bloque
+     de .hero, asi que le gana y volvia a pintar la foto de escritorio
+     detras del texto, encima de la banda. */
+  .hero-equipo{--banda:min(103.11vw, 520px);background-image:none}
   .hero-equipo::before{
-    background:linear-gradient(to top,
-      rgba(255,255,255,0) 0,
-      rgba(255,255,255,0) min(calc(var(--franja) * .78), 320px),
-      #fff min(calc(var(--franja) * .95), 400px),
-      #fff 100%);
+    background-image:
+      /* el velo sube menos que en el inicio: aqui abajo hay caras */
+      linear-gradient(180deg,#fff 0,rgba(255,255,255,0) 20%),
+      url("equipo-fondo-movil.webp");
+    background-size:100% 100%, cover;
+    background-position:center top, center top;
   }
 }
+
 /* la miga de pan abre la portada, encima de la etiqueta */
 .hero .miga{margin-bottom:14px}
 
