@@ -101,7 +101,9 @@ const tarjeta = (p) => {
     : "";
 
   return [
-    `      <article class="persona${abrible ? " persona-abrible" : ""}" data-anim>`,
+    `      <article class="persona${abrible ? " persona-abrible" : ""}" data-anim${
+      abrible ? ' data-puntero="Ver ficha"' : ""
+    }>`,
     `        <div class="persona-medio">${placa}${medioDe(p, "persona-foto")}</div>`,
     `        <div class="persona-txt">`,
     `          <h3>${nombre}</h3>`,
@@ -161,7 +163,7 @@ if (personas.length) {
   seccion = `
 <section class="seccion hueso" id="personas">
   <div class="envoltura">
-    <div class="cabeza" data-anim>
+    <div class="cabeza" data-anim="izq">
       <div>
         <span class="etiqueta">${esc(cab.etiqueta || "Uno por uno")}</span>
         <h2>${esc(cab.titulo || "Quién es quién en el taller")}</h2>

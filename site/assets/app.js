@@ -274,3 +274,162 @@ const SINTOMAS = [
     });
   });
 })();
+
+/* -------------------- barra de avance de lectura -------------------- */
+(() => {
+  const barra = $("#navProgreso");
+  if (!barra) return;
+  const linea = barra.firstElementChild;
+  let pedido = false;
+  const pinta = () => {
+    pedido = false;
+    const alto = document.documentElement.scrollHeight - innerHeight;
+    const p = alto > 40 ? Math.min(scrollY / alto, 1) : 0;
+    linea.style.width = `${(p * 100).toFixed(2)}%`;
+  };
+  // rAF: el scroll dispara muchisimo mas rapido de lo que el navegador pinta
+  const pedir = () => { if (!pedido) { pedido = true; requestAnimationFrame(pinta); } };
+  addEventListener("scroll", pedir, { passive: true });
+  addEventListener("resize", pedir, { passive: true });
+  pinta();
+})();
+
+/* -------------------- "sigue bajando" de la portada -------------------- */
+(() => {
+  const baja = $("#baja");
+  if (!baja) return;
+  const irse = () => baja.classList.add("ido");
+  addEventListener("scroll", () => { if (scrollY > 40) irse(); }, { passive: true, once: false });
+  // Si ya entro con la pagina abajo, no tiene nada que invitar.
+  if (scrollY > 40) irse();
+})();
+
+/* -------------------- la franja de modelos: avisa, empuja y se arrastra -------------------- */
+(() => {
+  const franja = $("#modelos");
+  if (!franja) return;
+
+  /* 1. Desvanecido en el lado donde todavia queda franja por ver. */
+  const margenes = () => {
+    const resto = franja.scrollWidth - franja.clientWidth;
+    if (resto < 8) {
+      // En escritorio ancho los diez modelos caben y no hay nada que
+      // desplazar: ni desvanecido ni cursor de agarre, que serian mentira.
+      franja.style.setProperty("--fade-izq", "0px");
+      franja.style.setProperty("--fade-der", "0px");
+      franja.classList.remove("corre");
+      return;
+    }
+    franja.classList.add("corre");
+    franja.style.setProperty("--fade-izq", franja.scrollLeft > 6 ? "34px" : "0px");
+    franja.style.setProperty("--fade-der", franja.scrollLeft < resto - 6 ? "34px" : "0px");
+  };
+  franja.addEventListener("scroll", margenes, { passive: true });
+  addEventListener("resize", margenes, { passive: true });
+  margenes();
+
+  /* 2. Un empujon la primera vez que se ve, para que se entienda que corre.
+        Mueve el scroll y lo devuelve; no toca el layout. */
+  if (!reduce) {
+    const empuja = new IntersectionObserver(([f]) => {
+      if (!f.isIntersecting) return;
+      empuja.disconnect();
+      if (franja.scrollWidth - franja.clientWidth < 40) return;
+      const t0 = performance.now(), dur = 1150, tope = 30;
+      const paso = t => {
+        const p = Math.min((t - t0) / dur, 1);
+        // ida y vuelta: media vuelta de seno, sin rebote
+        franja.scrollLeft = tope * Math.sin(p * Math.PI);
+        if (p < 1) requestAnimationFrame(paso); else franja.scrollLeft = 0;
+      };
+      requestAnimationFrame(paso);
+    }, { threshold: .55 });
+    empuja.observe(franja);
+  }
+
+  /* 3. Arrastrar con el raton. En tactil ya funciona solo, y ahi el
+        pointerdown no debe robarle el gesto al navegador. */
+  if (!matchMedia("(hover:hover) and (pointer:fine)").matches) return;
+  document.documentElement.classList.add("arrastrable");
+
+  let x0 = 0, izq0 = 0, corrido = 0, activo = false;
+  franja.addEventListener("pointerdown", e => {
+    if (e.pointerType !== "mouse" || e.button !== 0) return;
+    activo = true; corrido = 0; x0 = e.clientX; izq0 = franja.scrollLeft;
+    franja.setPointerCapture(e.pointerId);
+  });
+  franja.addEventListener("pointermove", e => {
+    if (!activo) return;
+    const dx = e.clientX - x0;
+    if (!corrido && Math.abs(dx) > 4) franja.classList.add("arrastrando");
+    corrido = Math.max(corrido, Math.abs(dx));
+    franja.scrollLeft = izq0 - dx;
+  });
+  const suelta = () => {
+    if (!activo) return;
+    activo = false;
+    // El pointer-events:none de .arrastrando se levanta despues del click,
+    // para que un arrastre no acabe abriendo WhatsApp.
+    setTimeout(() => franja.classList.remove("arrastrando"), 0);
+  };
+  franja.addEventListener("pointerup", suelta);
+  franja.addEventListener("pointercancel", suelta);
+})();
+
+/* -------------------- puntero propio sobre lo que se puede tocar -------------------- */
+(() => {
+  if (!matchMedia("(hover:hover) and (pointer:fine)").matches) return;
+  const puntero = document.createElement("div");
+  puntero.className = "puntero";
+  puntero.setAttribute("aria-hidden", "true");
+  const disco = document.createElement("span");
+  disco.className = "puntero-disco";
+  puntero.appendChild(disco);
+  document.body.appendChild(puntero);
+  document.documentElement.classList.add("con-puntero");
+
+  let x = 0, y = 0, px = 0, py = 0, dentro = false, corriendo = false;
+
+  const cuadro = () => {
+    // Persigue con retraso: el disco llega un pelo despues que el raton.
+    const k = reduce ? 1 : .22;
+    px += (x - px) * k;
+    py += (y - py) * k;
+    puntero.style.transform = `translate3d(${px.toFixed(1)}px,${py.toFixed(1)}px,0)`;
+    if (dentro || Math.abs(x - px) > .5 || Math.abs(y - py) > .5) requestAnimationFrame(cuadro);
+    else corriendo = false;
+  };
+  const arranca = () => { if (!corriendo) { corriendo = true; requestAnimationFrame(cuadro); } };
+
+  addEventListener("pointermove", e => {
+    if (e.pointerType !== "mouse") return;
+    x = e.clientX; y = e.clientY;
+    arranca();
+  }, { passive: true });
+
+  /* Por delegacion y no zona por zona: el data-puntero de la franja de
+     modelos aparece y desaparece segun quepa o no, y asi no hay que
+     volver a enganchar nada. */
+  let zona = null;
+  addEventListener("pointerover", e => {
+    if (e.pointerType !== "mouse") return;
+    const nueva = e.target.closest ? e.target.closest("[data-puntero]") : null;
+    if (nueva === zona) return;
+    zona = nueva;
+    if (!zona) { dentro = false; puntero.classList.remove("visible"); return; }
+    disco.textContent = zona.dataset.puntero;
+    if (!dentro) { x = px = e.clientX; y = py = e.clientY; }  // sin salto al aparecer
+    dentro = true;
+    puntero.classList.add("visible");
+    arranca();
+  }, { passive: true });
+  addEventListener("pointerout", e => {
+    if (e.pointerType !== "mouse" || !zona) return;
+    if (e.relatedTarget && zona.contains(e.relatedTarget)) return;
+    zona = null; dentro = false;
+    puntero.classList.remove("visible");
+  }, { passive: true });
+
+  // Una ficha abierta tapa la tarjeta: el disco no tiene nada que anunciar.
+  addEventListener("scroll", () => { if (dentro) return; puntero.classList.remove("visible"); }, { passive: true });
+})();

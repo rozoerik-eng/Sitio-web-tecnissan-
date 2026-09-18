@@ -73,7 +73,10 @@ img{max-width:100%;display:block}
 }
 .etiqueta::before{content:"";width:26px;height:2px;background:var(--rojo);flex:0 0 auto}
 
-.seccion{position:relative;padding:clamp(64px,8vw,124px) var(--gut)}
+/* overflow-x:clip y no hidden: clip recorta el desplazamiento lateral de
+   las entradas sin volver la seccion un contenedor de scroll, asi que
+   el .aparte pegajoso de las paginas de servicio sigue funcionando. */
+.seccion{position:relative;overflow-x:clip;padding:clamp(64px,8vw,124px) var(--gut)}
 .seccion.hueso{background:var(--hueso)}
 .seccion.oscura{background:var(--negro);color:#EDEFF2}
 .seccion.oscura h2,.seccion.oscura h3{color:#FFF}
@@ -910,6 +913,10 @@ ul.lista-check{padding:0;margin-top:22px}
 
 /* ------------------------- entradas al hacer scroll ------------------------- */
 [data-anim]{opacity:0;transform:translateY(24px);transition:opacity .75s var(--ease),transform .9s var(--ease-out)}
+/* Variantes laterales. Van despues de la regla base y con la misma
+   especificidad, asi que ganan por orden; .dentro tiene mas y reinicia. */
+[data-anim="izq"]{transform:translateX(-26px)}
+[data-anim="der"]{transform:translateX(26px)}
 [data-anim].dentro{opacity:1;transform:none}
 
 .salta{position:absolute;left:-9999px;top:0;z-index:100;background:var(--rojo);color:#FFF;padding:12px 18px;font-weight:600}
@@ -927,3 +934,102 @@ ul.lista-check{padding:0;margin-top:22px}
   font-family:var(--mono);font-size:12px;line-height:1.6;padding:10px var(--gut);text-align:center;
 }
 .aviso-datos b{font-weight:600}
+
+
+/* ======================= movimiento: pistas de scroll ======================= */
+
+/* --- barra de avance de lectura, pegada al borde de abajo de la nav --- */
+.nav-progreso{
+  position:absolute;left:0;right:0;bottom:-1px;height:2px;
+  pointer-events:none;overflow:hidden;
+}
+.nav-progreso span{
+  display:block;height:100%;width:0;
+  background:linear-gradient(90deg,var(--rojo-osc),var(--rojo));
+  transform-origin:left center;
+}
+
+/* --- "sigue bajando", solo en la portada y solo donde hay sitio --- */
+.baja{
+  position:absolute;left:var(--gut);bottom:clamp(18px,2.4vw,34px);z-index:2;
+  display:none;align-items:center;gap:12px;
+  opacity:1;transition:opacity .5s var(--ease),transform .5s var(--ease);
+}
+.baja-txt{
+  font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;
+  text-transform:uppercase;color:var(--acero);
+}
+.baja-disco{
+  display:grid;place-items:center;width:36px;height:36px;
+  border:1px solid #D7DAE0;border-radius:50%;
+  background:rgba(255,255,255,.72);
+}
+.baja-disco svg{
+  width:17px;height:17px;fill:none;stroke:var(--rojo);stroke-width:2;
+  stroke-linecap:round;stroke-linejoin:round;
+  animation:baja-cae 1.9s var(--ease) infinite;
+}
+@keyframes baja-cae{
+  0%,100%{transform:translateY(-2px);opacity:.45}
+  45%{transform:translateY(3px);opacity:1}
+}
+/* Al primer scroll se va y no vuelve: ya cumplio. */
+.baja.ido{opacity:0;transform:translateY(8px);pointer-events:none}
+@media (min-width:1001px){
+  .baja{display:flex}
+}
+
+/* --- la franja de modelos avisa que sigue de lado --- */
+/* Una variable CSS no se puede animar si no esta registrada: sin @property
+   el navegador la cambia de golpe en vez de desvanecerla. Donde no haya
+   soporte queda el cambio seco, que tampoco molesta. */
+@property --fade-izq{syntax:"<length>";inherits:false;initial-value:0px}
+@property --fade-der{syntax:"<length>";inherits:false;initial-value:0px}
+.modelos{
+  --fade-izq:0px;--fade-der:0px;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 var(--fade-izq),
+                     #000 calc(100% - var(--fade-der)),transparent 100%);
+  mask-image:linear-gradient(90deg,transparent 0,#000 var(--fade-izq),
+             #000 calc(100% - var(--fade-der)),transparent 100%);
+  transition:--fade-izq .35s linear,--fade-der .35s linear;
+}
+/* Con raton se arrastra; el cursor lo dice. Aqui no va el disco de puntero:
+   cada carro es un enlace a WhatsApp, y un disco que dijera "arrastra"
+   encima de algo que se puede clicar seria enganoso. */
+.arrastrable .modelos.corre{cursor:grab}
+.arrastrable .modelos.corre.arrastrando{cursor:grabbing}
+.modelos.arrastrando{scroll-behavior:auto}
+.modelos.arrastrando .modelo{pointer-events:none}
+.desliza-pista span{
+  color:var(--rojo);display:inline-block;
+  animation:pista-empuja 1.8s var(--ease) infinite;
+}
+@keyframes pista-empuja{
+  0%,60%,100%{transform:translateX(0)}
+  30%{transform:translateX(5px)}
+}
+
+/* --- puntero propio, solo donde hay raton de verdad --- */
+.puntero{
+  position:fixed;left:0;top:0;z-index:90;
+  pointer-events:none;will-change:transform;
+}
+.puntero-disco{
+  position:absolute;left:-37px;top:-37px;
+  width:74px;height:74px;border-radius:50%;
+  display:grid;place-items:center;padding:6px;
+  background:var(--rojo);color:#FFF;
+  font-family:var(--mono);font-size:9.6px;letter-spacing:.1em;
+  text-transform:uppercase;text-align:center;line-height:1.35;
+  opacity:0;transform:scale(.35);
+  transition:opacity .22s var(--ease),transform .38s var(--ease-out);
+}
+.puntero.visible .puntero-disco{opacity:1;transform:scale(1)}
+/* Cuando el disco esta puesto, el cursor del sistema estorba: son dos. */
+.con-puntero [data-puntero],
+.con-puntero [data-puntero] *{cursor:none}
+
+@media (prefers-reduced-motion:reduce){
+  .baja-disco svg,.desliza-pista span{animation:none}
+  .puntero-disco{transition:opacity .001ms}
+}
