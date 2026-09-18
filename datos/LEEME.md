@@ -36,6 +36,18 @@ Abre `datos/equipo.json` y agrega un bloque dentro de `personas`:
 - `anos`: años en Tecnissan. Si no está, no sale la línea.
 - `numero`: el número del overol. Sale como placa sobre la foto. Si no está,
   no sale nada.
+- `detalle`: la ficha larga que se abre al dar clic en la tarjeta. Es una
+  lista, **un párrafo por elemento**:
+
+  ```json
+  "detalle": [
+    "Primer párrafo.",
+    "Segundo párrafo."
+  ]
+  ```
+
+  Si una persona no tiene `detalle`, su tarjeta simplemente no se abre: no
+  sale el «Ver ficha» y no queda un clic que no hace nada.
 - El orden de la lista es el orden en que salen las tarjetas.
 
 ## 3. Generar

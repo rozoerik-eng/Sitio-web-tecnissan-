@@ -37,6 +37,14 @@ const iniciales = (nombre) => {
 /* "anos" acepta un numero (8 -> "8 años en Tecnissan") o una frase ya
    escrita ("Mas de 25 años de experiencia"), porque no todos cuentan lo
    mismo: unos llevan X en la casa y otros X con la marca. */
+const slug = (t) =>
+  String(t)
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, "-")
+    .replace(/(^-|-$)/g, "");
+
 const anosTexto = (anos) => {
   if (anos === undefined || anos === null || anos === "") return "";
   const n = Number(anos);
@@ -63,42 +71,86 @@ const cab = datos.encabezado || {};
 
 /* ---------------------------------------------------------------- tarjetas */
 
+/* La foto de la tarjeta y la de la ficha son el mismo archivo; si falta,
+   las dos caen a las iniciales. */
+const medioDe = (p, clase) => {
+  const nombre = esc(p.nombre);
+  if (p.foto && existsSync(join(CARPETA_FOTOS, p.foto))) {
+    return (
+      `<img class="${clase}" src="assets/equipo/${esc(p.foto)}"\n` +
+      `           alt="${nombre}, ${esc(p.cargo)} en Tecnissan" loading="lazy" decoding="async" width="600" height="800">`
+    );
+  }
+  if (p.foto) console.warn(`  ! ${p.nombre}: falta site/assets/equipo/${p.foto}, va con iniciales`);
+  return (
+    `<div class="${clase} persona-mono" role="img" aria-label="${nombre}">` +
+    `<span>${esc(iniciales(p.nombre))}</span></div>`
+  );
+};
+
+const parrafos = (p) => (Array.isArray(p.detalle) ? p.detalle : p.detalle ? [p.detalle] : []);
+
 const tarjeta = (p) => {
   const nombre = esc(p.nombre);
-  const cargo = esc(p.cargo);
-
-  let medio;
-  if (p.foto) {
-    if (!existsSync(join(CARPETA_FOTOS, p.foto))) {
-      console.warn(`  ! ${p.nombre}: falta site/assets/equipo/${p.foto}, va con iniciales`);
-      medio = null;
-    } else {
-      medio =
-        `<img class="persona-foto" src="assets/equipo/${esc(p.foto)}"\n` +
-        `           alt="${nombre}, ${cargo} en Tecnissan" loading="lazy" decoding="async" width="600" height="800">`;
-    }
-  }
-  if (!medio) {
-    medio =
-      `<div class="persona-foto persona-mono" role="img" aria-label="${nombre}">` +
-      `<span>${esc(iniciales(p.nombre))}</span></div>`;
-  }
+  const anos = anosTexto(p.anos);
+  const id = `ficha-${slug(p.nombre)}`;
+  const abrible = parrafos(p).length > 0;
 
   const placa = p.numero
     ? `<span class="persona-placa" aria-hidden="true">${esc(p.numero)}</span>`
     : "";
+
+  return [
+    `      <article class="persona${abrible ? " persona-abrible" : ""}" data-anim>`,
+    `        <div class="persona-medio">${placa}${medioDe(p, "persona-foto")}</div>`,
+    `        <div class="persona-txt">`,
+    `          <h3>${nombre}</h3>`,
+    `          <span class="cargo">${esc(p.cargo)}</span>`,
+    `          <p>${esc(p.texto)}</p>`,
+    `          <div class="persona-pie">`,
+    anos ? `            <span class="anos">${esc(anos)}</span>` : null,
+    abrible
+      ? `            <span class="persona-mas" aria-hidden="true">Ver ficha <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 12h13M12.5 6l6 6-6 6"/></svg></span>`
+      : null,
+    `          </div>`,
+    `        </div>`,
+    abrible
+      ? `        <button class="persona-abrir" type="button" aria-haspopup="dialog" data-ficha="${id}">` +
+        `<span class="solo-lectores">Ver la ficha de ${nombre}</span></button>`
+      : null,
+    `      </article>`,
+  ]
+    .filter(Boolean)
+    .join("\n");
+};
+
+/* ---------------------------------------------------------------- fichas */
+
+const ficha = (p) => {
+  const cuerpo = parrafos(p);
+  if (!cuerpo.length) return null;
+
+  const id = `ficha-${slug(p.nombre)}`;
   const anos = anosTexto(p.anos);
 
   return [
-    `      <article class="persona" data-anim>`,
-    `        <div class="persona-medio">${placa}${medio}</div>`,
-    `        <div class="persona-txt">`,
-    `          <h3>${nombre}</h3>`,
-    `          <span class="cargo">${cargo}</span>`,
-    `          <p>${esc(p.texto)}</p>`,
+    `    <dialog class="ficha" id="${id}" aria-labelledby="${id}-tit">`,
+    `      <div class="ficha-caja">`,
+    `        <button class="ficha-cerrar" type="button" aria-label="Cerrar la ficha">`,
+    `          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>`,
+    `        </button>`,
+    `        ${medioDe(p, "ficha-foto")}`,
+    `        <div class="ficha-cab">`,
+    `          <span class="etiqueta">El equipo</span>`,
+    `          <h3 id="${id}-tit">${esc(p.nombre)}</h3>`,
+    `          <span class="cargo">${esc(p.cargo)}</span>`,
     anos ? `          <span class="anos">${esc(anos)}</span>` : null,
     `        </div>`,
-    `      </article>`,
+    `        <div class="ficha-cuerpo">`,
+    ...cuerpo.map((t) => `          <p>${esc(t)}</p>`),
+    `        </div>`,
+    `      </div>`,
+    `    </dialog>`,
   ]
     .filter(Boolean)
     .join("\n");
@@ -120,6 +172,8 @@ if (personas.length) {
     <div class="equipo-rejilla">
 ${personas.map(tarjeta).join("\n\n")}
     </div>
+
+${personas.map(ficha).filter(Boolean).join("\n\n")}
   </div>
 </section>
 `;
@@ -149,7 +203,7 @@ if (personas.length) {
   }));
 }
 
-const ficha =
+const datosEstructurados =
   "\n" +
   '<script type="application/ld+json">\n' +
   JSON.stringify(
@@ -169,7 +223,7 @@ const ficha =
 
 let html = readFileSync(PAGINA, "utf8");
 html = entreMarcas(html, "PERSONAS", seccion);
-html = entreMarcas(html, "EMPLEADOS", ficha);
+html = entreMarcas(html, "EMPLEADOS", datosEstructurados);
 writeFileSync(PAGINA, html);
 
 console.log(

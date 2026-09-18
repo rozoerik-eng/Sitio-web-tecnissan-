@@ -231,3 +231,46 @@ const SINTOMAS = [
     window.open(waUrl(msg), "_blank", "noopener");
   });
 })();
+
+/* -------------------- fichas del equipo, una por persona -------------------- */
+(() => {
+  const botones = $$(".persona-abrir");
+  if (!botones.length) return;
+
+  const soporta = typeof HTMLDialogElement === "function"
+    && typeof HTMLDialogElement.prototype.showModal === "function";
+  if (!soporta) {
+    // Sin <dialog> no hay nada que abrir: quitamos el boton y el "ver ficha"
+    // para no prometer un clic que no pasa nada.
+    document.documentElement.classList.add("sin-fichas");
+    botones.forEach(b => b.remove());
+    return;
+  }
+
+  const raiz = document.documentElement;
+  let abridor = null;   // a quien le devolvemos el foco al cerrar
+
+  botones.forEach(b => {
+    const ficha = document.getElementById(b.dataset.ficha);
+    if (!ficha) { b.remove(); return; }
+    b.addEventListener("click", () => {
+      abridor = b;
+      ficha.showModal();
+      raiz.classList.add("ficha-abierta");
+    });
+  });
+
+  $$("dialog.ficha").forEach(ficha => {
+    const cerrar = $(".ficha-cerrar", ficha);
+    if (cerrar) cerrar.addEventListener("click", () => ficha.close());
+
+    // Clic en el dialog y no en la caja = clic fuera, se cierra.
+    ficha.addEventListener("click", e => { if (e.target === ficha) ficha.close(); });
+
+    // Esc lo cierra solo; aqui solo recogemos la mesa.
+    ficha.addEventListener("close", () => {
+      raiz.classList.remove("ficha-abierta");
+      if (abridor) { abridor.focus(); abridor = null; }
+    });
+  });
+})();

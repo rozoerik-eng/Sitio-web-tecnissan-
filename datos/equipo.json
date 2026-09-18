@@ -6,7 +6,8 @@
     "texto": "Obligatorio. Una o dos frases de que hace en el taller, en lenguaje de cliente.",
     "anos": "Opcional. Numero de anos en Tecnissan. Si no esta, no sale la linea.",
     "numero": "Opcional. El numero del overol (28, 01, 02...). Sale como placa en la tarjeta.",
-    "foto": "Opcional. Nombre del archivo dentro de site/assets/equipo/. Si no hay foto, la tarjeta muestra las iniciales."
+    "foto": "Opcional. Nombre del archivo dentro de site/assets/equipo/. Si no hay foto, la tarjeta muestra las iniciales.",
+    "detalle": "Opcional. La ficha larga que se abre al dar clic en la tarjeta. Una lista, un parrafo por elemento. Si no esta, la tarjeta no se puede abrir."
   },
   "encabezado": {
     "etiqueta": "Uno por uno",
@@ -19,48 +20,75 @@
       "cargo": "Técnico en mecánica electrónica",
       "texto": "Cuando una falla no se deja encontrar, es el que sabe por dónde entrar. Buena parte de la confianza que nos tienen los clientes se construyó con su trabajo.",
       "anos": "Más de 25 años de experiencia",
-      "foto": "reyes-castillo.webp"
+      "foto": "reyes-castillo.webp",
+      "detalle": [
+        "Reyes cuenta con más de 25 años de experiencia y es especialista en mecánica electrónica. Su trayectoria y conocimiento le han permitido desarrollar una gran experiencia en el diagnóstico y reparación de vehículos. Es un técnico que representa el conocimiento y la experiencia que hacen parte de TECNISSAN y que durante tantos años han ayudado a construir la confianza de nuestros clientes."
+      ]
     },
     {
       "nombre": "Luis Francisco",
       "cargo": "Ingeniero mecánico",
       "texto": "A él le llegan los diagnósticos y los trabajos de alta complejidad, los que piden saber más que cambiar piezas. Tranquilo, de buen trato, y de los que dan confianza por cómo trabajan.",
       "anos": "Técnico Máster",
-      "foto": "francisco.webp"
+      "foto": "francisco.webp",
+      "detalle": [
+        "Luis Francisco es ingeniero y cuenta con una amplia formación y experiencia en el área automotriz. Es uno de nuestros técnicos Máster, lo que refleja el alto nivel de conocimiento, capacitación y especialización que tiene.",
+        "Es una persona tranquila, amable y muy comprometida con su trabajo. Por su experiencia y capacidad, se le confían diagnósticos y trabajos de alta complejidad, donde su conocimiento marca la diferencia.",
+        "Pero más allá de su experiencia profesional, Luis Francisco se caracteriza por su calidad humana: es un excelente compañero, siempre tiene una muy buena actitud y está dispuesto a aportar y ayudar al equipo. Es de esas personas que transmiten confianza tanto por lo que saben como por la manera en que hacen su trabajo."
+      ]
     },
     {
       "nombre": "Moisés Suárez",
       "cargo": "Técnico Nissan",
       "texto": "Del equipo es el que siempre está para lo que se necesite, y eso en un taller se nota en los tiempos de entrega. Aporta tanto por lo que sabe como por cómo trabaja con los demás.",
       "anos": "Más de 17 años de experiencia",
-      "foto": "moises-suarez.webp"
+      "foto": "moises-suarez.webp",
+      "detalle": [
+        "Moisés cuenta con más de 17 años de experiencia y se caracteriza principalmente por su excelente actitud. Es de esas personas que siempre están dispuestas a ayudar y que, cuando se necesita algo, están para lo que sea. Es muy colaborador con sus compañeros y aporta al equipo no solamente desde su experiencia como técnico, sino también desde su disposición y buena actitud frente al trabajo."
+      ]
     },
     {
       "nombre": "Sergio Gómez",
       "cargo": "Técnico Nissan",
       "texto": "Quince años trabajando la misma marca. Es el primero en llegar y el que no deja pasar un proceso a medias: revisa, ordena y entrega el puesto limpio.",
       "anos": "15 años con la marca",
-      "foto": "sergio-gomez.webp"
+      "foto": "sergio-gomez.webp",
+      "detalle": [
+        "Sergio lleva 15 años de experiencia trabajando con la marca y es una persona que conoce muy bien los vehículos Nissan. Se caracteriza por ser madrugador, comprometido con sus procesos y por buscar siempre que el trabajo salga bien. Es una persona a la que le gusta el orden y el aseo, y siempre está dispuesto a aportar desde su experiencia y conocimiento. Su forma de ser es muy directa y auténtica, y aunque a veces puede ser un poco malgeniado, detrás de eso hay una persona comprometida con su trabajo y con hacer las cosas de la mejor manera."
+      ]
     },
     {
       "nombre": "Jairo Jiménez",
       "cargo": "Técnico de diagnóstico",
       "texto": "Se toma el tiempo de revisar detalle por detalle hasta entender qué le pasa de verdad al carro. Sus diagnósticos son de los más finos del taller.",
-      "foto": "jairo-jimenez.webp"
+      "foto": "jairo-jimenez.webp",
+      "detalle": [
+        "Jairo es una persona muy detallista y perfeccionista con los vehículos. Le gusta revisar cada detalle y tomarse el tiempo necesario para encontrar realmente qué está sucediendo con un carro. Se caracteriza especialmente por la calidad y el nivel de detalle de sus diagnósticos. Es una persona muy enfocada en su trabajo, pero también disfruta compartir, divertirse y tener esos momentos de compañerismo con el equipo."
+      ]
     },
     {
       "nombre": "Wilson Jiménez",
       "cargo": "Mecánica rápida y Express",
       "texto": "Entró al taller de mensajero y sin saber de carros. Aprendió aquí, se formó aquí, y hoy por sus manos pasa todo lo que se resuelve el mismo día.",
       "foto": "wilson-jimenez.webp",
-      "anos": "De los de más trayectoria en la casa"
+      "anos": "Creció en el taller",
+      "detalle": [
+        "Wilson es uno de los técnicos con mayor trayectoria en TECNISSAN. Su historia dentro de la empresa es muy especial, porque cuando llegó inicialmente no tenía conocimientos sobre vehículos y comenzó trabajando como mensajero.",
+        "Con iniciativa, compromiso y muchas ganas de aprender, fue adquiriendo conocimientos, creciendo profesionalmente y evolucionando hasta convertirse en uno de nuestros técnicos. Hoy se especializa en todo lo relacionado con mecánica rápida y mecánica express, y se destaca por realizar los procesos que se le asignan con responsabilidad y dedicación.",
+        "Wilson es una persona tranquila, confiable y comprometida. Su historia representa muy bien que el crecimiento profesional también se construye con actitud, disposición para aprender y perseverancia. Para nosotros es muy valioso contar con personas que, como él, han crecido junto con TECNISSAN."
+      ]
     },
     {
       "nombre": "Guido Duque",
       "cargo": "Especialista en latonería",
       "texto": "Desmonta, endereza y prepara los carros que llegan de un golpe para que salgan de pintura como si no hubiera pasado nada. En latonería cada detalle cuenta, y él los cuenta todos.",
       "anos": "12 años en Tecnissan",
-      "foto": "guido-duque.webp"
+      "foto": "guido-duque.webp",
+      "detalle": [
+        "Guido lleva aproximadamente 12 años haciendo parte de TECNISSAN y es nuestro especialista en latonería. Es un profesional con amplia experiencia en todo lo relacionado con el desmonte y montaje de piezas y en la preparación de los vehículos que llegan después de un accidente para iniciar su proceso de reparación y pintura.",
+        "Se caracteriza por hacer su trabajo con mucha dedicación, cuidado y profesionalismo. Es una persona muy tranquila, amable y de trato cordial, cualidades que hacen que sea un gran compañero dentro del equipo.",
+        "Su experiencia y conocimiento en latonería hacen de Guido una pieza muy importante en nuestro equipo, especialmente en esos procesos donde cada detalle cuenta para lograr que un vehículo vuelva a lucir como nuevo."
+      ]
     }
   ]
 }

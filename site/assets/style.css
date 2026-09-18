@@ -31,7 +31,10 @@
 }
 
 *,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+/* scrollbar-gutter: al abrir una ficha bloqueamos el scroll del fondo con
+   overflow:hidden; sin el hueco reservado, en Windows desaparece la barra y
+   la pagina entera brinca ~15px a la derecha. */
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%;scrollbar-gutter:stable}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
 
 body{
@@ -559,10 +562,44 @@ body{padding-top:calc(var(--nav-h) + var(--aviso-h,0px))}
   text-transform:uppercase;color:var(--rojo);line-height:1.5;
 }
 .persona p{margin-top:13px;color:var(--grafito);font-size:14.2px;line-height:1.62}
-.persona .anos{
+.persona-pie{
   margin-top:auto;padding-top:15px;
+  display:flex;align-items:baseline;justify-content:space-between;
+  gap:8px 12px;flex-wrap:wrap;
+}
+.persona .anos{
+  /* linea propia: si compite con "ver ficha" por el ancho, unas tarjetas
+     quedan en una linea y otras en dos, y la fila se ve desparejada */
+  flex:1 1 100%;
   font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;color:var(--acero);
 }
+.persona-mas{
+  margin-left:auto;display:inline-flex;align-items:center;gap:6px;
+  font-family:var(--mono);font-size:11px;letter-spacing:.08em;
+  text-transform:uppercase;color:var(--rojo);white-space:nowrap;
+}
+.persona-mas svg{
+  width:13px;height:13px;fill:none;stroke:currentColor;stroke-width:2;
+  stroke-linecap:round;stroke-linejoin:round;
+  transition:transform .35s var(--ease-out);
+}
+.persona-abrible:hover .persona-mas svg{transform:translateX(3px)}
+
+/* El boton cubre toda la tarjeta: se puede dar clic en cualquier parte.
+   Va despues del contenido para quedar encima sin z-index. */
+.persona{position:relative}
+.persona-abrir{
+  position:absolute;inset:0;
+  border:0;padding:0;background:none;cursor:pointer;
+  font:inherit;color:inherit;
+}
+.persona-abrir:focus-visible{outline:3px solid var(--rojo);outline-offset:3px}
+.solo-lectores{
+  position:absolute;width:1px;height:1px;overflow:hidden;
+  clip-path:inset(50%);white-space:nowrap;
+}
+/* Sin <dialog> no hay ficha que abrir: la tarjeta se queda quieta. */
+.sin-fichas .persona-mas{display:none}
 @media (max-width:1040px){.equipo-rejilla{grid-template-columns:repeat(3,1fr)}}
 @media (max-width:780px){.equipo-rejilla{grid-template-columns:repeat(2,1fr)}}
 @media (max-width:480px){
@@ -575,6 +612,98 @@ body{padding-top:calc(var(--nav-h) + var(--aviso-h,0px))}
   .persona-placa{min-width:32px;padding:4px 7px 5px;font-size:11px}
 }
 @media (max-width:359px){.equipo-rejilla{grid-template-columns:1fr}}
+
+/* ------------------------- ficha de cada persona ------------------------- */
+/* El <dialog> ocupa toda la pantalla y es transparente; lo que se ve es
+   .ficha-caja. Asi un clic fuera de la caja cae en el dialog y lo cierra. */
+.ficha{
+  width:100%;max-width:100%;height:100%;max-height:100%;
+  margin:0;padding:clamp(14px,3.5vw,44px);
+  border:0;background:none;overflow:auto;overscroll-behavior:contain;
+}
+/* display SOLO con [open]: el "display:none" del navegador para un dialog
+   cerrado es hoja de estilo de usuario-agente, y cualquier display de autor
+   le gana por origen, no por especificidad. Sin esto las siete fichas
+   quedan abiertas encima de la pagina. */
+.ficha[open]{display:flex;align-items:center;justify-content:center}
+.ficha::backdrop{background:rgba(14,16,19,.66);backdrop-filter:blur(3px)}
+.ficha-caja{
+  position:relative;margin:auto;
+  width:100%;max-width:880px;
+  background:var(--blanco);border:1px solid var(--linea);
+  box-shadow:0 40px 90px -40px rgba(14,16,19,.55);
+  clip-path:polygon(0 0,calc(100% - 22px) 0,100% 22px,100% 100%,22px 100%,0 calc(100% - 22px));
+  display:grid;
+  --col:clamp(220px,30%,300px);
+  grid-template-columns:var(--col) 1fr;
+  grid-template-areas:"foto cab" "foto cuerpo";
+  align-content:start;
+}
+/* El retrato es 3:4 y casi nunca llega tan abajo como el texto. El degradado
+   sigue pintando la columna de la foto con el mismo gris, para que no quede
+   un bloque blanco suelto debajo. */
+@media (min-width:761px){
+  .ficha-caja{
+    background-image:linear-gradient(90deg,var(--placa) 0 var(--col),var(--blanco) var(--col));
+  }
+}
+.ficha-foto{
+  grid-area:foto;align-self:start;
+  display:block;width:100%;height:auto;aspect-ratio:3/4;
+  object-fit:cover;background:var(--placa);
+}
+.ficha-cab{
+  grid-area:cab;
+  padding:clamp(22px,2.6vw,34px) clamp(22px,2.6vw,34px) 0;
+}
+.ficha-cab h3{margin:14px 0 0;font-size:clamp(21px,2.1vw,27px)}
+.ficha-cab .cargo{
+  display:block;margin-top:8px;
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.11em;
+  text-transform:uppercase;color:var(--rojo);line-height:1.5;
+}
+.ficha-cab .anos{
+  display:block;margin-top:9px;
+  font-family:var(--mono);font-size:11.5px;letter-spacing:.06em;color:var(--acero);
+}
+.ficha-cuerpo{
+  grid-area:cuerpo;
+  padding:clamp(16px,1.8vw,22px) clamp(22px,2.6vw,34px) clamp(24px,2.8vw,36px);
+}
+.ficha-cuerpo p{color:var(--grafito);font-size:15px;line-height:1.72}
+.ficha-cuerpo p + p{margin-top:14px}
+.ficha-cerrar{
+  /* separado de la esquina, que va cortada en diagonal */
+  position:absolute;top:8px;right:8px;z-index:2;
+  width:40px;height:40px;display:grid;place-items:center;
+  border:0;background:none;color:var(--grafito);cursor:pointer;
+  transition:color .3s,background .3s;
+}
+.ficha-cerrar svg{
+  width:19px;height:19px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;
+}
+.ficha-cerrar:hover{color:var(--blanco);background:var(--rojo)}
+.ficha-cerrar:focus-visible{outline:3px solid var(--rojo);outline-offset:-3px}
+.ficha[open]{animation:ficha-fondo .28s var(--ease)}
+.ficha[open] .ficha-caja{animation:ficha-entra .38s var(--ease-out)}
+@keyframes ficha-fondo{from{opacity:0}to{opacity:1}}
+@keyframes ficha-entra{from{opacity:0;transform:translateY(16px) scale(.985)}to{opacity:1;transform:none}}
+/* Mientras la ficha esta abierta el fondo no se mueve. */
+.ficha-abierta{overflow:hidden}
+
+@media (max-width:760px){
+  .ficha-caja{
+    grid-template-columns:clamp(94px,26vw,128px) 1fr;
+    grid-template-areas:"foto cab" "cuerpo cuerpo";
+  }
+  .ficha-cab{padding:18px 18px 0 16px}
+  .ficha-cab h3{margin-top:10px}
+  .ficha-cuerpo{padding:16px 18px 22px}
+  .ficha-cuerpo p{font-size:14.4px}
+  .ficha-cerrar{top:5px;right:5px;width:38px;height:38px}
+  /* La foto arranca bajo el boton de cerrar, que se lleva la esquina. */
+  .ficha-cab .etiqueta{padding-right:38px}
+}
 
 /* ------------------------- fotos ------------------------- */
 .foto{
