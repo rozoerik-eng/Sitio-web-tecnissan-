@@ -255,45 +255,67 @@ body{padding-top:calc(var(--nav-h) + var(--aviso-h,0px))}
 /* la portada de Equipo crece un poco: asi la foto baja y no queda
    cortada tan arriba */
 .hero-equipo{min-height:min(80vh,700px)}
-.hero-nosotros{--franja:89.4vw;background-image:url("nosotros-fondo.webp")}
 /* Velo mas suave que en el inicio: alli la izquierda de la foto es la
    pared del taller y da igual lavarla, aqui son las caras de la gente
    y el velo del inicio se las borraba. La foto ya trae su propio
    degradado a blanco, asi que con menos alcanza. */
-.hero-equipo::before,
-.hero-nosotros::before{
+.hero-equipo::before{
   background:linear-gradient(90deg,
     #fff 0%, rgba(255,255,255,.92) 27%, rgba(255,255,255,.42) 41%, rgba(255,255,255,0) 56%);
 }
 /* la seccion queda entre dos secciones blancas: una linea arriba y otra
    abajo la separan sin tener que romper la alternancia de fondos */
-.hero-nosotros{border-top:1px solid var(--linea);border-bottom:1px solid var(--linea)}
-/* las razones van en una columna: a dos se salian de la zona blanca y el
-   texto de la segunda caia encima de la gente, ilegible */
-.hero-nosotros .razones{grid-template-columns:1fr;gap:clamp(14px,1.6vw,20px);margin-top:clamp(20px,2.4vw,30px)}
-/* La columna se angosta de 580 a 500px: con 580 el parrafo llegaba hasta
-   donde empieza la gente y se leia sobre las caras. Ahora termina antes.
-   Y el titular baja de tamanio para que la seccion no crezca al angostarla.
-   Solo de 1001px para arriba: por debajo la foto ya esta abajo, no al lado,
-   y el texto usa todo el ancho. */
-@media (min-width:1001px){
-  .hero-nosotros .hero-rejilla > div{max-width:min(500px,42%)}
+/* NOSOTROS. Aqui NO se usa el fondo de .hero. Con background-size:cover
+   la foto cambia de escala segun el alto de la seccion, que depende del
+   texto, y la gente terminaba debajo del parrafo. La foto va recortada a
+   la gente (sin el degradado de la imagen) en un panel de ancho fijo a la
+   derecha, y el degradado lo hace una mascara: asi se sabe en cualquier
+   pantalla donde empieza la gente y donde puede llegar el texto. */
+.hero-nosotros{
+  background-image:none;background-color:var(--blanco);
+  border-top:1px solid var(--linea);border-bottom:1px solid var(--linea);
+  padding-top:clamp(40px,4.6vw,70px);padding-bottom:clamp(40px,4.6vw,70px);
+  min-height:0;
 }
+.hero-nosotros::before{content:none}
+.hero-nosotros::after{
+  content:"";position:absolute;top:0;right:0;bottom:0;width:56%;
+  background-image:url("nosotros-gente.webp");
+  /* contain, no cover: cover recortaba a la gente de los bordes cuando la
+     seccion se hacia alta. Asi la foto entra completa siempre. */
+  background-size:contain;background-position:right bottom;background-repeat:no-repeat;
+  -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 30%);
+  mask-image:linear-gradient(90deg,transparent 0,#000 30%);
+  pointer-events:none;
+}
+/* las razones van en una columna: a dos se salian de la zona blanca */
+.hero-nosotros .razones{grid-template-columns:1fr;gap:clamp(14px,1.6vw,20px);margin-top:clamp(20px,2.4vw,30px)}
 .hero-nosotros h2{font-size:clamp(25px,2.7vw,38px)}
 .hero-nosotros .plomo{font-size:clamp(15px,1.02vw,16.4px);margin-top:16px}
 .hero-nosotros .razon p{font-size:14px}
-.hero-nosotros{padding-top:clamp(40px,4.6vw,70px);padding-bottom:clamp(40px,4.6vw,70px);min-height:0}
+/* el texto se topa antes de donde arranca el panel de la foto */
+@media (min-width:1001px){
+  .hero-nosotros .hero-rejilla > div{max-width:min(470px,36vw)}
+}
+/* en pantalla angosta la foto pasa a una franja abajo, completa */
+@media (max-width:1000px){
+  .hero-nosotros{padding-bottom:min(calc(85.8vw + 16px),420px)}
+  .hero-nosotros::after{
+    left:0;width:100%;
+    background-image:url("nosotros-gente-movil.webp");
+    background-position:center bottom;
+    -webkit-mask-image:linear-gradient(180deg,transparent 0,#000 16%);
+    mask-image:linear-gradient(180deg,transparent 0,#000 16%);
+  }
+}
 @media (max-width:760px){
   /* las versiones movil van recortadas a la gente, sin el degradado
      blanco: en pantalla angosta ese triangulo parecia un error. Al quedar
      mas cuadradas que la del inicio, cada franja lleva su propio alto. */
   .hero-equipo{background-image:url("equipo-fondo-movil.webp")}
-  .hero-nosotros{background-image:url("nosotros-fondo-movil.webp")}
-  .hero-equipo,
-  .hero-nosotros{padding-bottom:min(calc(var(--franja) + 10px), 430px)}
+  .hero-equipo{padding-bottom:min(calc(var(--franja) + 10px), 430px)}
   /* y el velo sube mas arriba, para no lavarle las caras */
-  .hero-equipo::before,
-  .hero-nosotros::before{
+  .hero-equipo::before{
     background:linear-gradient(to top,
       rgba(255,255,255,0) 0,
       rgba(255,255,255,0) min(calc(var(--franja) * .78), 320px),
