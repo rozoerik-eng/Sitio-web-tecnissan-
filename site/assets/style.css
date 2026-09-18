@@ -10,6 +10,7 @@
   --grafito:#5A6068;
   --acero:#868C95;
   --linea:#E3E5E9;
+  --placa:#E9EBEF;   /* el gris donde se para el retrato del equipo; herramientas/fotos-equipo.py pinta el mismo */
   --rojo:#E11B22;
   --rojo-osc:#B3141A;
   --negro:#0E1013;
@@ -528,7 +529,7 @@ body{padding-top:calc(var(--nav-h) + var(--aviso-h,0px))}
    le gana a aspect-ratio y la tarjeta se estira */
 .persona-foto{
   display:block;width:100%;height:auto;aspect-ratio:3/4;
-  object-fit:cover;object-position:center 20%;background:var(--hueso);
+  object-fit:cover;object-position:center 20%;background:var(--placa);
 }
 /* sin foto todavia: las iniciales, para que la tarjeta no quede coja */
 .persona-mono{

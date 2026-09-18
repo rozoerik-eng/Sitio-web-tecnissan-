@@ -34,10 +34,17 @@ const iniciales = (nombre) => {
   return (primera + ultima).toUpperCase();
 };
 
+/* "anos" acepta un numero (8 -> "8 años en Tecnissan") o una frase ya
+   escrita ("Mas de 25 años de experiencia"), porque no todos cuentan lo
+   mismo: unos llevan X en la casa y otros X con la marca. */
 const anosTexto = (anos) => {
+  if (anos === undefined || anos === null || anos === "") return "";
   const n = Number(anos);
-  if (!Number.isFinite(n) || n <= 0) return "";
-  return n === 1 ? "1 año en Tecnissan" : `${n} años en Tecnissan`;
+  if (Number.isFinite(n)) {
+    if (n <= 0) return "";
+    return n === 1 ? "1 año en Tecnissan" : `${n} años en Tecnissan`;
+  }
+  return String(anos);
 };
 
 /* Reemplaza el contenido entre dos marcas, dejando las marcas en su lugar. */

@@ -13,5 +13,54 @@
     "titulo": "Quién es quién en el taller",
     "entrada": "Cuando dejas el carro, dejas de tratar con una empresa y empiezas a tratar con una persona. Estas son."
   },
-  "personas": []
+  "personas": [
+    {
+      "nombre": "Reyes Castillo",
+      "cargo": "Técnico en mecánica electrónica",
+      "texto": "Cuando una falla no se deja encontrar, es el que sabe por dónde entrar. Buena parte de la confianza que nos tienen los clientes se construyó con su trabajo.",
+      "anos": "Más de 25 años de experiencia",
+      "foto": "reyes-castillo.webp"
+    },
+    {
+      "nombre": "Luis Francisco",
+      "cargo": "Ingeniero mecánico",
+      "texto": "A él le llegan los diagnósticos y los trabajos de alta complejidad, los que piden saber más que cambiar piezas. Tranquilo, de buen trato, y de los que dan confianza por cómo trabajan.",
+      "anos": "Técnico Máster",
+      "foto": "francisco.webp"
+    },
+    {
+      "nombre": "Moisés Suárez",
+      "cargo": "Técnico Nissan",
+      "texto": "Del equipo es el que siempre está para lo que se necesite, y eso en un taller se nota en los tiempos de entrega. Aporta tanto por lo que sabe como por cómo trabaja con los demás.",
+      "anos": "Más de 17 años de experiencia",
+      "foto": "moises-suarez.webp"
+    },
+    {
+      "nombre": "Sergio Gómez",
+      "cargo": "Técnico Nissan",
+      "texto": "Quince años trabajando la misma marca. Es el primero en llegar y el que no deja pasar un proceso a medias: revisa, ordena y entrega el puesto limpio.",
+      "anos": "15 años con la marca",
+      "foto": "sergio-gomez.webp"
+    },
+    {
+      "nombre": "Jairo Jiménez",
+      "cargo": "Técnico de diagnóstico",
+      "texto": "Se toma el tiempo de revisar detalle por detalle hasta entender qué le pasa de verdad al carro. Sus diagnósticos son de los más finos del taller.",
+      "foto": "jairo-jimenez.webp"
+    },
+    {
+      "nombre": "Wilson Jiménez",
+      "cargo": "Mecánica rápida y Express",
+      "texto": "Entró al taller de mensajero y sin saber de carros. Aprendió aquí, se formó aquí, y hoy por sus manos pasa todo lo que se resuelve el mismo día.",
+      "foto": "wilson-jimenez.webp",
+      "anos": "De los de más trayectoria en la casa"
+    },
+    {
+      "nombre": "Guido Duque",
+      "cargo": "Especialista en latonería",
+      "texto": "Desmonta, endereza y prepara los carros que llegan de un golpe para que salgan de pintura como si no hubiera pasado nada. En latonería cada detalle cuenta, y él los cuenta todos.",
+      "anos": "12 años en Tecnissan",
+      "foto": "guido-duque.webp"
+    }
+  ]
 }
