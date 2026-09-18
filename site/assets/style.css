@@ -244,23 +244,23 @@ body{padding-top:calc(var(--nav-h) + var(--aviso-h,0px))}
 @media (max-width:1000px){
   .hero{
     /* 98.13vw es alto/ancho de fondo-banda.webp: hasta ahi la foto sale
-       entera. Pasado el tope, cover le recorta el techo. */
+       entera. Pasado el tope, cover recorta. */
     --banda:min(98.13vw, 520px);
     background-image:none;
     align-items:flex-start;
     min-height:auto;
-    padding-bottom:var(--banda);
+    /* la banda va ARRIBA: el relleno de arriba le hace el hueco, y el
+       clamp es el aire entre la foto y el titular */
+    padding-top:calc(var(--banda) + clamp(26px,4.5vw,40px));
+    padding-bottom:clamp(34px,5vw,54px);
   }
   .hero::before{
-    inset:auto 0 0 0;
+    inset:0 0 auto 0;
     height:var(--banda);
-    background-image:
-      linear-gradient(180deg,#fff 0,rgba(255,255,255,0) 26%),
-      url("fondo-banda.webp");
-    background-size:100% 100%, cover;
-    /* anclada abajo: si hay que recortar, se va el techo y se quedan los
-       carros, que es lo que el cliente quiere ver */
-    background-position:center top, center bottom;
+    /* sin velo: la foto entra limpia y el corte con el texto es seco */
+    background-image:url("fondo-banda.webp");
+    background-size:cover;
+    background-position:center center;
     background-repeat:no-repeat;
   }
   .hero-rejilla > div{max-width:100%}
@@ -342,14 +342,28 @@ body{padding-top:calc(var(--nav-h) + var(--aviso-h,0px))}
      de mas arriba tiene la misma especificidad y esta despues del bloque
      de .hero, asi que le gana y volvia a pintar la foto de escritorio
      detras del texto, encima de la banda. */
-  .hero-equipo{--banda:min(103.11vw, 520px);background-image:none}
+  .hero-equipo{
+    --banda:min(103.11vw, 520px);
+    background-image:none;
+    /* en Equipo la banda se queda ABAJO, al contrario que en el inicio:
+       hay que deshacer el relleno de arriba que puso el bloque de .hero */
+    padding-top:clamp(30px,4.5vw,48px);
+    padding-bottom:var(--banda);
+  }
   .hero-equipo::before{
+    inset:auto 0 0 0;
     background-image:
-      /* el velo sube menos que en el inicio: aqui abajo hay caras */
+      /* el velo de arriba sube menos que en el inicio: aqui hay caras */
       linear-gradient(180deg,#fff 0,rgba(255,255,255,0) 20%),
+      /* y el borde derecho tambien se difumina: ahi la foto termina en un
+         carro en sombra y ese bloque oscuro cortado en seco cantaba. El
+         carro ocupa el 4% del ancho y justo ahi empieza la manga del
+         ultimo mecanico, asi que el velo se apaga al 8%: tapa el carro y
+         a el solo le pasa una neblina por el borde. */
+      linear-gradient(270deg,#fff 0,rgba(255,255,255,.96) 2%,rgba(255,255,255,0) 8%),
       url("equipo-fondo-movil.webp");
-    background-size:100% 100%, cover;
-    background-position:center top, center top;
+    background-size:100% 100%, 100% 100%, cover;
+    background-position:center top, center top, center top;
   }
 }
 
