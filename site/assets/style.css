@@ -248,29 +248,42 @@ body{padding-top:calc(var(--nav-h) + var(--aviso-h,0px))}
    solo cambia la foto. La imagen viene compuesta igual que la del inicio,
    con su degradado a blanco por la izquierda. Estas reglas van despues de
    las de .hero para ganarle por orden de aparicion. */
-.hero-equipo{background-image:url("equipo-fondo.webp")}
+/* Cada portada declara su foto y, en --franja, el alto que necesita esa
+   foto en celular (alto/ancho del recorte movil, en vw). El velo movil
+   se calcula solo a partir de ese valor. */
+.hero-equipo{--franja:103.1vw;background-image:url("equipo-fondo.webp")}
+.hero-nosotros{--franja:89.4vw;background-image:url("nosotros-fondo.webp")}
 /* Velo mas suave que en el inicio: alli la izquierda de la foto es la
-   pared del taller y da igual lavarla, aqui son las personas del equipo
-   y el velo del inicio les quitaba la cara. La foto ya trae su propio
+   pared del taller y da igual lavarla, aqui son las caras de la gente
+   y el velo del inicio se las borraba. La foto ya trae su propio
    degradado a blanco, asi que con menos alcanza. */
-.hero-equipo::before{
+.hero-equipo::before,
+.hero-nosotros::before{
   background:linear-gradient(90deg,
     #fff 0%, rgba(255,255,255,.92) 27%, rgba(255,255,255,.42) 41%, rgba(255,255,255,0) 56%);
 }
+/* la seccion queda entre dos secciones blancas: una linea arriba y otra
+   abajo la separan sin tener que romper la alternancia de fondos */
+.hero-nosotros{border-top:1px solid var(--linea);border-bottom:1px solid var(--linea)}
+/* las razones van en una columna: a dos se salian de la zona blanca y el
+   texto de la segunda caia encima de la gente, ilegible */
+.hero-nosotros .razones{grid-template-columns:1fr;gap:clamp(15px,1.8vw,22px);margin-top:clamp(24px,2.8vw,36px)}
+.hero-nosotros .razon p{max-width:46ch}
 @media (max-width:760px){
-  .hero-equipo{
-    background-image:url("equipo-fondo-movil.webp");
-    /* la version movil va recortada al equipo, sin el degradado blanco:
-       en pantalla angosta ese triangulo se veia como un error. Al ser mas
-       cuadrada que la del inicio, la franja necesita su propio alto. */
-    padding-bottom:min(calc(89.4vw + 10px), 430px);
-  }
+  /* las versiones movil van recortadas a la gente, sin el degradado
+     blanco: en pantalla angosta ese triangulo parecia un error. Al quedar
+     mas cuadradas que la del inicio, cada franja lleva su propio alto. */
+  .hero-equipo{background-image:url("equipo-fondo-movil.webp")}
+  .hero-nosotros{background-image:url("nosotros-fondo-movil.webp")}
+  .hero-equipo,
+  .hero-nosotros{padding-bottom:min(calc(var(--franja) + 10px), 430px)}
   /* y el velo sube mas arriba, para no lavarle las caras */
-  .hero-equipo::before{
+  .hero-equipo::before,
+  .hero-nosotros::before{
     background:linear-gradient(to top,
       rgba(255,255,255,0) 0,
-      rgba(255,255,255,0) min(72vw,320px),
-      #fff min(86vw,400px),
+      rgba(255,255,255,0) min(calc(var(--franja) * .78), 320px),
+      #fff min(calc(var(--franja) * .95), 400px),
       #fff 100%);
   }
 }
@@ -508,7 +521,6 @@ body{padding-top:calc(var(--nav-h) + var(--aviso-h,0px))}
 
 .f-taller{background-image:url("taller.jpg")}
 .f-fachada{background-image:url("fachada.jpg");aspect-ratio:16/9}
-.f-nave{background-image:url("nave.jpg");aspect-ratio:4/3;background-position:center}
 
 .galeria{display:grid;grid-template-columns:repeat(4,1fr);gap:clamp(12px,1.4vw,18px);margin-top:clamp(28px,3.4vw,44px)}
 .galeria .foto{aspect-ratio:4/3;transition:transform .5s var(--ease-out)}
