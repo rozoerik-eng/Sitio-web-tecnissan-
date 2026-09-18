@@ -26,6 +26,13 @@ concurrency:
 jobs:
   publicar:
     runs-on: ubuntu-latest
+    # OJO: a proposito no se declara "environment: github-pages".
+    # El entorno github-pages de este repositorio tiene una regla que solo
+    # permite desplegar desde la rama claude/tecnissan-website-lcnpff, asi
+    # que al declararlo el trabajo moria en un segundo, sin logs ni error
+    # legible. Sin declararlo, deploy-pages despliega igual y funciona.
+    # Si algun dia se agrega esta rama a las ramas permitidas en
+    # Ajustes > Environments > github-pages, se puede volver a poner.
     steps:
       - uses: actions/checkout@v4
 
