@@ -343,7 +343,11 @@ body{padding-top:calc(var(--nav-h) + var(--aviso-h,0px))}
      de .hero, asi que le gana y volvia a pintar la foto de escritorio
      detras del texto, encima de la banda. */
   .hero-equipo{
-    --banda:min(103.11vw, 520px);
+    /* 110.93vw es alto/ancho del recorte movil. A los lados NO lleva velo:
+       el carro en sombra que quedaba a la derecha se saco del recorte, que
+       es la unica forma de que los dos bordes se vean igual. Un velo
+       blanco, por suave que sea, deja ese lado mas claro que el otro. */
+    --banda:min(110.93vw, 520px);
     background-image:none;
     /* en Equipo la banda se queda ABAJO, al contrario que en el inicio:
        hay que deshacer el relleno de arriba que puso el bloque de .hero */
@@ -355,15 +359,9 @@ body{padding-top:calc(var(--nav-h) + var(--aviso-h,0px))}
     background-image:
       /* el velo de arriba sube menos que en el inicio: aqui hay caras */
       linear-gradient(180deg,#fff 0,rgba(255,255,255,0) 20%),
-      /* y el borde derecho tambien se difumina: ahi la foto termina en un
-         carro en sombra y ese bloque oscuro cortado en seco cantaba. El
-         carro ocupa el 4% del ancho y justo ahi empieza la manga del
-         ultimo mecanico, asi que el velo se apaga al 8%: tapa el carro y
-         a el solo le pasa una neblina por el borde. */
-      linear-gradient(270deg,#fff 0,rgba(255,255,255,.96) 2%,rgba(255,255,255,0) 8%),
       url("equipo-fondo-movil.webp");
-    background-size:100% 100%, 100% 100%, cover;
-    background-position:center top, center top, center top;
+    background-size:100% 100%, cover;
+    background-position:center top, center top;
   }
 }
 
