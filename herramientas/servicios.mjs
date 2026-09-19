@@ -454,11 +454,11 @@ ${s.demora.map(t => `      <p class="plomo" data-anim style="margin-top:14px">${
     <aside class="aparte" data-anim>
       <div class="icono-caja"><svg viewBox="0 0 24 24" aria-hidden="true">${s.icono}</svg></div>
       <h3 style="margin-top:16px">${s.nombre}</h3>
+      <!-- Fuera "Cuanto se demora": el cuerpo de la pagina ya lleva su propia
+           seccion "¿Cuanto se demora?" con el detalle completo, y en la
+           tarjeta quedaba la version corta diciendo lo mismo. El relleno de
+           arriba pasa al dato que ahora queda primero. -->
       <div class="dato" style="padding-top:18px">
-        <svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="9"/><path d="M12 7.5V12l3.2 2"/></svg>
-        <div><div class="k">Cuánto se demora</div><div class="v" style="font-size:15px">${s.tiempo}</div></div>
-      </div>
-      <div class="dato">
         <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3.5" y="5" width="17" height="15.5" rx="2"/><path d="M3.5 9.5h17M8 3v4M16 3v4"/></svg>
         <div><div class="k">Cuándo hacerlo</div><div class="v" style="font-size:15px">${s.cuando}</div></div>
       </div>
