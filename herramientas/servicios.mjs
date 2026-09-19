@@ -46,11 +46,15 @@ const SERVICIOS = [
       'Diagnóstico y recomendaciones de acuerdo con los hallazgos del técnico'
     ],
     demora: [
-      'Revisiones sencillas: aproximadamente 3 a 4 horas, siempre que no se encuentren novedades.',
-      'Revisiones más completas: aproximadamente 1 día, cuando el vehículo ingresa temprano y no requiere trabajos adicionales.',
-      'Si durante la revisión o el desmontaje se encuentran fallas, desgastes o reparaciones adicionales, el tiempo puede variar según la complejidad del trabajo y la disponibilidad de repuestos.'
+      'Depende del tipo de revisión que le corresponda al vehículo según su kilometraje: las de cada 5.000 km son más cortas que las de 20.000 km y sus múltiplos.',
+      'También influye la disponibilidad del taller el día que ingresa el vehículo y las condiciones que se encuentren durante la revisión.',
+      'Si durante la revisión o el desmontaje se encuentran fallas, desgastes o reparaciones adicionales, el tiempo puede variar según la complejidad del trabajo y la disponibilidad de repuestos.',
+      'Cuando recibimos el vehículo te damos la fecha de entrega, y si algo cambia te avisamos antes.'
     ],
-    tiempo: '3 a 4 horas las sencillas, cerca de 1 día las completas',
+    // Sin horas ni dias concretos, por pedido del taller: el tiempo real
+    // depende del tipo de revision, de lo que se encuentre y de la carga
+    // que tenga el taller ese dia. La fecha se pacta al recibir el carro.
+    tiempo: 'Se acuerda al recibir el vehículo',
     cuandoTexto: 'Cada 5.000 km, de acuerdo con el plan de mantenimiento correspondiente al vehículo.',
     cuando: 'Cada 5.000 km, según el plan del vehículo.',
     waMsg: 'Hola Tecnissan, quiero agendar el mantenimiento preventivo de mi Nissan.'
