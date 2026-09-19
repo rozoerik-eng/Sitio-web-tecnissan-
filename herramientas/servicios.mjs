@@ -419,7 +419,10 @@ for (const [i, s] of SERVICIOS.entries()) {
     <p class="miga"><a href="../index.html">Inicio</a><span>/</span><a href="index.html">Servicios</a><span>/</span>${s.nombre}</p>
     <span class="etiqueta">Servicio</span>
     <h1 style="margin-top:18px">${s.titulo}</h1>
-    <p class="plomo">${s.resumen}</p>
+    <!-- El resumen ya no va en la portada de la pagina: repetia lo que dice
+         el cuerpo justo debajo. Sigue usandose en la ficha de datos
+         estructurados (lo que muestra Google) y en las tarjetas del indice
+         de servicios, que es donde si hace falta. -->
     <div class="acciones">
       <a class="btn btn-wa" ${WA(s.waMsg)}>
         ${icoWa}
