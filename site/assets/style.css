@@ -450,9 +450,25 @@ body{padding-top:calc(var(--nav-h) + var(--aviso-h,0px))}
    grid-auto-columns:minmax(...) hace las dos cosas con una regla: en
    pantalla ancha cada tarjeta es 1fr y las diez caben; cuando el ancho
    no alcanza, entra el minimo y la franja se desliza de lado. */
+/* Un grupo por tipo de carro. El titulo de cada uno va encima de su franja. */
+.modelo-grupo{margin-top:clamp(26px,3vw,40px)}
+.modelo-titulo{
+  margin:0;font-family:var(--mono);font-size:11.5px;font-weight:600;
+  letter-spacing:.13em;text-transform:uppercase;color:var(--grafito);
+  display:flex;align-items:center;gap:12px;
+}
+/* la rayita que sigue al titulo hasta el borde */
+.modelo-titulo::after{
+  content:"";flex:1;height:1px;background:var(--linea);
+}
 .modelos{
   display:grid;grid-auto-flow:column;
-  grid-auto-columns:minmax(96px,1fr);
+  /* ancho fijo de tarjeta y no 1fr: con grupos de 5, 6 y 3 el 1fr hacia
+     que las tres tarjetas de las pick-ups salieran enormes y las de los
+     automoviles chicas. Asi todas miden igual en los tres grupos, y por
+     debajo de ~700px la franja se desplaza de lado. */
+  grid-auto-columns:clamp(104px,13.6vw,172px);
+  justify-content:start;
   gap:clamp(6px,.75vw,11px);margin-top:clamp(26px,3.2vw,42px);
   overflow-x:auto;overflow-y:hidden;
   /* sin scroll-snap: con snap el navegador alinea la primera tarjeta con
@@ -485,19 +501,26 @@ body{padding-top:calc(var(--nav-h) + var(--aviso-h,0px))}
 .modelo:hover img{transform:scale(1.05)}
 .modelo:hover span{color:var(--rojo)}
 .modelo:focus-visible{outline:2px solid var(--rojo);outline-offset:3px}
-/* la pista solo aparece cuando las diez tarjetas no caben */
+/* La pista solo aparece cuando esa franja de verdad se desplaza. Antes se
+   escondia por ancho de pantalla, pero ahora cada grupo tiene un numero
+   distinto de tarjetas y unos corren y otros no al mismo ancho. La clase
+   .corre la pone el JS midiendo cada franja. */
 .desliza-pista{
-  margin-top:clamp(20px,2.4vw,30px);
+  display:none;
+  margin-top:clamp(12px,1.4vw,18px);
   font-family:var(--mono);font-size:10.5px;font-weight:600;
   letter-spacing:.14em;text-transform:uppercase;color:var(--acero);
 }
 .desliza-pista span{color:var(--rojo)}
-.desliza-pista + .modelos{margin-top:12px}
+.modelo-grupo.corre .desliza-pista{display:block}
+/* el margen va en .modelos y no en un selector de hermano adyacente: la
+   pista esta siempre en el html aunque no se vea, asi que el titulo nunca
+   es hermano adyacente de la franja */
+.modelo-grupo .modelos{margin-top:clamp(12px,1.4vw,18px)}
+.modelo-grupo.corre .modelos{margin-top:8px}
 @media (min-width:1100px){
   .modelo{padding:11px 8px 13px}
   .modelo span{font-size:10.4px;letter-spacing:.07em}
-  .desliza-pista{display:none}
-  .desliza-pista + .modelos{margin-top:clamp(26px,3.2vw,42px)}
 }
 
 /* ------------------------- síntomas ------------------------- */
@@ -1031,8 +1054,8 @@ ul.lista-check{padding:0;margin-top:22px}
 /* Con raton se arrastra; el cursor lo dice. Aqui no va el disco de puntero:
    cada carro es un enlace a WhatsApp, y un disco que dijera "arrastra"
    encima de algo que se puede clicar seria enganoso. */
-.arrastrable .modelos.corre{cursor:grab}
-.arrastrable .modelos.corre.arrastrando{cursor:grabbing}
+.arrastrable .corre .modelos{cursor:grab}
+.arrastrable .corre .modelos.arrastrando{cursor:grabbing}
 .modelos.arrastrando{scroll-behavior:auto}
 .modelos.arrastrando .modelo{pointer-events:none}
 .desliza-pista span{

@@ -304,76 +304,85 @@ const SINTOMAS = [
   if (scrollY > 40) irse();
 })();
 
-/* -------------------- la franja de modelos: avisa, empuja y se arrastra -------------------- */
+/* -------------------- las franjas de modelos: avisan, empujan y se arrastran -------------------- */
 (() => {
-  const franja = $("#modelos");
-  if (!franja) return;
+  const franjas = $$(".modelos");
+  if (!franjas.length) return;
 
-  /* 1. Desvanecido en el lado donde todavia queda franja por ver. */
-  const margenes = () => {
-    const resto = franja.scrollWidth - franja.clientWidth;
-    if (resto < 8) {
-      // En escritorio ancho los diez modelos caben y no hay nada que
-      // desplazar: ni desvanecido ni cursor de agarre, que serian mentira.
-      franja.style.setProperty("--fade-izq", "0px");
-      franja.style.setProperty("--fade-der", "0px");
-      franja.classList.remove("corre");
-      return;
+  // Con raton se puede arrastrar; en tactil el navegador ya lo hace solo y
+  // ahi el pointerdown le robaria el gesto.
+  const conRaton = matchMedia("(hover:hover) and (pointer:fine)").matches;
+  if (conRaton) document.documentElement.classList.add("arrastrable");
+
+  franjas.forEach(franja => {
+    // El grupo es quien lleva la clase: de el cuelgan la pista y el cursor.
+    const grupo = franja.closest(".modelo-grupo") || franja;
+
+    /* 1. Desvanecido del lado donde todavia queda franja por ver. */
+    const margenes = () => {
+      const resto = franja.scrollWidth - franja.clientWidth;
+      if (resto < 8) {
+        // Ese grupo cabe entero: ni desvanecido ni pista ni cursor de agarre,
+        // que serian mentira. Cada grupo se mide aparte porque tienen
+        // distinto numero de tarjetas y no todos corren al mismo ancho.
+        franja.style.setProperty("--fade-izq", "0px");
+        franja.style.setProperty("--fade-der", "0px");
+        grupo.classList.remove("corre");
+        return;
+      }
+      grupo.classList.add("corre");
+      franja.style.setProperty("--fade-izq", franja.scrollLeft > 6 ? "34px" : "0px");
+      franja.style.setProperty("--fade-der", franja.scrollLeft < resto - 6 ? "34px" : "0px");
+    };
+    franja.addEventListener("scroll", margenes, { passive: true });
+    addEventListener("resize", margenes, { passive: true });
+    margenes();
+
+    /* 2. Un empujon la primera vez que se ve, para que se entienda que corre.
+          Mueve el scroll y lo devuelve; no toca el layout. */
+    if (!reduce) {
+      const empuja = new IntersectionObserver(([f]) => {
+        if (!f.isIntersecting) return;
+        empuja.disconnect();
+        if (franja.scrollWidth - franja.clientWidth < 40) return;
+        const t0 = performance.now(), dur = 1150, tope = 30;
+        const paso = t => {
+          const p = Math.min((t - t0) / dur, 1);
+          // ida y vuelta: media vuelta de seno, sin rebote
+          franja.scrollLeft = tope * Math.sin(p * Math.PI);
+          if (p < 1) requestAnimationFrame(paso); else franja.scrollLeft = 0;
+        };
+        requestAnimationFrame(paso);
+      }, { threshold: .55 });
+      empuja.observe(franja);
     }
-    franja.classList.add("corre");
-    franja.style.setProperty("--fade-izq", franja.scrollLeft > 6 ? "34px" : "0px");
-    franja.style.setProperty("--fade-der", franja.scrollLeft < resto - 6 ? "34px" : "0px");
-  };
-  franja.addEventListener("scroll", margenes, { passive: true });
-  addEventListener("resize", margenes, { passive: true });
-  margenes();
 
-  /* 2. Un empujon la primera vez que se ve, para que se entienda que corre.
-        Mueve el scroll y lo devuelve; no toca el layout. */
-  if (!reduce) {
-    const empuja = new IntersectionObserver(([f]) => {
-      if (!f.isIntersecting) return;
-      empuja.disconnect();
-      if (franja.scrollWidth - franja.clientWidth < 40) return;
-      const t0 = performance.now(), dur = 1150, tope = 30;
-      const paso = t => {
-        const p = Math.min((t - t0) / dur, 1);
-        // ida y vuelta: media vuelta de seno, sin rebote
-        franja.scrollLeft = tope * Math.sin(p * Math.PI);
-        if (p < 1) requestAnimationFrame(paso); else franja.scrollLeft = 0;
-      };
-      requestAnimationFrame(paso);
-    }, { threshold: .55 });
-    empuja.observe(franja);
-  }
-
-  /* 3. Arrastrar con el raton. En tactil ya funciona solo, y ahi el
-        pointerdown no debe robarle el gesto al navegador. */
-  if (!matchMedia("(hover:hover) and (pointer:fine)").matches) return;
-  document.documentElement.classList.add("arrastrable");
-
-  let x0 = 0, izq0 = 0, corrido = 0, activo = false;
-  franja.addEventListener("pointerdown", e => {
-    if (e.pointerType !== "mouse" || e.button !== 0) return;
-    activo = true; corrido = 0; x0 = e.clientX; izq0 = franja.scrollLeft;
-    franja.setPointerCapture(e.pointerId);
+    /* 3. Arrastrar con el raton. */
+    if (!conRaton) return;
+    let x0 = 0, izq0 = 0, corrido = 0, activo = false;
+    franja.addEventListener("pointerdown", e => {
+      if (e.pointerType !== "mouse" || e.button !== 0) return;
+      if (!grupo.classList.contains("corre")) return;
+      activo = true; corrido = 0; x0 = e.clientX; izq0 = franja.scrollLeft;
+      franja.setPointerCapture(e.pointerId);
+    });
+    franja.addEventListener("pointermove", e => {
+      if (!activo) return;
+      const dx = e.clientX - x0;
+      if (!corrido && Math.abs(dx) > 4) franja.classList.add("arrastrando");
+      corrido = Math.max(corrido, Math.abs(dx));
+      franja.scrollLeft = izq0 - dx;
+    });
+    const suelta = () => {
+      if (!activo) return;
+      activo = false;
+      // El pointer-events:none de .arrastrando se levanta despues del click,
+      // para que un arrastre no acabe abriendo WhatsApp.
+      setTimeout(() => franja.classList.remove("arrastrando"), 0);
+    };
+    franja.addEventListener("pointerup", suelta);
+    franja.addEventListener("pointercancel", suelta);
   });
-  franja.addEventListener("pointermove", e => {
-    if (!activo) return;
-    const dx = e.clientX - x0;
-    if (!corrido && Math.abs(dx) > 4) franja.classList.add("arrastrando");
-    corrido = Math.max(corrido, Math.abs(dx));
-    franja.scrollLeft = izq0 - dx;
-  });
-  const suelta = () => {
-    if (!activo) return;
-    activo = false;
-    // El pointer-events:none de .arrastrando se levanta despues del click,
-    // para que un arrastre no acabe abriendo WhatsApp.
-    setTimeout(() => franja.classList.remove("arrastrando"), 0);
-  };
-  franja.addEventListener("pointerup", suelta);
-  franja.addEventListener("pointercancel", suelta);
 })();
 
 /* -------------------- puntero propio sobre lo que se puede tocar -------------------- */
