@@ -436,13 +436,34 @@ body{padding-top:calc(var(--nav-h) + var(--aviso-h,0px))}
   letter-spacing:.16em;text-transform:uppercase;line-height:1.3;
 }
 .cifra-item p{margin-top:5px;font-size:13.4px;line-height:1.5;color:var(--grafito)}
+/* En celular las tres filas se veian en escalera: "10", "Escaner" y "0"
+   miden anchos muy distintos, asi que al ir la cifra al lado del texto
+   cada bloque arrancaba en una vertical diferente.
+
+   Aqui la cifra y su etiqueta se juntan en un solo renglon, porque leidas
+   seguidas forman la frase que dice el texto: "10 anos de experiencia",
+   "Escaner de diagnostico Nissan", "0 sorpresas en la cuenta". Asi las
+   tres filas arrancan pegadas al margen, sin escalera y sin huecos, y de
+   paso se lee mejor. La descripcion baja a su propio renglon.
+
+   .cifra-txt pasa a display:contents para que su <small> quede al lado de
+   la cifra y el <p> debajo: no lleva borde ni relleno, asi que quitarle la
+   caja no cuesta nada. */
 @media (max-width:860px){
   .cifras{grid-template-columns:1fr}
   .cifra-item{
+    display:block;
+    padding:clamp(13px,3.2vw,18px) var(--gut);
     border-left:0;border-top:1px solid var(--linea);
-    padding-left:var(--gut);padding-right:var(--gut);
   }
   .cifra-item:first-child{border-top:0}
+  .cifra{
+    display:inline;margin-right:.4em;
+    font-size:clamp(17px,5vw,21px);
+  }
+  .cifra-txt{display:contents}
+  .cifra-txt small{display:inline;letter-spacing:.12em}
+  .cifra-item p{margin-top:6px}
 }
 
 /* ------------------------- modelos ------------------------- */
